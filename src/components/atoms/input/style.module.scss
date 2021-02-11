@@ -1,0 +1,18 @@
+@import "../../_settings/";
+
+.input {
+    display: flex;
+    flex-direction: column;
+    label {
+        font-family: $base-font-family;
+        width: fit-content;
+        font-weight: 600;
+    }
+    input {
+        height: 46px;
+        border-radius: 0.3rem;
+        outline: none;
+        border: 1px solid $grey-2;
+        font-size: 1.2rem;
+    }
+}

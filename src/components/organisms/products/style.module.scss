@@ -1,0 +1,104 @@
+@import "../../_settings/colors";
+
+.pricing {
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-evenly;
+    .card {
+        width: 23rem;
+        height: 44.5rem;
+        box-shadow: 0 0 6px 2px gray;
+        position: relative;
+        &_essential {
+            height: 16rem;
+            background-color: $product-essential;
+            color: $white;
+        }
+        &_premium {
+            height: 16rem;
+            background-color: $product-primary;
+            color: $white;
+        }
+        h1 {
+            margin: 0 2rem;
+            padding: 10px;
+            border-bottom: 1px solid;
+        }
+
+        P {
+            text-align: start;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        .arrow {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-top: -2rem;
+            border-radius: 50%;
+            height: 3rem;
+            display: inline-block;
+            width: 3rem;
+            border: 4px solid $white;
+            color: $white;
+            &_essential {
+                @extend .arrow;
+                background-color: $product-essential;
+            }
+            &_premium {
+                @extend .arrow;
+                background-color: $product-primary;
+            }
+        }
+        ul {
+            list-style-type: "✓";
+        }
+        .features {
+            &_essentials {
+                color: $product-essential;
+            }
+            &_premium {
+                color: $product-primary;
+            }
+        }
+        li {
+            text-align: start;
+            font-size: 1.1rem;
+            padding-left: 2rem;
+            padding-bottom: 2px;
+            font-family: sans-serif;
+            &::marker{
+                font-weight: 900;
+            }
+        }
+        .submit {
+            margin: 1rem;
+            position: absolute;
+            bottom: 0px;
+            left: 5.5rem;
+            &_essentials {
+                @extend .submit;
+                background-color: $product-essential;
+                border: 1px solid $product-essential;
+
+                &:hover {
+                    color: $product-essential;
+                    background-color: white;
+                }
+            }
+            &_premium {
+                @extend .submit;
+                background-color: $product-primary;
+                border: 1px solid $product-primary;
+                &:hover {
+                    color: $product-primary;
+                    background-color: white;
+                }
+            }
+        }
+        &:hover {
+            cursor: pointer;
+            box-shadow: 1px 2px 8px 5px grey;
+        }
+    }
+}

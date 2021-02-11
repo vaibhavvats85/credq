@@ -1,0 +1,20 @@
+@import "../../_settings/";
+.works {
+    min-height: 532px;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10rem;
+
+    &_cols {
+        display: flex;
+        justify-content: space-around;
+    }
+    &_pointer {
+        width: 15rem !important;
+        p {
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+}

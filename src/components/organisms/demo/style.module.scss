@@ -1,0 +1,8 @@
+@import "../../_settings/";
+.demo {
+    min-height: 532px;
+    background-color: $demo-btn;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10rem;
+}

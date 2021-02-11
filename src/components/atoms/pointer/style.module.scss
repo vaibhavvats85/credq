@@ -1,0 +1,14 @@
+@import "../../_settings/";
+.pointer {
+    margin: 4rem;
+    width: fit-content;
+    &_number {
+        background-color: $black;
+        border-radius: 50%;
+        width: 1.5rem;
+        height: 1.5rem;
+        padding: 0.2rem;
+        color: $white;
+        display: inline-block;
+    }
+}

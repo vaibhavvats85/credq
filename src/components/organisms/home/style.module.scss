@@ -1,0 +1,19 @@
+@import "../../_settings/";
+.home {
+    height: 532px;
+    background: $primary-bg;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 15rem;
+    font-size: 2rem;
+    color: $white;
+
+    &_button {
+        width: fit-content;
+        background-color: $demo-btn;
+        color: $primary;
+        padding: 1rem 5rem;
+    }
+}

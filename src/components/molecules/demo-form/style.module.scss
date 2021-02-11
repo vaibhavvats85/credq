@@ -1,0 +1,30 @@
+.demo_form {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    width: fit-content;
+    label{
+        margin-bottom: 0.2rem;
+    }
+    &_input {
+        width: 15rem;
+        margin: 2rem 4rem;
+    }
+    ::placeholder {
+        font-size: 1rem;
+    }
+    &_input_full {
+        width: 100%;
+        margin: 2rem 4rem;
+    }
+    &_submit {
+        width: 14rem;
+        height: 3rem;
+        margin: 2rem auto;
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
