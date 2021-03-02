@@ -1,5 +1,4 @@
 import classnames from 'classnames';
-import { useEffect } from 'react';
 import styles from './style.module.scss';
 
 export interface LogoProps {
@@ -15,7 +14,7 @@ const Logo: React.FC<LogoProps> = ({ logo, className, children, dimension }) => 
     )
     return (
         <div className={classProps}>
-            <img src={logo} style={dimension} />
+            <img alt="logo" src={logo} style={dimension} />
             {children}
         </div>
     )

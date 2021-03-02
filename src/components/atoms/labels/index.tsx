@@ -22,7 +22,7 @@ const Label: React.FC<LabelProps> = (props) => {
 
     if (!isLink) {
         return (
-            <a onClick={onClick} className={classProps}>{children}</a>
+            <a href="/" onClick={onClick} className={classProps}>{children}</a>
         )
     } else {
         return <NavLink

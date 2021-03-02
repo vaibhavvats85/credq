@@ -1,4 +1,3 @@
-import Modal from "../modal";
 import img from '../../../assets/under-contruction.png';
 import { useState } from "react";
 import './style.scss';
@@ -20,7 +19,7 @@ const UnderContruction: React.FC<UnderContructionProps> = (props) => {
         <div className="modal-bg" style={!modalOpen ? { display: 'none' } : { display: 'block' }}>
             <div className="under-construction" >
                 <button className="close" onClick={hideModal}>{'×'}</button>
-                <img src={img} />
+                <img alt="under-construction" src={img} />
             </div>
         </div>
     );

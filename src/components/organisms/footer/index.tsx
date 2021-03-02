@@ -4,7 +4,6 @@ import credq from '../../../assets/credq_logo.png';
 import linkedin from '../../../assets/linkedin-icon.svg';
 import * as constants from '../../../utils/constants';
 import Label from '../../atoms/labels';
-import Button, { ButtonSize, ButtonType } from '../../atoms/button';
 import { Route } from 'react-router-dom';
 import UnderContruction from '../../atoms/under-contruction';
 const logoStyles = {
