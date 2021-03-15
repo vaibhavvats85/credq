@@ -1,6 +1,6 @@
 @import "../../_settings/";
 .home {
-    height: 532px;
+    min-height: 480px;
     background: $primary-bg;
     display: flex;
     text-align: left;
@@ -9,11 +9,43 @@
     padding: 0px 15rem;
     font-size: 2rem;
     color: $white;
-
     &_button {
         width: fit-content;
         background-color: $demo-btn;
         color: $primary;
         padding: 1rem 5rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .home {
+        padding: 1rem 2rem;
+        &_button{
+            padding: 1rem 1.2rem;
+        }
+    }
+    
+}
+
+@media only screen and (max-width: 768px) {
+    .home {
+        padding: 1rem 2rem;
+        font-size: 4vw;
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    .home {
+        padding: 1rem 2rem;
+        font-size: 5vw;
+        &_button{
+            padding: 0.5rem 1rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .home {
+        font-size: 6vw;
     }
 }

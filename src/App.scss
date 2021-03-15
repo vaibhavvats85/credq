@@ -1,4 +1,14 @@
+@import "./components/_settings/";
+
 .App {
   text-align: center;
-  min-width: 1200px;
+  min-height: 100vh;
+  position: relative;
+}
+
+.content {
+  padding-bottom: 350px;
+  padding-top: 96px;
+  background-color: $grey-4;
+  min-height: calc(100vh - 446px);
 }

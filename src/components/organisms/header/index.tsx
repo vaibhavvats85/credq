@@ -1,51 +1,44 @@
-import Button, { ButtonSize, ButtonType } from "../../atoms/button"
+import Button, { ButtonSize } from "../../atoms/button"
 import Logo from "../../atoms/logo";
 import HeaderLinks from "../../molecules/header-links"
 import logo from '../../../assets/credq_logo.png';
 import styles from './style.module.scss';
 import * as constants from '../../../utils';
-import { useState } from "react";
-import Modal from "../../atoms/modal";
-import credq from '../../../assets/credq_logo.png';
-import Input from "../../atoms/input";
-import { Route } from "react-router-dom";
-import Products from "../products";
+import { Route, useHistory } from "react-router-dom";
+import Products from "../../pages/products";
+import PartnerLogin from "../../pages/partner-login";
+import { useSelector } from "react-redux";
+import { CredqState } from "../../../store/rootReducer";
+import UserOptions from "../../molecules/user-options";
+import NavBar from "../nav";
 
 const logoStyles = {
     width: '9rem',
     height: '3rem'
 }
 const Header: React.FC = () => {
-    const [modalOpen, setModalOpen] = useState(false);
-    const showModal = () => {
-        setModalOpen(true);
-    }
-    const hideModal = () => {
-        setModalOpen(false);
-    }
+    const history = useHistory();
+    const { isLoggedIn } = useSelector((state: CredqState) => state.authentication);
+    const redirectTo = (path: string) => history.push(path);
+
     return (
         <>
             <div className={styles.header}>
-                <Logo logo={logo} className={styles.header_logo} dimension={logoStyles} />
-                <HeaderLinks />
-                <Button className={styles.header_login} size={ButtonSize.LARGE} onClick={showModal}>
-                    {constants.partner_login}
-                </Button>
-            </div>
-            <Modal show={modalOpen} close={hideModal}>
-                <div className={styles.login}>
-                    <Logo dimension={{ height: '4rem' }} className={styles.login_head} logo={credq} />
-                    <div className={styles.login_box}>
-                        <h1>{constants.enter_username}</h1>
-                        <Input dimension={{ height: '2rem' }} className={styles.login_box_input} label={`${constants.user_label}:`} type="text" onChange={() => { }} />
-                        <Input dimension={{ height: '2rem' }} className={styles.login_box_input} label={`${constants.password_label}:`} type="text" onChange={() => { }} />
-                        <Button className={styles.login_box_submit} size={ButtonSize.LARGE} type={ButtonType.BUTTON} onClick={() => alert('Partner Login')}>
-                            {constants.login_btn}
+                <Logo onClick={() => redirectTo('/')} logo={logo} className={styles.header_logo} imageClass={styles.header_logo_image} />
+                <HeaderLinks className={styles.header_links} />
+                <div className={styles.header_login}>
+                    {isLoggedIn ?
+                        <UserOptions />
+                        :
+                        <Button className={styles.header_login_btn} size={ButtonSize.LARGE} onClick={() => redirectTo('/login')}>
+                            {constants.partner_login}
                         </Button>
-                    </div>
+                    }
                 </div>
-            </Modal>
+                {/* <NavBar /> */}
+            </div>
             <Route path={'/products'} component={Products} />
+            <Route path={'/login'} component={PartnerLogin} />
         </>
     )
 }

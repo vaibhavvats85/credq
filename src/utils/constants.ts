@@ -62,4 +62,35 @@ export const premium_features = [
     '+ API Integration',
     '+ Customize Loan Tracker',
     '+ 24X7 Support- Priority'
-]
+];
+
+// Application Page
+export const applications_left = 'Applications Left';
+export const application_count_prefix = 'You have';
+export const application_count_suffix = 'applications left with you';
+export const no_applications_msg = 'You have exhausted your applications!';
+export const visit_planbilling = 'Please visit Plan & billing section to buy more applications';
+export const new_application = 'New Application';
+export const start_application_msg = 'Click the below button to start new application';
+export const start_application = 'Start Application';
+export const cant_proceed_msg = 'You cannot proceed with the new application';
+export const start_application_confirm = 'Do you want to start a new application?';
+
+// User Option Links 
+export const loan_tracker = 'Loan Tracker';
+export const plan_billing = 'Plan & billing';
+export const help_center = 'Help Center';
+export const logout = 'Logout';
+
+
+// Product Pricing
+export const product_pricing: any = {
+    essentials: 7.99,
+    premium: 9.99
+}
+// Cookies label
+export const jwt_token = 'X-JWT-Authorization';
+
+//URLS
+// export const BASE_URL = 'https://backend-dev.credq.org/.netlify/functions/api';
+export const BASE_URL = 'http://localhost:5000';

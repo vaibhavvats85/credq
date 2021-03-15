@@ -2,42 +2,77 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0 2rem;
     background-color: $header-bg;
     width: 100%;
     height: 96px;
     position: fixed;
+    min-width: 100vw;
     &_logo {
-        margin: 1em;
+        margin-top: 17px;
+        &_image {
+            width: 9rem;
+            height: 3rem;
+        }
     }
     &_login {
-        margin: 1em;
+        min-width: 16%;
+        padding-right: 4rem;
+    }
+    &_links {
+        display: block;
     }
 }
 
-.login {
-    &_box {
-        background-color: $demo-btn;
-        width: 30rem;
-        height: 20rem;
-        margin: 8rem auto;
-        box-shadow: 0px 0px 3px 0px $black;
-        padding: 1rem;
-        h1 {
-            font-size: 1.5rem;
-            color: $primary;
-        }
-        &_input {
-            flex-direction: row;
-            justify-content: space-between;
-            padding: 0 3rem;
-            margin-top: 3rem;
-            align-items: baseline;
+@media only screen and (max-width: 1024px) {
+    .header {
+        &_logo {
+            &_image {
+                width: 7.5rem;
+                height: 2.8rem;
+            }
         }
 
-        &_submit {
-            width: 10rem;
-            margin: 2rem auto;
+        &_links {
+            display: none;
         }
     }
+}
+
+@media only screen and (max-width: 768px) {
+    .header {
+        &_logo {
+            &_image {
+                width: 6rem;
+                height: 2.5rem;
+            }
+        }
+
+        &_login {
+            &_btn {
+                font-size: 3vw;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    .header {
+        &_logo {
+            &_image {
+                width: 4rem;
+                height: 1.5rem;
+            }
+        }
+
+        &_login {
+            &_btn {
+                font-size: 3vw;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
 }

@@ -5,7 +5,6 @@
     text-align: left;
     flex-direction: column;
     padding: 1rem 15rem;
-
     h1 {
         text-align: center;
     }
@@ -20,6 +19,10 @@
         text-align: center;
         padding: 0.5rem 1rem;
         width: 15em;
+        &_image {
+            width: 7rem;
+            height: 6rem;
+        }
         p {
             color: $primary;
             font-size: 1rem;
@@ -30,6 +33,61 @@
             box-shadow: 1px 1px 1px 2px $hover-bg;
             transition: 0.2s ease-in-out;
             border-radius: 0.5rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .about {
+        padding: 1rem 2rem;
+        p {
+            font-size: 3vw;
+        }
+        &_logo {
+            p {
+                font-size: 3vw;
+            }
+            &_image {
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .about {
+        &_logo {
+            p {
+                font-size: 3vw;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    .about {
+        &_logo {
+            p {
+                font-size: 3vw;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .about {
+        p {
+            font-size: 4vw;
+        }
+        &_logo {
+            p {
+                font-size: 3vw;
+            }
+            &_image {
+                width: 2rem;
+                height: 2rem;
+            }
         }
     }
 }

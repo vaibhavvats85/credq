@@ -4,13 +4,16 @@ import classnames from 'classnames';
 export interface Inputprops {
     placeholder?: string;
     label: string;
-    onChange: () => void;
+    onChange: (event: any) => void;
     type?: string;
     className?: string;
     dimension?: Object;
+    inputClass?: string;
+    value?: string | number;
+    autocomplete?: string;
 }
 
-const Input: React.FC<Inputprops> = ({ label, placeholder, onChange, type, className, dimension }) => {
+const Input: React.FC<Inputprops> = ({ value, label, placeholder, onChange, type, className, dimension, autocomplete, inputClass }) => {
     const id = label.toLowerCase();
     const classProps = classnames(
         styles.input,
@@ -19,7 +22,7 @@ const Input: React.FC<Inputprops> = ({ label, placeholder, onChange, type, class
     return (
         <div className={classProps}>
             <label htmlFor={id}>{label}</label>
-            <input style={dimension} id={id} type={type} placeholder={placeholder} onChange={onChange} />
+            <input className={inputClass} autoComplete={autocomplete} value={value} style={dimension} id={id} type={type} placeholder={placeholder} onChange={onChange} />
         </div>
     )
 }

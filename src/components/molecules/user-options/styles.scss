@@ -1,0 +1,84 @@
+@import "../../_settings/";
+
+.initials {
+    border-radius: 50%;
+    width: max-content;
+    padding: 10px;
+    color: $white;
+    background: $primary;
+    font-weight: 400;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: auto;
+}
+.overlay {
+    position: fixed;
+    text-align: center;
+    margin-top: 0.2em;
+    background: $white;
+    width: max-content;
+    right: 3%;
+    border-radius: 5px;
+    padding-bottom: 1.5rem;
+    box-shadow: 1px 1px 5px 0px #ccc;
+    .close {
+        display: none;
+    }
+    ul {
+        list-style-type: "";
+        padding-left: 1.5rem;
+        text-align: start;
+        border-top: 1px solid $grey-2;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-bottom: 1px solid $grey-2;
+    }
+    li {
+        color: $primary;
+        font-weight: 400;
+        font-size: 1.5rem;
+        padding: 0.5rem 0;
+        cursor: pointer;
+        &:active {
+            color: $black;
+        }
+        &:hover {
+            color: $grey-1;
+        }
+    }
+    .start_application {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    .user {
+        font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
+            apple color emoji, segoe ui emoji, segoe ui symbol;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.02rem;
+        font-size: 1.3rem;
+        padding: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    .initials {
+        font-size: 11px;
+    }
+    .overlay {
+        height: 100vh;
+        margin-top: 0;
+        width: 100vw;
+        right: 0;
+        top: 0;
+        .close {
+            display: block;
+            margin-left: auto;
+            border: none;
+            background: no-repeat;
+            font-size: 1.4rem;
+            padding: 1rem;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,152 @@
+@import "../../_settings/";
+
+.plan_billing {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.purchase {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 5px 0px #ccc;
+    margin: 2rem 0;
+    background-color: white;
+    padding: 1rem 2rem;
+    text-align: start;
+    height: fit-content;
+    .input {
+        margin-top: 1rem;
+        padding-left: 1rem;
+        max-width: 360px;
+    }
+
+    .header {
+        font-size: 1.5rem;
+        span {
+            color: $product-essential;
+        }
+    }
+    .tot-amount {
+        color: $primary;
+        font-size: 1.5rem;
+    }
+    .upgraded-message {
+        font-size: 1.2rem;
+    }
+}
+.invoice {
+    @extend .purchase;
+    width: 55%;
+    height: inherit;
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border-bottom: 1px solid #dddddd;
+        margin-bottom: 1rem;
+        text-align: left;
+        padding: 16px;
+        font-size: 1.3rem;
+    }
+    .paginator {
+        text-align: center;
+        margin-bottom: 0;
+        color: $primary;
+        &-active {
+            display: inline-block;
+            margin-left: 1%;
+            cursor: pointer;
+            &:hover {
+                color: $grey-2;
+            }
+        }
+
+        &-disable {
+            color: $grey-2;
+            cursor: default;
+        }
+    }
+}
+
+.download-icon {
+    cursor: pointer;
+    text-align: center !important;
+    &:hover {
+        color: $primary;
+    }
+}
+
+.application_need {
+    margin-top: 1rem;
+}
+.actions {
+    display: flex;
+    justify-content: space-around;
+    .request-upgrade {
+        margin: 2rem auto;
+        width: fit-content;
+    }
+    .pay-now {
+        @extend .request-upgrade;
+        background: black;
+        &:hover {
+            color: black;
+            background: transparent;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .plan_billing {
+        flex-direction: column;
+        align-items: center;
+    }
+    .purchase,
+    .invoice {
+        width: 80%;
+        padding: 1rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .purchase,
+    .invoice {
+        td,
+        th {
+            font-size: 2vw;
+        }
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    .purchase,
+    .invoice {
+        td,
+        th {
+            font-size: 2.7vw;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .purchase,
+    .invoice {
+        .input {
+            font-size: 0.8rem;
+        }
+        .paginator {
+            font-size: 0.7rem;
+        }
+    }
+    .actions {
+        .request-upgrade,
+        .pay-now {
+            font-size: 10px;
+        }
+    }
+}

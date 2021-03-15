@@ -1,21 +1,19 @@
 .demo_form {
     display: flex;
-    margin: 0 auto;
     flex-direction: column;
-    width: fit-content;
-    label{
+    width: 60%;
+    margin: auto;
+    label {
         margin-bottom: 0.2rem;
     }
     &_input {
-        width: 15rem;
-        margin: 2rem 4rem;
+        width: 45%;
     }
     ::placeholder {
         font-size: 1rem;
     }
     &_input_full {
         width: 100%;
-        margin: 2rem 4rem;
     }
     &_submit {
         width: 14rem;
@@ -27,4 +25,29 @@
 .row {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .demo_form {
+        width: 90%;
+        &_input {
+            font-size: 2vw;
+        }
+        &_input_full {
+            font-size: 2vw;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .demo_form {
+        &_input {
+            font-size: 3vw;
+        }
+        &_input_full {
+            font-size: 3vw;
+        }
+    }
 }

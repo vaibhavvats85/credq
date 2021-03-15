@@ -1,19 +1,74 @@
 @import "../../_settings";
 .footer {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
     background-color: $footer-bg;
     width: 100%;
-    height: 200px;
+    height: 350px;
     text-align: start;
+    position: absolute;
+    bottom: 0;
+    &_links {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+    }
     &_logo {
-        margin-top: 1.5rem;
+        margin: 2rem auto;
+        text-align: center;
+        span {
+            font-size: 10px;
+            color: $grey-1;
+        }
+        &_image {
+            width: 7rem;
+            height: 2.5rem;
+        }
     }
     &_label {
         display: block !important;
+        margin: 5px 0;
     }
     &_linkedin {
         height: 2.5rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .footer {
+        //
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .footer {
+        font-size: 3vw;
+        &_logo {
+            &_image {
+                width: 6rem;
+                height: 2rem;
+            }
+        }
+        &_label {
+            font-size: 3vw;
+        }
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    .footer {
+        font-size: 4vw;
+        &_logo {
+            &_image {
+                width: 5rem;
+                height: 2rem;
+            }
+        }
+        &_label {
+            font-size: 3.5vw;
+        }
     }
 }

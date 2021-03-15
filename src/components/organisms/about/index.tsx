@@ -10,10 +10,6 @@ export interface Aboutprops {
 
 }
 
-const logoStyles = {
-    width: '7rem',
-    height: '6rem'
-}
 const About: React.FC<Aboutprops> = () => {
     return (
         <div className={styles.about}>
@@ -22,13 +18,13 @@ const About: React.FC<Aboutprops> = () => {
                 {constants.about_paragraph}
             </p>
             <div className={styles.about_logo_col}>
-                <Logo logo={credq1} className={styles.about_logo} dimension={logoStyles}>
+                <Logo logo={credq1} className={styles.about_logo} imageClass={styles.about_logo_image}>
                     <p>{constants.alt_data_source}</p>
                 </Logo>
-                <Logo logo={credq2} className={styles.about_logo} dimension={logoStyles}>
+                <Logo logo={credq2} className={styles.about_logo} imageClass={styles.about_logo_image}>
                     <p>{constants.psych_test}</p>
                 </Logo>
-                <Logo logo={credq3} className={styles.about_logo} dimension={logoStyles}>
+                <Logo logo={credq3} className={styles.about_logo} imageClass={styles.about_logo_image}>
                     <p>{constants.intel_ai_engine}</p>
                 </Logo>
             </div>

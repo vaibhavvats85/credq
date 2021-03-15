@@ -9,12 +9,23 @@
     &_cols {
         display: flex;
         justify-content: space-around;
+        align-items: center;
     }
     &_pointer {
         width: 15rem !important;
         p {
             font-size: 18px;
             font-weight: 500;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1023px){
+    .works{
+        padding: 1rem 2rem;
+        &_cols{
+            flex-direction: column;
         }
     }
 }
