@@ -1,5 +1,5 @@
 import { ArrowDownOutlined, CheckCircleFilled, DownloadOutlined, WarningFilled } from '@ant-design/icons';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PlanRequest } from '../../../models';
 import { CredqState } from '../../../store/rootReducer';
@@ -63,12 +63,12 @@ const PlanBilling: React.FC = () => {
         }
         displayRazorpay(user, planRequest, fetchInvoices);
     }
-    const fetchInvoices = () => {
+    const fetchInvoices = useCallback(() => {
         const invoiceRequest = {
             user: user.username
         };
         dispatch(loadInvoices(invoiceRequest));
-    }
+    }, [dispatch, user])
 
     const pagination = () => {
         setPageSize((state: any) => {
@@ -81,7 +81,7 @@ const PlanBilling: React.FC = () => {
     }
     useEffect(() => {
         fetchInvoices();
-    }, [dispatch, user])
+    }, [fetchInvoices])
     return (
         <div className="plan_billing">
             <div className="purchase">

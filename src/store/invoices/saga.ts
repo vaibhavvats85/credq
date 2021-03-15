@@ -3,7 +3,7 @@ import * as fromActions from './actions';
 import * as constants from '../../utils/constants';
 import axios from "axios";
 import { trackPromise } from "react-promise-tracker";
-import { InvoiceBackendRequest, InvoiceBackendResponse } from "../../models";
+import { InvoiceBackendRequest } from "../../models";
 
 axios.defaults.withCredentials = true;
 

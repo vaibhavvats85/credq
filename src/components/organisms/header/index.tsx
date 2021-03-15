@@ -10,12 +10,7 @@ import PartnerLogin from "../../pages/partner-login";
 import { useSelector } from "react-redux";
 import { CredqState } from "../../../store/rootReducer";
 import UserOptions from "../../molecules/user-options";
-import NavBar from "../nav";
 
-const logoStyles = {
-    width: '9rem',
-    height: '3rem'
-}
 const Header: React.FC = () => {
     const history = useHistory();
     const { isLoggedIn } = useSelector((state: CredqState) => state.authentication);
