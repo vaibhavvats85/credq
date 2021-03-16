@@ -11,7 +11,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { CredqState } from "../../../store/rootReducer";
 import { ExclamationCircleFilled } from "@ant-design/icons";
-import { store } from "../../../store/store";
 
 export interface PartnerLoginProps {
     modalOpen: boolean;
@@ -56,7 +55,7 @@ const PartnerLogin: React.FC<PartnerLoginProps> = () => {
         if (isLoggedIn) {
             history.push('/startapplication');
         }
-    }, [isLoggedIn]);
+    }, [isLoggedIn, history]);
 
     return (
         <Modal show={modalOpen} close={hideModal}>

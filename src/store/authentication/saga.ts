@@ -4,7 +4,6 @@ import * as constants from '../../utils/constants';
 import axios from "axios";
 import { trackPromise } from "react-promise-tracker";
 import { LoginRequest } from "../../models";
-import { setCookie } from "../../utils/cookies";
 
 axios.defaults.withCredentials = true;
 // Login a user
