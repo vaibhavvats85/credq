@@ -1,6 +1,4 @@
 import { LoginRequest, LoginResponse } from "../../models";
-import { deleteCookie } from "../../utils/cookies";
-import * as constants from '../../utils/constants';
 export const LOGIN_USER_REQUEST = '[LOGIN USER REQUEST] Login user Request';
 export const LOGIN_USER_SUCCESS = '[LOGIN USER SUCCESS] Login User Success';
 export const LOGIN_USER_FAIL = '[LOGIN USER FAIL] Login User Fail';
@@ -65,7 +63,6 @@ export function loginUserFail(payload: { message: string }): LoginUserFailAction
 };
 
 export function logOut(): LogoutUserAction {
-    deleteCookie(constants.jwt_token);
     return {
         type: LOGOUT_USER
     }

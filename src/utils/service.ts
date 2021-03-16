@@ -1,5 +1,3 @@
-import * as jwt from "jsonwebtoken";
-import { getCookie } from "./cookies";
 import * as constants from './constants';
 import axios from "axios";
 import credq from '../assets/credq_logo.png';
@@ -8,11 +6,6 @@ import { PlanRequest, User } from "../models";
 export const scrollToView = (path: string) => {
     const elem = document.getElementById(`#${path}`);
     elem?.scrollIntoView({ behavior: "smooth", block: 'center' });
-}
-
-export const getUserFromToken = (): any => {
-    const token = getCookie(constants.jwt_token);
-    return jwt.decode(token);
 }
 
 export const loadScript = (src: string) => {

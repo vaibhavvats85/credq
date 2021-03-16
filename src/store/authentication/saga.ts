@@ -34,3 +34,11 @@ export function* watchAuthenticationLogin() {
     yield takeLatest(fromActions.LOGIN_USER_REQUEST, authenticateUserLogin);
     yield takeLatest(fromActions.AUTHENTICATE_USER, authenticateUserLogin);
 }
+
+function* authenticateUserLogout() {
+    yield trackPromise(axios.get(`${constants.BASE_URL}/logout`));
+}
+
+export function* watchAuthenticationLogout() {
+    yield takeLatest(fromActions.LOGOUT_USER, authenticateUserLogout);
+}
