@@ -92,5 +92,5 @@ export const product_pricing: any = {
 export const jwt_token = 'X-JWT-Authorization';
 
 //URLS
-// export const BASE_URL = 'https://backend-dev.credq.org/.netlify/functions/api';
-export const BASE_URL = 'http://localhost:5000';
+export const BASE_URL = 'https://backend-dev.credq.org/.netlify/functions/api';
+// export const BASE_URL = 'http://localhost:5000';
