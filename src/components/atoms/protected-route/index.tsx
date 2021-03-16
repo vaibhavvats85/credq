@@ -1,18 +1,18 @@
 import { Redirect, Route } from "react-router-dom";
-import { getCookie } from "../../../utils/cookies";
-import * as constants from '../../../utils/constants';
+import { useSelector } from "react-redux";
+import { CredqState } from "../../../store/rootReducer";
 
 export interface ProtectedRouteProps {
     Component: any;
     path: string;
 }
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ Component, ...rest }) => {
-    const token = getCookie(constants.jwt_token);
+    const { isLoggedIn } = useSelector((state: CredqState) => state.authentication);
     return (
         <Route
             {...rest}
             render={() => {
-                if (token) {
+                if (isLoggedIn) {
                     return (<Component />);
                 } else {
                     return (<Redirect to={'/login'} />);

@@ -20,7 +20,6 @@ function* authenticateUserLogin(action: fromActions.authenticationActionTypes) {
     try {
         if (action.type === fromActions.LOGIN_USER_REQUEST) {
             const { data } = yield call(login, action.payload);
-            setCookie(constants.jwt_token, data.token, 1);
             yield put(fromActions.loginUserSuccess(data));
         } else {
             const { data } = yield call(authenticate);

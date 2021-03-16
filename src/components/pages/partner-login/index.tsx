@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { CredqState } from "../../../store/rootReducer";
 import { ExclamationCircleFilled } from "@ant-design/icons";
+import { store } from "../../../store/store";
 
 export interface PartnerLoginProps {
     modalOpen: boolean;
@@ -24,7 +25,7 @@ const logoDimension = { height: '4rem' };
 const PartnerLogin: React.FC<PartnerLoginProps> = () => {
     // Store hooks
     const dispatch = useDispatch();
-    const { token, message } = useSelector((state: CredqState) => state.authentication);
+    const { message, isLoggedIn } = useSelector((state: CredqState) => state.authentication);
     // Authentication values
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -52,10 +53,10 @@ const PartnerLogin: React.FC<PartnerLoginProps> = () => {
     }
 
     useEffect(() => {
-        if (token) {
+        if (isLoggedIn) {
             history.push('/startapplication');
-        };
-    }, [token, history])
+        }
+    }, [isLoggedIn]);
 
     return (
         <Modal show={modalOpen} close={hideModal}>
