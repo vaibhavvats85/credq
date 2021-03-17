@@ -9,14 +9,12 @@ const Application: React.FC = () => {
     const applicationCount = parseInt(applications);
     return (
         <div className="application">
-            <div className="column border-right">
+            <div className="column">
                 <h1 className="header">{constants.applications_left}</h1>
                 {
                     applicationCount ?
                         (<>
-                            <p>{constants.application_count_prefix}</p>
                             <h1 className="count">{applicationCount}</h1>
-                            <p>{constants.application_count_suffix}</p>
                         </>) :
                         (
                             <>

@@ -1,15 +1,23 @@
 @import "../../_settings/";
 
-.initials {
-    border-radius: 50%;
+.nav {
     width: max-content;
-    padding: 10px;
-    color: $white;
-    background: $primary;
-    font-weight: 400;
-    font-size: 15px;
     cursor: pointer;
     margin-left: auto;
+    .menu {
+        display: none;
+    }
+    .initials {
+        border-radius: 50%;
+        padding: 10px;
+        color: $white;
+        background: $primary;
+        font-weight: 400;
+        font-size: 15px;
+    }
+    .close{
+        display: none;
+    }
 }
 .overlay {
     position: fixed;
@@ -32,6 +40,9 @@
         margin-left: 10px;
         margin-right: 10px;
         border-bottom: 1px solid $grey-2;
+        .products{
+            display: none;
+        }
     }
     li {
         color: $primary;
@@ -61,24 +72,53 @@
     }
 }
 
-@media only screen and (max-width: 601px) {
-    .initials {
-        font-size: 11px;
+@media only screen and (max-width: 1024px) {
+    .nav {
+        font-size: 3vw;
+        .menu {
+            display: block;
+        }
+        .initials {
+            display: none;
+        }
+        .close{
+            display: block;
+        }
     }
     .overlay {
         height: 100vh;
         margin-top: 0;
+        width: 40vw;
+        right: 0;
+        top: 96px;
+        border-radius: 0;
+        transition: 0.4s;
+        ul{
+            .products{
+                display: list-item;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 786px) {
+    .nav {
+        font-size: 4vw;
+    }
+    .overlay {
+        width: 50vw;
+        right: 0;
+        top: 96px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .nav {
+        font-size: 5vw;
+    }
+    .overlay {
         width: 100vw;
         right: 0;
-        top: 0;
-        .close {
-            display: block;
-            margin-left: auto;
-            border: none;
-            background: no-repeat;
-            font-size: 1.4rem;
-            padding: 1rem;
-            cursor: pointer;
-        }
+        top: 96px;
     }
 }

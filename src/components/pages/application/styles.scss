@@ -24,15 +24,21 @@
             color: $primary;
         }
         .count {
-            font-size: 2.5rem;
-            color: $product-primary;
+            width: 8vw;
+            height: 8vw;
+            line-height: 8vw;
+            margin: 1rem auto;
+            border-radius: 50%;
+            border: 0.5vw solid;
+            font-size: 2vw;
+            color: $primary;
             &_empty {
                 color: $product-essential;
             }
         }
 
         p {
-            font-size: 2rem;
+            font-size: 1.5vw;
         }
     }
 }
@@ -53,8 +59,8 @@
         .column {
             width: auto;
             margin: 0 1rem;
-            .count {
-                font-size: 3.5vw;
+            .header {
+                font-size: 3vw;
             }
             p {
                 font-size: 3.5vw;
@@ -67,9 +73,34 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .application {
+        .column {
+            .count {
+                width: 13vw;
+                height: 13vw;
+                line-height: 13vw;
+                font-size: 3vw;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 601px) {
+    .application {
+        .column {
+            width: auto;
+            margin: 0 1rem;
+            .header {
+                font-size: 4vw;
+            }
+            .count {
+                width: 15vw;
+                height: 15vw;
+                line-height: 15vw;
+                font-size: 4vw;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 500px) {

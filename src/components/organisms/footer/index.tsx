@@ -8,6 +8,10 @@ import { Route } from 'react-router-dom';
 import UnderContruction from '../../atoms/under-contruction';
 
 const Footer = () => {
+    const linkedInUrl = 'https://www.linkedin.com/company/credq/';
+    const openWindow = (url: string) => {
+        window.open(url);
+    }
     return (
         <div className={styles.footer}>
             <div className={styles.footer_links}>
@@ -20,7 +24,7 @@ const Footer = () => {
 
                 <div className={styles.footer_social}>
                     <h3>{constants.social}</h3>
-                    <Logo dimension={{ height: '2.5rem' }} className={styles.footer_linkedin} logo={linkedin} />
+                    <Logo dimension={{ height: '2.5rem' }} onClick={() => openWindow(linkedInUrl)} className={styles.footer_linkedin} logo={linkedin} />
                 </div>
             </div>
             <div className={styles.footer_logo}>

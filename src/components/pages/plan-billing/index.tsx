@@ -1,4 +1,4 @@
-import { ArrowDownOutlined, CheckCircleFilled, DownloadOutlined, WarningFilled } from '@ant-design/icons';
+import { ArrowDownOutlined, DownloadOutlined, WarningFilled } from '@ant-design/icons';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PlanRequest } from '../../../models';
@@ -10,6 +10,8 @@ import Input from '../../atoms/input';
 import './styles.scss';
 import { loadInvoices } from '../../../store/invoices';
 import axios from 'axios';
+import DialogModal from '../../atoms/dialog';
+import { trackPromise } from 'react-promise-tracker';
 
 const PlanBilling: React.FC = () => {
     const [applicationNeed, setApplicationNeed] = useState('');
@@ -18,6 +20,7 @@ const PlanBilling: React.FC = () => {
     const [upgradeMessage, setUpgradeMessage] = useState('');
     const dispatch = useDispatch();
     const [pageSize, setPageSize] = useState(5);
+    const [dialogShow, setDialogShow] = useState(false);
 
     const user = useSelector((state: CredqState) => state.authentication.user);
     const invoices = useSelector((state: CredqState) => state.invoices.response);
@@ -38,17 +41,13 @@ const PlanBilling: React.FC = () => {
 
     };
     const sendUpgradeRequest = async () => {
-        const { data } = await axios.post(`${constants.BASE_URL}/request/upgradeplan`, user);
+        const { data } = await trackPromise(axios.post(`${constants.BASE_URL}/request/upgradeplan`, user));
         setUpgradeMessage(data);
+        setDialogShow(true);
     };
     const iconStyles = {
         marginRight: '1rem',
         color: '#F7B217',
-        fontSize: '1.2rem'
-    };
-    const checkIconStyle = {
-        marginRight: '1rem',
-        color: 'green',
         fontSize: '1.2rem'
     };
     const downloadPdf = (inv_num: string) => {
@@ -84,6 +83,7 @@ const PlanBilling: React.FC = () => {
     }, [fetchInvoices])
     return (
         <div className="plan_billing">
+            <DialogModal type="success" header={upgradeMessage} onClose={() => setDialogShow(false)} isOpen={dialogShow} />
             <div className="purchase">
                 <p className="header">
                     <b>CredQ- </b>
@@ -116,14 +116,6 @@ const PlanBilling: React.FC = () => {
                         Request to upgrade the plan
                     </Button>
                 </div>
-                <p>
-                    {
-                        upgradeMessage && <>
-                            <CheckCircleFilled style={checkIconStyle} />
-                            <span className="upgraded-message">{upgradeMessage}</span></>
-                    }
-
-                </p>
             </div>
             <div className="invoice">
                 <p className="header">
@@ -154,7 +146,7 @@ const PlanBilling: React.FC = () => {
                 </table>
                 <h4 className="paginator" onClick={pagination}>
                     {
-                        pageSize < invoices?.length ?
+                        invoices?.length && pageSize < invoices?.length ?
                             <>
                                 <ArrowDownOutlined />
                                 <span className="paginator-active">Show more- showing {pageSize} of {invoices?.length}</span>

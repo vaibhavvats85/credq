@@ -1,0 +1,104 @@
+@import "../../_settings/colors";
+
+.modal-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    .dialog {
+        position: fixed;
+        background: white;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        padding: 2rem 5rem;
+        .icon {
+            font-size: 23px;
+            margin-right: 1rem;
+        }
+        .success {
+            @extend .icon;
+            color: green;
+        }
+        .warning {
+            @extend .icon;
+            color: #f7b217;
+        }
+        .fail {
+            @extend .icon;
+            color: $product-essential;
+        }
+        .actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 2rem;
+            .close {
+                background: none;
+                border: 1px solid;
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                outline: none;
+                text-align: center;
+                width: 20%;
+                min-width: 5rem;
+                cursor: pointer;
+                color: $white;
+                background-color: $primary;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .modal-bg {
+        .dialog {
+            width: 60%;
+            .icon {
+                font-size: 2vw;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .modal-bg {
+        .dialog {
+            width: 70%;
+            padding: 2rem 4rem;
+            .icon {
+                font-size: 3vw;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    .modal-bg {
+        .dialog {
+            width: 80%;
+            padding: 2rem 3rem;
+            .icon {
+                font-size: 3.5vw;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .modal-bg {
+        .dialog {
+            width: 90%;
+            padding: 2rem 1rem;
+            font-size: 4vw;
+            .icon {
+                font-size: 4vw;
+            }
+        }
+    }
+}

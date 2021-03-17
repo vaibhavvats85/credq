@@ -10,20 +10,22 @@ import PlanBilling from './components/pages/plan-billing';
 import Header from './components/organisms/header';
 import Footer from './components/organisms/footer';
 import { authenticateUser } from './store/authentication';
+import UnderContruction from './components/atoms/under-contruction';
 
 const App = () => {
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(authenticateUser());
   }, [dispatch]);
-  
+
   return (
     <Router>
       <div className="App">
         <Header />
         <div className="content">
           <Switch>
+            <Route path={'/loantracker'} component={UnderContruction} />
             <ProtectedRoute path={'/startapplication'} Component={Application} />
             <ProtectedRoute path={'/planbilling'} Component={PlanBilling} />
             <Route path={'/'}>
@@ -31,9 +33,9 @@ const App = () => {
             </Route>
           </Switch>
         </div>
-        <LoadingIndicator />
         <Footer />
       </div>
+      <LoadingIndicator />
     </Router>
   );
 }

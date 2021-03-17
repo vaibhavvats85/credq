@@ -6,7 +6,7 @@ import * as constants from '../../../utils/constants';
 import { useHistory } from "react-router-dom";
 import { logOut } from "../../../store/authentication";
 import Button from "../../atoms/button";
-import { CloseOutlined } from "@ant-design/icons";
+import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
 
 const UserOptions: React.FC = () => {
     const { organization, plan } = useSelector((state: CredqState) => state.authentication.user);
@@ -50,10 +50,14 @@ const UserOptions: React.FC = () => {
 
     return (
         <>
-            <div className="initials" onClick={toggleMenu}>{getInitials(organization)}</div>
+            <div className="nav" onClick={toggleMenu}>
+                <span className="initials">{getInitials(organization)}</span>
+                {!menuOpen ? <span className="menu"><MenuOutlined /></span> :
+                    <CloseOutlined className="close" onClick={() => setMenuopen(false)} />}
+            </div>
             { menuOpen &&
                 <div className="overlay" ref={container}>
-                    <button className="close" onClick={() => setMenuopen(false)}><CloseOutlined /></button>
+                    {/* <button className="close" onClick={() => setMenuopen(false)}><CloseOutlined /></button> */}
                     <div className="user">{organization}</div>
                     <Button className="start_application" onClick={() => redirectTo('/startapplication')}>
                         {constants.new_application}
@@ -61,6 +65,7 @@ const UserOptions: React.FC = () => {
                     <ul>
                         {plan === 'Premium' && <li onClick={() => redirectTo('/loantracker')}>{constants.loan_tracker}</li>}
                         <li onClick={() => redirectTo('/planbilling')}>{constants.plan_billing}</li>
+                        <li className="products" onClick={() => redirectTo('/products')}>{constants.products}</li>
                         <li onClick={() => window.open('https://wa.me/13218060588')}>{constants.help_center}</li>
                         <li onClick={logout}>{constants.logout}</li>
                     </ul>

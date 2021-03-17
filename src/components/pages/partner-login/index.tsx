@@ -76,7 +76,8 @@ const PartnerLogin: React.FC<PartnerLoginProps> = () => {
                     </p>
                 </div>
             </div>
-        </Modal>)
+        </Modal>
+    )
 };
 
 export default PartnerLogin;

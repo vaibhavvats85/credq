@@ -36,7 +36,11 @@ export function* watchAuthenticationLogin() {
 }
 
 function* authenticateUserLogout() {
-    yield trackPromise(axios.get(`${constants.BASE_URL}/logout`));
+    try {
+        yield trackPromise(axios.get(`${constants.BASE_URL}/logout`));
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export function* watchAuthenticationLogout() {

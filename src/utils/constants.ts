@@ -8,6 +8,7 @@ export const psych_test = 'Psychometric Testing';
 export const intel_ai_engine = 'Intelligent AI-Risk Engine';
 export const what_we_do = 'What We do';
 export const how_it_works = 'How It Works';
+export const products = 'Products';
 
 export const working_steps: any = {
     point_1: 'Start the Credit Analysis driven by psychometrics',
@@ -92,6 +93,6 @@ export const product_pricing: any = {
 export const jwt_token = 'X-JWT-Authorization';
 
 //URLS
-export const BASE_URL = 'https://backend-dev.credq.org/.netlify/functions/api';
-// export const BASE_URL = 'http://localhost:5000';
+// export const BASE_URL = 'https://backend-dev.credq.org/.netlify/functions/api';
+export const BASE_URL = 'http://localhost:5000';
 // export const BASE_URL = ' https://a5ada38844d2.ngrok.io';
