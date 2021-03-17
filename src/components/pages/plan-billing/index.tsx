@@ -144,16 +144,22 @@ const PlanBilling: React.FC = () => {
                         }
                     </tbody>
                 </table>
-                <h4 className="paginator" onClick={pagination}>
-                    {
-                        invoices?.length && pageSize < invoices?.length ?
-                            <>
-                                <ArrowDownOutlined />
-                                <span className="paginator-active">Show more- showing {pageSize} of {invoices?.length}</span>
-                            </> :
-                            <span className="paginator-disable">Showing {pageSize} of {invoices?.length}</span>
-                    }
-                </h4>
+                {invoices?.length ?
+                    <h4 className="paginator" onClick={pagination}>
+                        {
+                            pageSize < invoices?.length ?
+                                <>
+                                    <ArrowDownOutlined />
+                                    <span className="paginator-active">Show more- showing {pageSize} of {invoices?.length}</span>
+                                </> :
+                                <span className="paginator-disable">Showing {pageSize > invoices?.length ? invoices?.length : pageSize} of {invoices?.length}</span>
+                        }
+                    </h4> :
+                    <div className="no_invoice">
+                        {constants.noInvoiceMsg}
+                    </div>
+                }
+
             </div>
         </div>
     );
