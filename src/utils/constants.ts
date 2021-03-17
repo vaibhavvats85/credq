@@ -76,6 +76,7 @@ export const start_application_msg = 'Click the below button to start new applic
 export const start_application = 'Start Application';
 export const cant_proceed_msg = 'You cannot proceed with the new application';
 export const start_application_confirm = 'Do you want to start a new application?';
+export const noInvoiceMsg = 'There are no invoices yet for your organization';
 
 // User Option Links 
 export const loan_tracker = 'Loan Tracker';
