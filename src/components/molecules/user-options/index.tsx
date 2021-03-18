@@ -65,7 +65,6 @@ const UserOptions: React.FC = () => {
                     <ul>
                         {plan === 'Premium' && <li onClick={() => redirectTo('/loantracker')}>{constants.loan_tracker}</li>}
                         <li onClick={() => redirectTo('/planbilling')}>{constants.plan_billing}</li>
-                        <li className="products" onClick={() => redirectTo('/products')}>{constants.products}</li>
                         <li onClick={() => window.open('https://wa.me/13218060588')}>{constants.help_center}</li>
                         <li onClick={logout}>{constants.logout}</li>
                     </ul>
