@@ -1,0 +1,50 @@
+@import "../../_settings/colors";
+
+.report {
+    padding: 2rem;
+    h2 {
+        text-align: start;
+    }
+    .score {
+        display: flex;
+        border: 1px solid;
+        border-radius: 20px;
+        padding: 2rem;
+        justify-content: space-around;
+        h1 {
+            margin: auto 0;
+            font-size: 3rem;
+            font-weight: 500;
+            color: $primary;
+        }
+    }
+    .remark {
+        color: $primary;
+    }
+    .insights {
+        @extend .score;
+        flex-direction: column;
+        justify-content: space-between;
+        .details {
+            display: flex;
+            margin: 1rem;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        h3 {
+            text-align: start;
+            margin: auto 0;
+            width: max-content;
+            font-size: 1rem;
+        }
+        .percentage {
+            border: 1px solid;
+            padding: 10px;
+            height: fit-content;
+            border-radius: 5px;
+        }
+    }
+    .finish{
+        margin: 1rem;
+    }
+}

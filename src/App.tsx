@@ -11,6 +11,9 @@ import Header from './components/organisms/header';
 import Footer from './components/organisms/footer';
 import { authenticateUser } from './store/authentication';
 import UnderContruction from './components/atoms/under-contruction';
+import MasterForm from './components/pages/application/master-form';
+import Quiz from './components/pages/quiz';
+import Report from './components/pages/report';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -26,7 +29,10 @@ const App = () => {
         <div className="content">
           <Switch>
             <Route path={'/loantracker'} component={UnderContruction} />
-            <ProtectedRoute path={'/startapplication'} Component={Application} />
+            <ProtectedRoute path={'/application/report'} Component={Report} />
+            <ProtectedRoute path={'/application/quiz'} Component={Quiz} />
+            <ProtectedRoute path={'/application/start'} Component={MasterForm} />
+            <ProtectedRoute path={'/application'} Component={Application} />
             <ProtectedRoute path={'/planbilling'} Component={PlanBilling} />
             <Route path={'/'}>
               <Landing />
@@ -40,5 +46,4 @@ const App = () => {
   );
 }
 
-// ReactPDF.render(<InvoicePDF />, `${__dirname}/example.pdf`);
 export default App;

@@ -1,6 +1,6 @@
 @import "../../_settings/";
 
-.input {
+.dropdown {
     display: flex;
     flex-direction: column;
     label {
@@ -8,15 +8,15 @@
         width: fit-content;
         font-weight: 600;
     }
-    p{
+    p {
         margin: 0;
         text-align: start;
     }
-    input {
-        height: 46px;
-        border-radius: 0.3rem;
-        outline: none;
-        border: 1px solid $grey-2;
-        font-size: 1.2rem;
-    }
+}
+select {
+    height: 46px;
+    border-radius: 0.3rem;
+    outline: none;
+    border: 1px solid $grey-2;
+    font-size: 1.2rem;
 }

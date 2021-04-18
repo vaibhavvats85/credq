@@ -3,10 +3,12 @@ import './styles.scss';
 import * as constants from '../../../utils/constants';
 import { useSelector } from "react-redux";
 import { CredqState } from "../../../store/rootReducer";
+import { useHistory } from "react-router";
 
 const Application: React.FC = () => {
     const { applications } = useSelector((state: CredqState) => state.authentication.user);
     const applicationCount = parseInt(applications);
+    const history = useHistory();
     return (
         <div className="application">
             <div className="column">
@@ -31,7 +33,7 @@ const Application: React.FC = () => {
                     applicationCount ?
                         (<>
                             <p>{constants.start_application_msg}</p>
-                            <Button className="button" onClick={() => window.confirm(constants.start_application_confirm)}>
+                            <Button className="button" onClick={() => history.push('/application/start')}>
                                 {constants.start_application}
                             </Button>
                         </>) :

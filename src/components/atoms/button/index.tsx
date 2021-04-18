@@ -26,7 +26,7 @@ export interface ButtonProps {
     size?: string;
     theme?: string;
     disabled?: boolean;
-    onClick: () => void;
+    onClick: (event?: any) => void;
 }
 
 const Button: React.FC<ButtonProps> = (props) => {

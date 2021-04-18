@@ -77,6 +77,7 @@ export const start_application = 'Start Application';
 export const cant_proceed_msg = 'You cannot proceed with the new application';
 export const start_application_confirm = 'Do you want to start a new application?';
 export const noInvoiceMsg = 'There are no invoices yet for your organization';
+export const close_warning = 'Do not close the window';
 
 // User Option Links 
 export const loan_tracker = 'Loan Tracker';
@@ -92,7 +93,12 @@ export const product_pricing: any = {
 }
 // Cookies label
 export const jwt_token = 'X-JWT-Authorization';
+export const question_set = 'question_set';
 
 //URLS
-export const BASE_URL = 'https://backend-dev.credq.org/.netlify/functions/api';
-// export const BASE_URL = 'http://localhost:5000';
+// export const BASE_URL = 'https://backend-dev.credq.org/.netlify/functions/api';
+export const BASE_URL = 'http://localhost:5000';
+
+// Scoring
+export const repayment_capability = 'repayment_capability';
+export const repayment_willingness = 'repayment_willingness';
