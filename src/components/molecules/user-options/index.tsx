@@ -59,7 +59,7 @@ const UserOptions: React.FC = () => {
                 <div className="overlay" ref={container}>
                     {/* <button className="close" onClick={() => setMenuopen(false)}><CloseOutlined /></button> */}
                     <div className="user">{organization}</div>
-                    <Button className="start_application" onClick={() => redirectTo('/startapplication')}>
+                    <Button className="start_application" onClick={() => redirectTo('/application')}>
                         {constants.new_application}
                     </Button>
                     <ul>

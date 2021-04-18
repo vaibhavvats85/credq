@@ -1,0 +1,22 @@
+.steps {
+    margin: 2rem auto;
+    width: 50%;
+    .btn {
+        margin: 1rem;
+    }
+}
+.container {
+    margin: auto;
+    &-input {
+        margin: 1rem 0;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .steps{
+        margin: 2rem;
+        width: auto;
+        font-size: 0.7rem;
+    }
+}

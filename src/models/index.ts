@@ -6,3 +6,5 @@ export * from './PlanRequest';
 export * from './BillingAddress';
 export * from './ErrorPayload';
 export * from './Invoices';
+export * from './Preferences';
+export * from './Score';

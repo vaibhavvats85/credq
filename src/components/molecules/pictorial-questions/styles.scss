@@ -1,0 +1,37 @@
+@import "../../_settings/colors";
+
+.option {
+    background-color: $primary;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    .en {
+        color: white;
+    }
+}
+.dont_understand {
+    margin-top: 5rem;
+}
+.image_option {
+    cursor: pointer;
+    display: inline-block;
+    width: 50%;
+    h4 {
+        color: $primary;
+    }
+    img {
+        width: 6rem;
+        height: 6rem;
+    }
+}
+
+.image_question {
+    display: inline-block;
+    width: 50%;
+    img {
+        width: 6rem;
+        height: 6rem;
+    }
+}

@@ -53,7 +53,7 @@ const PartnerLogin: React.FC<PartnerLoginProps> = () => {
 
     useEffect(() => {
         if (isLoggedIn) {
-            history.push('/startapplication');
+            history.push('/application');
         }
     }, [isLoggedIn, history]);
 

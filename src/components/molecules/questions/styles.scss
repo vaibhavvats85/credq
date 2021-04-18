@@ -1,0 +1,20 @@
+@import "../../_settings/colors";
+
+.option {
+    background-color: $primary;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    .en {
+        color: white;
+    }
+}
+.dont_understand {
+    margin-top: 5rem;
+}
+img{
+    width: 8rem;
+    
+}
