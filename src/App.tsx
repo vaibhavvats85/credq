@@ -14,7 +14,7 @@ import UnderContruction from './components/atoms/under-contruction';
 import MasterForm from './components/pages/application/master-form';
 import Quiz from './components/pages/quiz';
 import Report from './components/pages/report';
-
+require('dotenv').config();
 const App = () => {
   const dispatch = useDispatch();
 

@@ -9,7 +9,7 @@ axios.defaults.withCredentials = true;
 
 // Fetch Invoices
 function fetchInvoices(payload: InvoiceBackendRequest) {
-    return trackPromise(axios.post(`${constants.BASE_URL}/invoices`, payload, { withCredentials: true }));
+    return trackPromise(axios.post(`${process.env.REACT_APP_BASE_URL}/invoices`, payload, { withCredentials: true }));
 }
 
 function* getInvoices(action: fromActions.invoiceActionTypes): any {
