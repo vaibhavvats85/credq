@@ -41,7 +41,7 @@ const PlanBilling: React.FC = () => {
 
     };
     const sendUpgradeRequest = async () => {
-        const { data } = await trackPromise(axios.post(`${constants.BASE_URL}/request/upgradeplan`, user));
+        const { data } = await trackPromise(axios.post(`${process.env.REACT_APP_BASE_URL}/request/upgradeplan`, user));
         setUpgradeMessage(data);
         setDialogShow(true);
     };

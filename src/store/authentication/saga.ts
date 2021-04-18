@@ -1,6 +1,5 @@
 import { call, takeLatest, put } from "redux-saga/effects";
 import * as fromActions from './actions';
-import * as constants from '../../utils/constants';
 import axios from "axios";
 import { trackPromise } from "react-promise-tracker";
 import { LoginRequest } from "../../models";
@@ -8,11 +7,11 @@ import { LoginRequest } from "../../models";
 axios.defaults.withCredentials = true;
 // Login a user
 function login(payload: LoginRequest) {
-    return trackPromise(axios.post(`${constants.BASE_URL}/login`, payload, { withCredentials: true }));
+    return trackPromise(axios.post(`${process.env.REACT_APP_BASE_URL}/login`, payload, { withCredentials: true }));
 }
 
 function authenticate() {
-    return trackPromise(axios.get(`${constants.BASE_URL}/authenticate`, { withCredentials: true }));
+    return trackPromise(axios.get(`${process.env.REACT_APP_BASE_URL}/authenticate`, { withCredentials: true }));
 }
 
 function* authenticateUserLogin(action: fromActions.authenticationActionTypes) {
@@ -37,7 +36,7 @@ export function* watchAuthenticationLogin() {
 
 function* authenticateUserLogout() {
     try {
-        yield trackPromise(axios.get(`${constants.BASE_URL}/logout`));
+        yield trackPromise(axios.get(`${process.env.REACT_APP_BASE_URL}/logout`));
     } catch (err) {
         console.log(err);
     }

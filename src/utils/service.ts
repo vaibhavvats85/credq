@@ -1,4 +1,3 @@
-import * as constants from './constants';
 import axios from "axios";
 import credq from '../assets/credq_logo.png';
 import { PlanRequest, User } from "../models";
@@ -56,7 +55,7 @@ export const displayRazorpay = async (user: User, planRequest: PlanRequest, succ
     }
 
     // creating a new order
-    const result = await trackPromise(axios.post(`${constants.BASE_URL}/payment/orders`, planRequest));
+    const result = await trackPromise(axios.post(`${process.env.REACT_APP_BASE_URL}/payment/orders`, planRequest));
 
     if (!result) {
         alert("Server error. Are you online?");
@@ -85,7 +84,7 @@ export const displayRazorpay = async (user: User, planRequest: PlanRequest, succ
                 plan: planRequest.plan
             };
 
-            await trackPromise(axios.post(`${constants.BASE_URL}/payment/success`, data));
+            await trackPromise(axios.post(`${process.env.REACT_APP_BASE_URL}/payment/success`, data));
             successCb();
             alert('Payment successful');
         },
