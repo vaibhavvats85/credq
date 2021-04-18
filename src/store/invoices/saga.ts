@@ -1,6 +1,5 @@
 import { call, takeLatest, put } from "redux-saga/effects";
 import * as fromActions from './actions';
-import * as constants from '../../utils/constants';
 import axios from "axios";
 import { trackPromise } from "react-promise-tracker";
 import { InvoiceBackendRequest } from "../../models";

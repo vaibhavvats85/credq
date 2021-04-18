@@ -1,4 +1,3 @@
-import * as constants from './constants';
 import axios from "axios";
 import credq from '../assets/credq_logo.png';
 import { PlanRequest, User } from "../models";
