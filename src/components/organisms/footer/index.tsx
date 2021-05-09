@@ -4,8 +4,6 @@ import credq from '../../../assets/credq_logo.png';
 import linkedin from '../../../assets/linkedin-icon.svg';
 import * as constants from '../../../utils/constants';
 import Label from '../../atoms/labels';
-import { Route } from 'react-router-dom';
-import UnderContruction from '../../atoms/under-contruction';
 
 const Footer = () => {
     const linkedInUrl = 'https://www.linkedin.com/company/credq/';
@@ -23,14 +21,14 @@ const Footer = () => {
                 </div>
 
                 <div className={styles.footer_social}>
-                    <h3 style={{textAlign: 'center'}}>{constants.social}</h3>
+                    <h3 style={{ textAlign: 'center' }}>{constants.social}</h3>
                     <Logo dimension={{ height: '2.5rem' }} onClick={() => openWindow(linkedInUrl)} className={styles.footer_linkedin} logo={linkedin} />
                 </div>
             </div>
             <div className={styles.footer_logo}>
                 <Logo imageClass={styles.footer_logo_image} logo={credq} /><span>CredQ © COPYRIGHT 2021</span>
             </div>
-            
+
         </div>
     )
 }
