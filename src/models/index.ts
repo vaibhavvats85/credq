@@ -8,3 +8,5 @@ export * from './ErrorPayload';
 export * from './Invoices';
 export * from './Preferences';
 export * from './Score';
+export * from './ReportsBackendResponse';
+

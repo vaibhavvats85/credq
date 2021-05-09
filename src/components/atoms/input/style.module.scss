@@ -8,11 +8,12 @@
         width: fit-content;
         font-weight: 600;
     }
-    p{
+    p {
         margin: 0;
         text-align: start;
     }
-    input {
+    input,
+    .formattedInput {
         height: 46px;
         border-radius: 0.3rem;
         outline: none;

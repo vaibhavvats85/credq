@@ -1,63 +1,65 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import Modal from '../../atoms/modal';
-import styles from './style.module.scss';
+import React, { useEffect } from 'react';
+import './styles.scss';
 import * as constants from '../../../utils/constants';
+import Header from '../../organisms/header';
 import Button, { ButtonSize, ButtonType } from '../../atoms/button';
+import { useHistory } from 'react-router';
 
 const Products: React.FC<{ open: boolean }> = () => {
-    const [modalOpen, setModalOpen] = useState(true);
+    const features = [
+        { text: 'Average completion time ', suffix: '< 5 minutes' },
+        { text: 'Accuracy rate', suffix: ' > 90%' },
+        { text: 'Multi-Lingual' },
+        { text: 'Faking Resistant' },
+        { text: 'Customize Profile Tracker' },
+        { text: 'Monthly Lead Generation' },
+        { text: 'Seamless', suffix: ' API Integration' },
+        { prefix: '24 X 7', text: ' Help & Support' }
+    ];
     const history = useHistory();
-    const hideModal = () => {
-        setModalOpen(false);
-        history.push('/');
-    }
+    useEffect(() => {
+        window.scroll(0, 0);
+    }, []);
     return (
-        <Modal show={modalOpen} close={hideModal}>
-            <div className={styles.pricing}>
-                <div className={styles.card}>
-                    <div className={styles.card_essential}>
-                        <h1>Essentials</h1>
-                        <p>
-                            Performs Risk Assessment for
-                            unsecured and secured income generating loans
-                        </p>
+        <>
+            <Header />
+            <div className="product">
+                <div className="row">
+                    <div className="description">
+                        <p>Our <span className="highlight">Technology</span></p>
+                        <p>CredQ’s proprietary financial technology leverages an alternative data source – credit bureau data,
+                        utility bills, demographic, geolocation, government reports coupled with psychometric data to
+                    assess the creditworthiness and reliability of each applicant.</p>
+                        <p>Our AI risk scoring algorithm crunches over these data to discover
+                        highly predictive delinquent behavioral and financial patterns and then translates
+                        it into accurate personality score. With risk scoring taking mere seconds,
+                        CredQ is the fastest and most accurate alternative risk scoring provider today.</p>
+                        <Button size={ButtonSize.MEDIUM} type={ButtonType.BUTTON} onClick={() => history.push('/', { link: 'demo' })}>
+                            {constants.schedule_demo}
+                        </Button>
                     </div>
-                    <span className={styles.arrow_essential}>↓</span>
-                    <ul className={styles.features_essentials}>
-                        {
-                            constants.essential_features
-                                .map(feature => <li>{feature}</li>)
-                        }
-                    </ul>
-                    <Button className={styles.submit_essentials} size={ButtonSize.LARGE} type={ButtonType.BUTTON} onClick={() => alert('Partner Login')}>
-                        {constants.schedule_demo}
-                    </Button>
+                    <div className="image-1">
+                        <img alt="product_1" src={`${process.env.PUBLIC_URL}/assets/product_1.png`} />
+                    </div>
                 </div>
-                <div className={styles.card}>
-                    <div className={styles.card_premium}>
-                        <h1>Premium</h1>
-                        <p>
-                            Performs risk assessment for all types of
-                            loans i.e. education, home, agricultural,
-                            two-wheeler, personal and small business
-                            loans
-                        </p>
-
+                <div className="row">
+                    <div className="image-2">
+                        <img alt="product_2" src={`${process.env.PUBLIC_URL}/assets/product_2.png`} />
                     </div>
-                    <span className={styles.arrow_premium}>↓</span>
-                    <ul className={styles.features_premium}>
-                        {
-                            constants.premium_features
-                                .map(feature => <li>{feature}</li>)
-                        }
-                    </ul>
-                    <Button className={styles.submit_premium} size={ButtonSize.LARGE} type={ButtonType.BUTTON} onClick={() => alert('Partner Login')}>
-                        {constants.schedule_demo}
-                    </Button>
+                    <div className="description">
+                        <ul>
+                            {
+                                features.map(feature => <li>
+                                    <span className="green">{feature.prefix}</span>
+                                    {feature.text}
+                                    <span className="green">{feature.suffix}</span></li>)
+                            }
+                        </ul>
+                    </div>
+
                 </div>
             </div>
-        </Modal>
+        </>
     );
 }
 export default Products;

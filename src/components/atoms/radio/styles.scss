@@ -15,5 +15,16 @@
         h4 {
             margin: 0;
         }
+        .coming-soon {
+            background-color: darkgoldenrod;
+            border-radius: 1rem;
+            font-size: 0.7rem;
+            padding: 2px;
+        }
+        input {
+            &:disabled {
+                appearance: none;
+            }
+        }
     }
 }

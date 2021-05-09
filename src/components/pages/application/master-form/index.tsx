@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux";
 import Button from "../../../atoms/button";
 import Step1 from "./step1";
@@ -32,23 +32,41 @@ const MasterForm: React.FC<MasterFormProps> = () => {
         gender: '',
         marital_status: '',
         age: ''
-    })
+    });
+    window.addEventListener('popstate', function (event) {
+        history.go(1);
+    }, false);
+
     window.addEventListener("beforeunload", (ev) => {
         ev.preventDefault();
         return ev.returnValue = 'Are you sure you want to close?';
     });
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [currentStep]);
+
     const handleChange = (event: any) => {
-        const { name, value } = event.target;
+        const { name, value } = event?.target;
+        storePreferencetState(name, value);
+    }
+
+    const handleAmountChange = (values: any) => {
+        const value = values.formattedValue.slice(1, values.formattedValue.length);
+        storePreferencetState('amount', value);
+    }
+    const storePreferencetState = (name: string, value: string) => {
         setFormValues((form: any) => {
-            return {
+            const updatedForm = {
                 ...form,
                 [name]: value
-            }
+            };
+            dispatch(preferences.loadPreferences(updatedForm));
+            return updatedForm;
         });
     }
+
     const handleSubmit = (event: any) => {
         event.preventDefault()
-        dispatch(preferences.loadPreferences(formValues));
         history.push('/application/quiz');
     }
 
@@ -132,12 +150,12 @@ const MasterForm: React.FC<MasterFormProps> = () => {
                 />
                 <Step2
                     currentStep={currentStep}
-                    handleChange={handleChange}
+                    handleChange={storePreferencetState}
                     location={formValues.location}
                 />
                 <Step3
                     currentStep={currentStep}
-                    handleChange={handleChange}
+                    handleChange={handleAmountChange}
                     amount={formValues.amount}
                 />
                 <Step4

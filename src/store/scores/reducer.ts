@@ -24,6 +24,12 @@ export function scoreReducer(state: Score = ScoreInitialState, action: fromActio
                 ...state,
                 willingness: action.payload
             }
+        case fromActions.RESET_SCORE:
+            return {
+                overall: 0,
+                capability: 0,
+                willingness: 0
+            }
         default:
             return state;
     }

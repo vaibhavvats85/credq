@@ -1,44 +1,71 @@
 @import "../../_settings/";
+
 .home {
     min-height: 480px;
-    background: $primary-bg;
     display: flex;
     text-align: left;
     flex-direction: column;
     justify-content: center;
-    padding: 0px 15rem;
-    font-size: 2rem;
     color: $white;
+    position: relative;
     &_button {
         width: fit-content;
         background-color: $demo-btn;
         color: $primary;
         padding: 1rem 5rem;
     }
+    .myVideo {
+        object-fit: cover;
+        max-height: 480px;
+        min-height: 100%;
+        position: absolute;
+        width: 100%;
+    }
+    .bg {
+        background: $primary;
+        height: 480px;
+        min-width: 100%;
+        opacity: 0.7;
+        position: absolute;
+    }
+    .content {
+        position: absolute;
+        padding: 0 15rem;
+        p {
+            font-size: 2rem;
+        }
+    }
 }
 
 @media only screen and (max-width: 1024px) {
     .home {
-        padding: 1rem 2rem;
-        &_button{
+        &_button {
             padding: 1rem 1.2rem;
         }
+        .content {
+            padding: 1rem 2rem;
+        }
     }
-    
 }
 
 @media only screen and (max-width: 768px) {
     .home {
-        padding: 1rem 2rem;
-        font-size: 4vw;
+        .content {
+            p {
+                font-size: 4vw;
+            }
+        }
     }
 }
 
 @media only screen and (max-width: 601px) {
     .home {
-        padding: 1rem 2rem;
-        font-size: 5vw;
-        &_button{
+        .content {
+            p {
+                font-size: 5vw;
+            }
+        }
+        &_button {
             padding: 0.5rem 1rem;
         }
     }
@@ -46,6 +73,10 @@
 
 @media only screen and (max-width: 500px) {
     .home {
-        font-size: 6vw;
+        .content {
+            p {
+                font-size: 6vw;
+            }
+        }
     }
 }

@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, useLocation } from 'react-router';
+import { ApplicationReport } from '../../../models/Report';
+import { updateApplications } from '../../../store/authentication';
 import { CredqState } from '../../../store/rootReducer';
+import { resetScore } from '../../../store/scores';
 import Button from '../../atoms/button';
 import IndicatorBar from '../../atoms/indicator-bar';
 import './styles.scss';
@@ -9,10 +12,34 @@ const Report: React.FC = () => {
     const [capabilityIndicate, setCapabilityIndicate] = useState('');
     const [willingnessIndicate, setWillingnessIndicate] = useState('');
     const [scale, setScale] = useState('');
+    const { user: { username } } = useSelector((state: CredqState) => state.authentication);
     const { overall, capability, willingness } = useSelector((state: CredqState) => state.scores);
     const applicant = useSelector((state: CredqState) => state.preferences.name);
     const [indicate, setIndicate] = useState(0);
     const history = useHistory();
+    const location: any = useLocation();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        if (location.state?.updateApplications) {
+            const req: ApplicationReport= {
+                username, 
+                applicant,
+                score: overall, 
+                capability, 
+                willingness
+            }
+            dispatch(updateApplications(req))
+        }
+    });
+    const handleFinish = () => {
+        const leave = window.confirm("Are you sure you want to leave? If yes click 'OK'");
+        if (leave) {
+            dispatch(resetScore());
+            history.push('/application');
+        };
+    }
     useEffect(() => {
         if (overall >= 800) {
             setIndicate(1);
@@ -57,13 +84,10 @@ const Report: React.FC = () => {
                     <div className="percentage">{willingnessIndicate}</div>
                 </div>
             </div>
-            <Button className="finish" onClick={() => {
-                const leave = window.confirm("Are you sure you want to leave? If yes click 'OK'");
-                if (leave) history.push('/application');
-            }}>
+            <Button className="finish" onClick={handleFinish}>
                 Finish
             </Button>
-        </div>
+        </div >
     );
 }
 export default Report;

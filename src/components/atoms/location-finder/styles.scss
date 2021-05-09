@@ -1,0 +1,35 @@
+.location-search-input {
+  font-family: "Lato", sans-serif;
+  width: 500px;
+  height: 40px;
+  background: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+  margin-top: 300px;
+  margin-left: 5rem;
+}
+.autocomplete-dropdown-container {
+  position: absolute;
+  width: calc(100% - 2rem);
+  // border: 1px solid #919191;
+  border-radius: 5px;
+}
+
+.input-suggestion {
+  font-family: "Lato", sans-serif;
+  height: 3rem;
+  background-color: white;
+  border-bottom: 1px black dotted;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: black;
+  padding: 0 4px;
+  IMG{
+    width: 1.5rem;
+  }
+}

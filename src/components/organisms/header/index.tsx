@@ -4,9 +4,7 @@ import HeaderLinks from "../../molecules/header-links"
 import logo from '../../../assets/credq_logo.png';
 import styles from './style.module.scss';
 import * as constants from '../../../utils';
-import { Route, useHistory } from "react-router-dom";
-import Products from "../../pages/products";
-import PartnerLogin from "../../pages/partner-login";
+import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { CredqState } from "../../../store/rootReducer";
 import UserOptions from "../../molecules/user-options";
@@ -32,8 +30,7 @@ const Header: React.FC = () => {
                 </div>
                 {/* <NavBar /> */}
             </div>
-            <Route path={'/products'} component={Products} />
-            <Route path={'/login'} component={PartnerLogin} />
+
         </>
     )
 }

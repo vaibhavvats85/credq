@@ -1,0 +1,68 @@
+@import "../../_settings/colors";
+
+.product {
+    padding-bottom: 350px;
+    padding-top: 8rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    text-align: start;
+    min-height: calc(100vh - 446px);
+    .row {
+        display: flex;
+        margin-bottom: 5rem;
+        .description {
+            width: 55%;
+            width: fit-content;
+            margin: auto;
+            .green{
+                color: #00B050;
+                font-weight: bold;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+        }
+        .image-1,
+        .image-2 {
+            img {
+                width: 100%;
+                height: inherit;
+            }
+        }
+        ul {
+            list-style-type: "✔";
+            padding-left: 1rem;
+            font-size: 1.5rem;
+            li{
+                padding-left: 1rem;
+            }
+        }
+    }
+    .highlight {
+        color: $primary;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .product {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        .row {
+            flex-direction: column;
+            .description {
+                width: auto !important;
+            }
+            .image-2 {
+                img {
+                    width: 60%;
+                    margin: auto;
+                    display: block;
+                }
+            }
+            ul{
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,102 @@
+@import "../../_settings/colors";
+
+.customer-profile {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 5px 0px #ccc;
+    margin: 3rem auto;
+    background-color: white;
+    color: $primary;
+    padding: 1rem 2rem;
+    text-align: start;
+    height: fit-content;
+    width: 55%;
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border-bottom: 1px solid #dddddd;
+        margin-bottom: 1rem;
+        text-align: left;
+        padding: 10px;
+        font-size: 1.3rem;
+    }
+    td {
+        color: black;
+    }
+}
+.search {
+    margin: 2rem auto;
+    width: 80%;
+}
+h1 {
+    color: $primary;
+}
+
+.inputClass{
+    margin-top: 1rem;
+}
+
+.view-report {
+    cursor: pointer;
+    text-align: center !important;
+    color: green !important;
+    font-weight: bold;
+    &:hover {
+        color: $primary;
+    }
+}
+
+@media (max-width: 1024px) {
+    .plan_billing {
+        flex-direction: column;
+        align-items: center;
+    }
+    .purchase,
+    .customer-profile {
+        width: 80%;
+        padding: 1rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .purchase,
+    .customer-profile {
+        td,
+        th {
+            font-size: 2vw;
+        }
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    .purchase,
+    .customer-profile {
+        td,
+        th {
+            font-size: 4vw;
+        }
+        .no_report {
+            padding: 2rem;
+            font-size: 1rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .purchase,
+    .customer-profile {
+        .input {
+            font-size: 0.8rem;
+        }
+        .paginator {
+            font-size: 0.7rem;
+        }
+    }
+}

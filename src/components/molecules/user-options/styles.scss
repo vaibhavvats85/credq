@@ -15,7 +15,7 @@
         font-weight: 400;
         font-size: 15px;
     }
-    .close{
+    .close {
         display: none;
     }
 }
@@ -30,7 +30,9 @@
     padding-bottom: 1.5rem;
     box-shadow: 1px 1px 5px 0px #ccc;
     .close {
-        display: none;
+        right: 1rem;
+        position: absolute;
+        top: 1rem;
     }
     ul {
         list-style-type: "";
@@ -40,7 +42,7 @@
         margin-left: 10px;
         margin-right: 10px;
         border-bottom: 1px solid $grey-2;
-        .products{
+        .products {
             display: none;
         }
     }
@@ -69,6 +71,7 @@
         letter-spacing: -0.02rem;
         font-size: 1.3rem;
         padding: 1.5rem;
+        margin-top: 2rem;
     }
 }
 
@@ -81,7 +84,7 @@
         .initials {
             display: none;
         }
-        .close{
+        .close {
             display: block;
         }
     }
@@ -90,11 +93,10 @@
         margin-top: 0;
         width: 40vw;
         right: 0;
-        top: 96px;
         border-radius: 0;
         transition: 0.4s;
-        ul{
-            .products{
+        ul {
+            .products {
                 display: list-item;
             }
         }
@@ -107,8 +109,8 @@
     }
     .overlay {
         width: 50vw;
-        right: 0;
-        top: 96px;
+        left: 0;
+        top: 0;
     }
 }
 
@@ -117,8 +119,8 @@
         font-size: 5vw;
     }
     .overlay {
-        width: 100vw;
-        right: 0;
-        top: 96px;
+        width: 90vw;
+        left: 0;
+        top: 0;
     }
 }

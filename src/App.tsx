@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
@@ -10,10 +10,13 @@ import PlanBilling from './components/pages/plan-billing';
 import Header from './components/organisms/header';
 import Footer from './components/organisms/footer';
 import { authenticateUser } from './store/authentication';
-import UnderContruction from './components/atoms/under-contruction';
 import MasterForm from './components/pages/application/master-form';
 import Quiz from './components/pages/quiz';
 import Report from './components/pages/report';
+import Products from './components/pages/products';
+import PartnerLogin from './components/pages/partner-login';
+import CustomerProfile from './components/pages/cutomer-profile';
+import Contact from './components/pages/contact';
 require('dotenv').config();
 const App = () => {
   const dispatch = useDispatch();
@@ -24,22 +27,27 @@ const App = () => {
 
   return (
     <Router>
+
       <div className="App">
-        <Header />
-        <div className="content">
-          <Switch>
-            <Route path={'/loantracker'} component={UnderContruction} />
-            <ProtectedRoute path={'/application/report'} Component={Report} />
-            <ProtectedRoute path={'/application/quiz'} Component={Quiz} />
-            <ProtectedRoute path={'/application/start'} Component={MasterForm} />
-            <ProtectedRoute path={'/application'} Component={Application} />
-            <ProtectedRoute path={'/planbilling'} Component={PlanBilling} />
-            <Route path={'/'}>
+        <Switch>
+          <ProtectedRoute path={'/application/report'} Component={Report} />
+          <ProtectedRoute path={'/application/quiz'} Component={Quiz} />
+          <ProtectedRoute path={'/application/start'} Component={MasterForm} />
+          <ProtectedRoute path={'/application'} Component={Application} exact />
+          <ProtectedRoute path={'/planbilling'} Component={PlanBilling} />
+          <ProtectedRoute path={'/custprofile'} Component={CustomerProfile} />
+          <Route path={'/login'} component={PartnerLogin} />
+          <Route path={'/products'} component={Products} />
+          <Route path={'/contacts'} component={Contact} />
+
+          <Route path={'/'}>
+            <Header />
+            <div className="content">
               <Landing />
-            </Route>
-          </Switch>
-        </div>
-        <Footer />
+            </div>
+            <Footer />
+          </Route>
+        </Switch>
       </div>
       <LoadingIndicator />
     </Router>

@@ -5,6 +5,7 @@ import { CredqState } from "../../../store/rootReducer";
 export interface ProtectedRouteProps {
     Component: any;
     path: string;
+    exact?: boolean;
 }
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ Component, ...rest }) => {
     const { isLoggedIn } = useSelector((state: CredqState) => state.authentication);

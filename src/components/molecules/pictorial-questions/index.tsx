@@ -18,11 +18,11 @@ const PictorialQuestions: React.FC<PictorialQuestionProps> = ({ question, option
     return (
         questionNum === serial ? <>
             <h3>{question.english}</h3>
-            <h2>{question[locale]}</h2>
+            { locale !== 'english' && <h2>{question[locale]}</h2>}
             {
-                question.question_img.map((img: string) =>
+                question.question_img.map((img: string, idx: number) =>
                 (
-                    <div className="image_question">
+                    <div className="image_question" key={idx}>
                         <img src={`${process.env.PUBLIC_URL}/assets/${img}.png`} alt={img} />
                     </div>)
                 )
@@ -31,7 +31,7 @@ const PictorialQuestions: React.FC<PictorialQuestionProps> = ({ question, option
             {
                 shuffledOptions.map((option, idx) =>
                 (
-                    <div className="image_option">
+                    <div className="image_option" key={idx}>
                         <h4>{alpha[idx]}</h4>
                         <img onClick={() => next(option.score, measure)} src={`${process.env.PUBLIC_URL}/assets/${option.url}.png`} alt={option.url} />
                     </div>)
@@ -39,7 +39,7 @@ const PictorialQuestions: React.FC<PictorialQuestionProps> = ({ question, option
             }
             <div className="option dont_understand" onClick={() => next(0, measure)}>
                 <h3 className="en">{dont_understand.english}</h3>
-                <h3 className="translation">{dont_understand[locale]}</h3>
+                {locale !== 'english' && <h3 className="translation">{dont_understand[locale]}</h3>}
             </div>
 
         </> : null
