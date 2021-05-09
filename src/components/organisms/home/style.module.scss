@@ -1,7 +1,9 @@
 @import "../../_settings/";
 
+$bg-height: 480px;
+
 .home {
-    min-height: 480px;
+    min-height: $bg-height;
     display: flex;
     text-align: left;
     flex-direction: column;
@@ -16,14 +18,14 @@
     }
     .myVideo {
         object-fit: cover;
-        max-height: 480px;
+        max-height: $bg-height;
         min-height: 100%;
         position: absolute;
         width: 100%;
     }
     .bg {
         background: $primary;
-        height: 480px;
+        height: $bg-height;
         min-width: 100%;
         opacity: 0.7;
         position: absolute;

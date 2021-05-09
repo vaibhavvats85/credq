@@ -16,7 +16,11 @@ const Works: React.FC<Worksprops> = () => {
                     {
                         Object.keys(constants.working_steps).slice(0, 3).map((point, idx) => (
                             <Pointer key={idx} number={idx + 1} className={styles.works_pointer}>
-                                <p>{constants.working_steps[point]}</p>
+
+                                <p>
+                                    {constants.working_steps[point]?.text}
+                                    <span className={styles.works_pointer_highlight}>{constants.working_steps[point]?.suffix}</span>
+                                </p>
                             </Pointer>
                         ))
                     }
@@ -25,7 +29,10 @@ const Works: React.FC<Worksprops> = () => {
                     {
                         Object.keys(constants.working_steps).slice(3, 6).map((point, idx) => (
                             <Pointer key={idx} number={idx + 4} className={styles.works_pointer}>
-                                <p>{constants.working_steps[point]}</p>
+                                <p>
+                                    {constants.working_steps[point]?.text}
+                                    <span className={styles.works_pointer_highlight}>{constants.working_steps[point]?.suffix}</span>
+                                </p>
                             </Pointer>
                         ))
                     }
