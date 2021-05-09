@@ -9,6 +9,7 @@
     height: 96px;
     position: fixed;
     min-width: 100vw;
+    z-index: 9999;
     &_logo {
         margin-top: 17px;
         &_image {

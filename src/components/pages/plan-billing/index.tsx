@@ -9,18 +9,13 @@ import * as constants from '../../../utils/constants';
 import Input from '../../atoms/input';
 import './styles.scss';
 import { loadInvoices } from '../../../store/invoices';
-import axios from 'axios';
-import DialogModal from '../../atoms/dialog';
-import { trackPromise } from 'react-promise-tracker';
 
 const PlanBilling: React.FC = () => {
     const [applicationNeed, setApplicationNeed] = useState('');
     const [totAmount, setTotAmount] = useState(0);
     const [invalidApplication, setInvalidApplication] = useState('');
-    const [upgradeMessage, setUpgradeMessage] = useState('');
     const dispatch = useDispatch();
     const [pageSize, setPageSize] = useState(5);
-    const [dialogShow, setDialogShow] = useState(false);
 
     const user = useSelector((state: CredqState) => state.authentication.user);
     const invoices = useSelector((state: CredqState) => state.invoices.response);
@@ -39,11 +34,6 @@ const PlanBilling: React.FC = () => {
             setInvalidApplication('You can only enter upto 2000 applications');
         }
 
-    };
-    const sendUpgradeRequest = async () => {
-        const { data } = await trackPromise(axios.post(`${process.env.REACT_APP_BASE_URL}/request/upgradeplan`, user));
-        setUpgradeMessage(data);
-        setDialogShow(true);
     };
     const iconStyles = {
         marginRight: '1rem',
@@ -83,11 +73,9 @@ const PlanBilling: React.FC = () => {
     }, [fetchInvoices])
     return (
         <div className="plan_billing">
-            <DialogModal type="success" header={upgradeMessage} onClose={() => setDialogShow(false)} isOpen={dialogShow} />
             <div className="purchase">
                 <p className="header">
-                    <b>CredQ- </b>
-                    <span>{user.plan} Plan</span>
+                    <b>CredQ</b>
                 </p>
                 <Input
                     inputClass="input"
@@ -110,11 +98,11 @@ const PlanBilling: React.FC = () => {
                         onClick={payNow}>
                         Pay Now
                     </Button>
-                    <Button
+                    {/* <Button
                         className="request-upgrade"
                         onClick={sendUpgradeRequest}>
                         Request to upgrade the plan
-                    </Button>
+                    </Button> */}
                 </div>
             </div>
             <div className="invoice">
@@ -125,7 +113,6 @@ const PlanBilling: React.FC = () => {
                     <thead>
                         <tr>
                             <th>Date</th>
-                            <th>Plan</th>
                             <th>Amount</th>
                             <th style={{ textAlign: 'center' }}>Download</th>
                         </tr>
@@ -136,7 +123,6 @@ const PlanBilling: React.FC = () => {
 
                                 <tr key={idx}>
                                     <td>{(new Date(invoice.created_at)).toDateString()}</td>
-                                    <td>{invoice.description}</td>
                                     <td>{invoice.amount_due / 100}</td>
                                     <td className="download-icon" onClick={() => downloadPdf(invoice.invoice_number)}><DownloadOutlined /></td>
                                 </tr>

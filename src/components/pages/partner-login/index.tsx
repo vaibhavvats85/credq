@@ -1,33 +1,55 @@
 import { useEffect, useState } from "react";
-import Button, { ButtonSize, ButtonType } from "../../atoms/button";
-import Input from "../../atoms/input";
-import Logo from "../../atoms/logo";
 import Modal from "../../atoms/modal";
 import styles from './styles.module.scss';
-import * as constants from '../../../utils/constants';
-import credq from '../../../assets/credq_logo.png';
-import { loginUserRequest, updateLoginMessage } from "../../../store/authentication";
+import { changePassword, loginUserRequest, updateLoginMessage } from "../../../store/authentication";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { CredqState } from "../../../store/rootReducer";
-import { ExclamationCircleFilled } from "@ant-design/icons";
+import { CheckCircleOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
+import Login from "./login";
+import NewPassword from "./newpassword";
 
 export interface PartnerLoginProps {
     modalOpen: boolean;
     hideModal: () => void;
 }
 
-const inputDimension = { height: '2rem', width: '60%' };
-
-const logoDimension = { height: '4rem' };
-
 const PartnerLogin: React.FC<PartnerLoginProps> = () => {
     // Store hooks
     const dispatch = useDispatch();
-    const { message, isLoggedIn } = useSelector((state: CredqState) => state.authentication);
+    const { message, msgType, isLoggedIn, user: { first_login } } = useSelector((state: CredqState) => state.authentication);
     // Authentication values
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    const [newPassword, setNewPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+    const [showNewPassword, setShowNewPassword] = useState(false);
+
+    const handleUserChange = (e: any) => setUsername(e.target.value);
+    const handlePasswordChange = (e: any) => setPassword(e.target.value);
+
+    const newPasswordChange = (e: any) => {
+        dispatch(updateLoginMessage(''));
+        setNewPassword(e.target.value);
+    }
+    const confirmPasswordChange = (e: any) => {
+        if (!newPassword) dispatch(updateLoginMessage('Please enter new password'));
+        else {
+            dispatch(updateLoginMessage('Passwords do not match'));
+            if (newPassword === e.target.value) dispatch(updateLoginMessage('Passwords Match', 'success'));
+            setConfirmPassword(e.target.value);
+        }
+    }
+
+    const changeUserPassword = () => {
+        const req = {
+            username: username,
+            password: newPassword
+        };
+        dispatch(changePassword(req))
+    }
 
     const authenticateUser = () => {
         dispatch(updateLoginMessage(''))
@@ -52,29 +74,52 @@ const PartnerLogin: React.FC<PartnerLoginProps> = () => {
     }
 
     useEffect(() => {
-        if (isLoggedIn) {
+        if (isLoggedIn && !first_login) {
             history.push('/application');
+        } else if (isLoggedIn && first_login) {
+            setShowNewPassword(true);
         }
-    }, [isLoggedIn, history]);
+    }, [isLoggedIn, history, showNewPassword, first_login]);
 
     return (
         <Modal show={modalOpen} close={hideModal}>
             <div className={styles.login}>
-                <Logo dimension={logoDimension} className={styles.login_head} logo={credq} />
                 <div className={styles.login_box}>
-                    <h1>{constants.enter_username}</h1>
-                    <Input dimension={inputDimension} value={username} className={styles.login_box_input} label={`${constants.user_label}:`} type="text" onChange={(e) => setUsername(e.target.value)} />
-                    <Input dimension={inputDimension} value={password} className={styles.login_box_input} label={`${constants.password_label}:`} type="password" onChange={(e) => setPassword(e.target.value)} />
-                    <Button className={styles.login_box_submit} size={ButtonSize.LARGE} type={ButtonType.BUTTON} onClick={authenticateUser}>
-                        {constants.login_btn}
-                    </Button>
+                    {!showNewPassword ? <Login
+                        username={username}
+                        password={password}
+                        handleUserChange={handleUserChange}
+                        handlePasswordChange={handlePasswordChange}
+                        authenticateUser={authenticateUser} /> :
+                        <NewPassword
+                            newPassword={newPassword}
+                            confirmPassword={confirmPassword}
+                            confirmPasswordChange={confirmPasswordChange}
+                            newPasswordChange={newPasswordChange}
+                            changePassword={changeUserPassword}
+                        />
+                    }
                 </div>
                 <div className={styles.error}>
-                    <p className={styles.message}>
-
-                        {message && <><ExclamationCircleFilled /> {message}</>}
-                    </p>
+                    {
+                        msgType === 'error' ?
+                            <p className={styles.message_error}>
+                                {message && <>
+                                    <ExclamationCircleOutlined /> {message}
+                                </>}
+                            </p> :
+                            <p className={styles.message_success}>
+                                {message && <>
+                                    <CheckCircleOutlined /> {message}
+                                </>}
+                            </p>
+                    }
                 </div>
+                <p className={styles.note}>
+                    By proceeding, you agree to our
+                    <span className={styles.highlight}> Terms & Conditions</span> &
+                    <span className={styles.highlight}> Privacy Policy</span>
+                </p>
             </div>
         </Modal>
     )

@@ -23,14 +23,13 @@ const Footer = () => {
                 </div>
 
                 <div className={styles.footer_social}>
-                    <h3>{constants.social}</h3>
+                    <h3 style={{textAlign: 'center'}}>{constants.social}</h3>
                     <Logo dimension={{ height: '2.5rem' }} onClick={() => openWindow(linkedInUrl)} className={styles.footer_linkedin} logo={linkedin} />
                 </div>
             </div>
             <div className={styles.footer_logo}>
                 <Logo imageClass={styles.footer_logo_image} logo={credq} /><span>CredQ © COPYRIGHT 2021</span>
             </div>
-            <Route path={'/contacts'} component={UnderContruction} />
             <Route path={'/privacy'} component={UnderContruction} />
             <Route path={'/terms'} component={UnderContruction} />
         </div>

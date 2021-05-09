@@ -9,8 +9,9 @@ const headerLinks: Link[] = [
     { label: 'Home', path: 'home' },
     { label: 'What we do', path: 'about' },
     { label: 'How It Works', path: 'works' },
-    { label: 'Products', path: 'products' }
+    { label: 'Our Product', path: 'products' }
 ];
+
 
 export interface HeaderLinksProps {
     className?: string;

@@ -4,7 +4,7 @@ import Questions from "../../molecules/questions";
 import './styles.scss';
 import * as constants from '../../../utils/constants';
 import { useDispatch, useSelector } from "react-redux";
-import { loadCapabilityScore, loadScore, loadWillingnessScore } from "../../../store/scores";
+import { loadCapabilityScore, loadScore, loadWillingnessScore, resetScore } from "../../../store/scores";
 import { CredqState } from "../../../store/rootReducer";
 import { useHistory } from "react-router";
 import PictorialQuestions from "../../molecules/pictorial-questions";
@@ -36,7 +36,8 @@ const Quiz: React.FC<QuizProps> = () => {
             default:
                 break;
         }
-    }, []);
+        dispatch(resetScore());
+    }, [dispatch]);
     useEffect(() => {
         const shuffledQuestions = questions[questionSet].slice(0, 4).map((a: any) => ({ sort: Math.random(), value: a }))
             .sort((a: any, b: any) => a.sort - b.sort)
@@ -44,9 +45,16 @@ const Quiz: React.FC<QuizProps> = () => {
         setShuffledQuestions(shuffledQuestions);
     }, [questionSet]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [questionNum]);
+
     const _next = (score: number, measure: string) => {
         if (questionNum === 5) {
-            history.push('/application/report');
+            history.push({
+                pathname: '/application/report',
+                state: { updateApplications: true }
+            });
         } else {
             setQuestionNum((num) => num >= 4 ? 5 : num + 1);
         }
@@ -60,16 +68,15 @@ const Quiz: React.FC<QuizProps> = () => {
         }
         dispatch(loadScore(scores.overall + score));
     }
-    const locale = 'tamil';
+    const locale = useSelector((state: CredqState) => state.preferences.language);
 
     return (
         <div className="question">
             {
                 shuffledQuestions.map((question: any, idx: number) =>
                 (
-                    <div>
+                    <div key={idx}>
                         <Questions
-                            key={idx}
                             question={question.question}
                             options={question.options}
                             locale={locale}

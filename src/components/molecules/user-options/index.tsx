@@ -3,15 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { CredqState } from "../../../store/rootReducer";
 import './styles.scss';
 import * as constants from '../../../utils/constants';
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { logOut } from "../../../store/authentication";
 import Button from "../../atoms/button";
 import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
 
-const UserOptions: React.FC = () => {
-    const { organization, plan } = useSelector((state: CredqState) => state.authentication.user);
+export interface UserOptionsProps {
+    menuClass?: string;
+    overlayClass?: string;
+}
+const UserOptions: React.FC<UserOptionsProps> = ({ menuClass, overlayClass }) => {
+    const { organization } = useSelector((state: CredqState) => state.authentication.user);
     const [menuOpen, setMenuopen] = useState(false);
     const history = useHistory();
+    const location = useLocation();
     const dispatch = useDispatch();
 
     // Overlay Ref
@@ -50,21 +55,23 @@ const UserOptions: React.FC = () => {
 
     return (
         <>
-            <div className="nav" onClick={toggleMenu}>
+            <div className={`nav ${menuClass}`} onClick={toggleMenu}>
                 <span className="initials">{getInitials(organization)}</span>
-                {!menuOpen ? <span className="menu"><MenuOutlined /></span> :
-                    <CloseOutlined className="close" onClick={() => setMenuopen(false)} />}
+                {!menuOpen && <span className="menu"><MenuOutlined /></span>}
             </div>
             { menuOpen &&
-                <div className="overlay" ref={container}>
-                    {/* <button className="close" onClick={() => setMenuopen(false)}><CloseOutlined /></button> */}
+                <div className={`overlay ${overlayClass}`} ref={container}>
+                    {menuOpen &&
+                        <CloseOutlined className="close" onClick={() => setMenuopen(false)} />}
                     <div className="user">{organization}</div>
                     <Button className="start_application" onClick={() => redirectTo('/application')}>
                         {constants.new_application}
                     </Button>
                     <ul>
-                        {plan === 'Premium' && <li onClick={() => redirectTo('/loantracker')}>{constants.loan_tracker}</li>}
+                        {location.pathname !== '/' && <li onClick={() => redirectTo('/')}>Home</li>}
+                        <li onClick={() => redirectTo('/custprofile')}>{constants.cust_profile}</li>
                         <li onClick={() => redirectTo('/planbilling')}>{constants.plan_billing}</li>
+                        <li onClick={() => redirectTo('/products')}>Our Product</li>
                         <li onClick={() => window.open('https://wa.me/13218060588')}>{constants.help_center}</li>
                         <li onClick={logout}>{constants.logout}</li>
                     </ul>

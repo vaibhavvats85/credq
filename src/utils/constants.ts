@@ -27,11 +27,13 @@ export const privacy_policy = 'Privacy Policy';
 export const terms_conditions = 'Terms and Conditions';
 
 // Form labels
-export const enter_username = 'Enter your User ID and Password';
+export const enter_username = 'Enter CredQ credentials';
 export const user_label = 'User Id';
 export const password_label = 'Password';
+export const new_password = 'New Password';
+export const confirm_password = 'Confirm Password';
 export const submit_btn = 'Submit';
-export const login_btn = 'Login';
+export const login_btn = 'Proceed Securely';
 export const fname_label = 'First Name';
 export const lname_label = 'Last Name';
 export const email_label = 'Email';
@@ -66,7 +68,7 @@ export const premium_features = [
 ];
 
 // Application Page
-export const applications_left = 'Applications Left';
+export const applications_tracker = 'Applications Tracker';
 export const application_count_prefix = 'You have';
 export const application_count_suffix = 'applications left with you';
 export const no_applications_msg = 'You have exhausted your applications!';
@@ -77,10 +79,10 @@ export const start_application = 'Start Application';
 export const cant_proceed_msg = 'You cannot proceed with the new application';
 export const start_application_confirm = 'Do you want to start a new application?';
 export const noInvoiceMsg = 'There are no invoices yet for your organization';
-export const close_warning = 'Do not close the window';
+export const close_warning = 'Please complete the form';
 
 // User Option Links 
-export const loan_tracker = 'Loan Tracker';
+export const cust_profile = "Customer's Profile";
 export const plan_billing = 'Plan & billing';
 export const help_center = 'Help Center';
 export const logout = 'Logout';

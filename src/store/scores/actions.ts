@@ -1,6 +1,7 @@
 export const LOAD_SCORE = '[LOAD SCORE] Load score';
 export const LOAD_CAPABILITY_SCORE = '[LOAD SCORE] Load Capability score';
 export const LOAD_WILLINGNESS_SCORE = '[LOAD SCORE] Load Willingness score';
+export const RESET_SCORE = '[RESET SCORE] Reset score';
 
 interface LoadScore {
     type: typeof LOAD_SCORE,
@@ -38,6 +39,17 @@ export function loadWillingnessScore(payload: number): LoadWillingnessScore {
     }
 };
 
+interface ResetScore {
+    type: typeof RESET_SCORE,
+}
+
+export function resetScore(): ResetScore {
+    return {
+        type: RESET_SCORE
+    }
+};
+
 export type scoreActionTypes = LoadCapabilityScore |
     LoadWillingnessScore |
-    LoadScore;
+    LoadScore |
+    ResetScore;

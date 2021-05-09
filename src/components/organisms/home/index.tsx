@@ -9,14 +9,22 @@ export interface Homeprops {
 }
 
 const Home: React.FC<Homeprops> = () => {
+    const scrollToDemo = () => scrollToView('demo');
     return (
         <div className={styles.home}>
-            <p>
-                {constants.home_paragraph}
-            </p>
-            <Button className={styles.home_button} size={ButtonSize.MEDIUM} type={ButtonType.BUTTON} onClick={() => scrollToView('demo')}>
-                {constants.schedule_demo}
-            </Button>
+            <video autoPlay muted loop className={styles.myVideo}>
+                <source src={`${process.env.PUBLIC_URL}/assets/background_clip.mp4`} type="video/mp4" />
+                Your browser does not support HTML5 video.
+            </video>
+            <div className={styles.bg}></div>
+            <div className={styles.content}>
+                <p>
+                    {constants.home_paragraph}
+                </p>
+                <Button className={styles.home_button} size={ButtonSize.MEDIUM} type={ButtonType.BUTTON} onClick={scrollToDemo}>
+                    {constants.schedule_demo}
+                </Button>
+            </div>
         </div>
     )
 }

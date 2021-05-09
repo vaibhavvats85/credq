@@ -1,18 +1,23 @@
 @import "../../_settings/colors";
 
 .option {
-    background-color: $primary;
+    background-color: #0585da;
     border-radius: 5px;
-    padding: 5px;
-    margin: 15px;
+    padding: 10px 20px;
+    margin: 15px auto;
     font-size: 0.7rem;
     cursor: pointer;
+    width: fit-content;
+    min-width: 8rem;
+    h3{
+        margin: 0;
+    }
     .en {
         color: white;
     }
 }
 .dont_understand {
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 .image_option {
     cursor: pointer;
