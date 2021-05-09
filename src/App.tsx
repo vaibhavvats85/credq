@@ -1,4 +1,4 @@
-import  { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
@@ -17,6 +17,8 @@ import Products from './components/pages/products';
 import PartnerLogin from './components/pages/partner-login';
 import CustomerProfile from './components/pages/cutomer-profile';
 import Contact from './components/pages/contact';
+import PrivacyPolicy from './components/pages/privay-policy';
+import TermsConditions from './components/pages/terms-conditions';
 require('dotenv').config();
 const App = () => {
   const dispatch = useDispatch();
@@ -39,7 +41,8 @@ const App = () => {
           <Route path={'/login'} component={PartnerLogin} />
           <Route path={'/products'} component={Products} />
           <Route path={'/contacts'} component={Contact} />
-
+          <Route path={'/privacy'} component={PrivacyPolicy} />
+          <Route path={'/terms'} component={TermsConditions} />
           <Route path={'/'}>
             <Header />
             <div className="content">

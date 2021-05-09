@@ -1,0 +1,35 @@
+@import "../../_settings/colors";
+
+$bg-height: 300px;
+
+.bg-video {
+    min-height: $bg-height;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    &_button {
+        width: fit-content;
+        background-color: $demo-btn;
+        color: $primary;
+        padding: 1rem 5rem;
+    }
+    .myVideo {
+        object-fit: cover;
+        max-height: $bg-height;
+        min-height: 100%;
+        position: absolute;
+        width: 100%;
+    }
+    .bg {
+        background: $primary;
+        height: $bg-height;
+        min-width: 100%;
+        opacity: 0.7;
+        position: absolute;
+    }
+    .bg-content {
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
+    }
+}

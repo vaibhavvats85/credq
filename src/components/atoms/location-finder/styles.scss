@@ -13,23 +13,33 @@
 }
 .autocomplete-dropdown-container {
   position: absolute;
-  width: calc(100% - 2rem);
-  // border: 1px solid #919191;
+  width: 50%;
   border-radius: 5px;
+  margin-top: -1rem;
 }
 
 .input-suggestion {
   font-family: "Lato", sans-serif;
   height: 3rem;
   background-color: white;
-  border-bottom: 1px black dotted;
+  border-bottom: 1px solid;
   display: flex;
   align-items: center;
   font-size: 1rem;
+  border: 1px solid;
   font-weight: 400;
   color: black;
-  padding: 0 4px;
-  IMG{
+  padding: 0.8rem 4px;
+  text-align: start;
+  IMG {
     width: 1.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .autocomplete-dropdown-container {
+    width: calc(100% - 2rem);
   }
 }

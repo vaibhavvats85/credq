@@ -15,7 +15,10 @@ const About: React.FC<Aboutprops> = () => {
         <div className={styles.about}>
             <h1>{constants.what_we_do}</h1>
             <p>
-                {constants.about_paragraph}
+                {constants.about_paragraph[0]}
+            </p>
+            <p>
+                {constants.about_paragraph[1]}
             </p>
             <div className={styles.about_logo_col}>
                 <Logo logo={credq1} className={styles.about_logo} imageClass={styles.about_logo_image}>

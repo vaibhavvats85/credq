@@ -30,8 +30,7 @@ const Footer = () => {
             <div className={styles.footer_logo}>
                 <Logo imageClass={styles.footer_logo_image} logo={credq} /><span>CredQ © COPYRIGHT 2021</span>
             </div>
-            <Route path={'/privacy'} component={UnderContruction} />
-            <Route path={'/terms'} component={UnderContruction} />
+            
         </div>
     )
 }
