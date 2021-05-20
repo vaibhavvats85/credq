@@ -31,7 +31,7 @@ const Login: React.FC<LoginProps> = ({ username, password, handlePasswordChange,
                     <span onClick={() => history.push('/terms')} className={styles.highlight}> Terms & Conditions</span> &
                     <span onClick={() => history.push('/privacy')} className={styles.highlight}> Privacy Policy</span>
             </p>
-            <h2 style={{ marginBottom: '0', cursor: 'pointer' }} onClick={() => window.open('https://wa.me/13218060588')}>Need <span className={styles.highlight}>Help?</span></h2>
+            <h2 style={{ marginBottom: '0', cursor: 'pointer' }} onClick={() => window.open('https://wa.me/918174970428')}>Need <span className={styles.highlight}>Help?</span></h2>
         </>
     );
 }

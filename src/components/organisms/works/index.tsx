@@ -15,7 +15,7 @@ const Works: React.FC<Worksprops> = () => {
                 <div>
                     {
                         Object.keys(constants.working_steps).slice(0, 3).map((point, idx) => (
-                            <Pointer key={idx} number={idx + 1} className={styles.works_pointer}>
+                            <Pointer key={idx} number={idx + 1} className={idx === 3 ? styles.works_pointer : styles.marginBottom}>
 
                                 <p>
                                     {constants.working_steps[point]?.text}
