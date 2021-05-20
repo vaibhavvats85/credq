@@ -32,7 +32,7 @@ const Report: React.FC = () => {
             }
             dispatch(updateApplications(req))
         }
-    }, []);
+    }, [applicant, capability, dispatch, location.state?.updateApplications, overall, username, willingness]);
     const handleFinish = () => {
         dispatch(resetScore());
         history.push('/application');

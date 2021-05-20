@@ -5,7 +5,7 @@ const Contact = () => {
     const history = useHistory();
     useEffect(() => {
         history.push('/', { link: 'demo' })
-    }, []);
+    }, [history]);
     return (
         <>
         </>

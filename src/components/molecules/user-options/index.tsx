@@ -8,7 +8,6 @@ import { logOut } from "../../../store/authentication";
 import Button from "../../atoms/button";
 import { CloseOutlined, MenuOutlined, SearchOutlined } from "@ant-design/icons";
 import { headerLinks } from '../header-links';
-import { scrollToView } from "../../../utils/service";
 import { Link } from "../../../models";
 
 export interface UserOptionsProps {

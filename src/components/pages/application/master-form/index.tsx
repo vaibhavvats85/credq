@@ -21,7 +21,6 @@ const MasterForm: React.FC<MasterFormProps> = () => {
     const [currentStep, setCurrentStep] = useState(1);
     const dispatch = useDispatch();
     const history = useHistory();
-    const [dialogShow, setDialogShow] = useState(true);
     const [formValues, setFormValues] = useState<Preferences>({
         language: '',
         location: '',
