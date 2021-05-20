@@ -1,7 +1,11 @@
-@import "../../_settings/colors";
+@import "../../_settings";
 
+.our-product {
+    min-height: calc(100vh - 446px);
+    padding-bottom: $footer-height;
+}
 .product {
-    padding-bottom: 350px;
+    // padding-bottom: $footer-height;
     padding-top: 8rem;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -11,21 +15,36 @@
         display: flex;
         margin-bottom: 5rem;
         .description {
-            width: 55%;
-            width: fit-content;
+            width: 50%;
             margin: auto;
-            .green{
-                color: #00B050;
+            .green {
+                color: #00b050;
                 font-weight: bold;
             }
             p {
                 font-size: 1.2rem;
             }
+            .demo {
+                width: 15rem;
+            }
         }
-        .image-1,
-        .image-2 {
+
+        .image-1 {
+            width: 50%;
+            margin: auto;
             img {
                 width: 100%;
+                height: inherit;
+            }
+        }
+        .image-0 {
+            @extend .image-1;
+            display: none;
+        }
+        .image-2 {
+            width: 50%;
+            img {
+                width: auto;
                 height: inherit;
             }
         }
@@ -33,7 +52,7 @@
             list-style-type: "✔";
             padding-left: 1rem;
             font-size: 1.5rem;
-            li{
+            li {
                 padding-left: 1rem;
             }
         }
@@ -52,15 +71,27 @@
             flex-direction: column;
             .description {
                 width: auto !important;
+                .demo {
+                    display: block;
+                    margin: auto;
+                }
             }
             .image-2 {
+                width: 100%;
                 img {
                     width: 60%;
                     margin: auto;
                     display: block;
                 }
             }
-            ul{
+            .image-1 {
+                display: none;
+            }
+            .image-0 {
+                width: 100%;
+                display: block;
+            }
+            ul {
                 font-size: 1.2rem;
             }
         }

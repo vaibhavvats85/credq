@@ -6,14 +6,18 @@ import * as constants from '../../../utils/constants';
 import { useHistory, useLocation } from "react-router-dom";
 import { logOut } from "../../../store/authentication";
 import Button from "../../atoms/button";
-import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
+import { CloseOutlined, MenuOutlined, SearchOutlined } from "@ant-design/icons";
+import { headerLinks } from '../header-links';
+import { Link } from "../../../models";
 
 export interface UserOptionsProps {
     menuClass?: string;
     overlayClass?: string;
+    fromApplicationPage?: boolean;
 }
-const UserOptions: React.FC<UserOptionsProps> = ({ menuClass, overlayClass }) => {
+const UserOptions: React.FC<UserOptionsProps> = ({ menuClass, overlayClass, fromApplicationPage }) => {
     const { organization } = useSelector((state: CredqState) => state.authentication.user);
+    const { isLoggedIn } = useSelector((state: CredqState) => state.authentication);
     const [menuOpen, setMenuopen] = useState(false);
     const history = useHistory();
     const location = useLocation();
@@ -24,8 +28,10 @@ const UserOptions: React.FC<UserOptionsProps> = ({ menuClass, overlayClass }) =>
 
     // Get Initials of user
     const getInitials = (org: string) => {
-        const [fname, lname] = org.split(' ');
-        return `${fname[0]}${lname[0]}`
+        if (org) {
+            const [fname, lname] = org.split(' ');
+            return `${fname[0]}${lname[0]}`
+        }
     };
 
     useEffect(() => {
@@ -53,28 +59,46 @@ const UserOptions: React.FC<UserOptionsProps> = ({ menuClass, overlayClass }) =>
         }
     };
 
+    const scrollView = (link: Link) => {
+        if (link.path === 'products') history.push('/products');
+        else history.push('/', { link: link.path })
+        setMenuopen(false);
+    }
+
     return (
         <>
             <div className={`nav ${menuClass}`} onClick={toggleMenu}>
-                <span className="initials">{getInitials(organization)}</span>
+                {isLoggedIn && <span className="initials">{getInitials(organization)}</span>}
                 {!menuOpen && <span className="menu"><MenuOutlined /></span>}
             </div>
             { menuOpen &&
                 <div className={`overlay ${overlayClass}`} ref={container}>
                     {menuOpen &&
                         <CloseOutlined className="close" onClick={() => setMenuopen(false)} />}
-                    <div className="user">{organization}</div>
-                    <Button className="start_application" onClick={() => redirectTo('/application')}>
-                        {constants.new_application}
-                    </Button>
-                    <ul>
-                        {location.pathname !== '/' && <li onClick={() => redirectTo('/')}>Home</li>}
-                        <li onClick={() => redirectTo('/custprofile')}>{constants.cust_profile}</li>
-                        <li onClick={() => redirectTo('/planbilling')}>{constants.plan_billing}</li>
-                        <li onClick={() => redirectTo('/products')}>Our Product</li>
-                        <li onClick={() => window.open('https://wa.me/13218060588')}>{constants.help_center}</li>
-                        <li onClick={logout}>{constants.logout}</li>
-                    </ul>
+                    {isLoggedIn &&
+                        <>
+                            <div className="user">{organization}</div>
+                            <Button className="start_application" onClick={() => redirectTo('/application')}>
+                                {constants.start_application}
+                            </Button>
+                        </>
+                    }
+                    {isLoggedIn ?
+                        <ul>
+                            {(location.pathname !== '/' && !fromApplicationPage) && <li onClick={() => redirectTo('/')}>Home</li>}
+                            <li onClick={() => redirectTo('/custprofile')}>{constants.cust_profile} <SearchOutlined /></li>
+                            <li onClick={() => redirectTo('/planbilling')}>{constants.plan_billing}</li>
+                            {!fromApplicationPage && <li onClick={() => redirectTo('/products')}>Our Product</li>}
+                            <li onClick={() => window.open('https://wa.me/13218060588')}>{constants.help_center}</li>
+                            <li onClick={logout}>{constants.logout}</li>
+                        </ul> :
+                        <ul>
+                            {
+                                headerLinks.map((link) => <li onClick={() => scrollView(link)}>{link.label}</li>)
+                            }
+                        </ul>
+                    }
+
                 </div>
             }
         </>

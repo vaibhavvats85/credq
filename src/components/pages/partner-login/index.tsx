@@ -8,11 +8,14 @@ import { CredqState } from "../../../store/rootReducer";
 import { CheckCircleOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
 import Login from "./login";
 import NewPassword from "./newpassword";
+import Logo from "../../atoms/logo";
+import credq from '../../../assets/credq_logo.png';
 
 export interface PartnerLoginProps {
     modalOpen: boolean;
     hideModal: () => void;
 }
+const logoDimension = { height: '3rem', width: '9rem', cursor: 'pointer' };
 
 const PartnerLogin: React.FC<PartnerLoginProps> = () => {
     // Store hooks
@@ -84,6 +87,7 @@ const PartnerLogin: React.FC<PartnerLoginProps> = () => {
     return (
         <Modal show={modalOpen} close={hideModal}>
             <div className={styles.login}>
+                <Logo onClick={() => history.push('/')} dimension={logoDimension} className={styles.login_head} logo={credq} />
                 <div className={styles.login_box}>
                     {!showNewPassword ? <Login
                         username={username}
@@ -115,11 +119,7 @@ const PartnerLogin: React.FC<PartnerLoginProps> = () => {
                             </p>
                     }
                 </div>
-                <p className={styles.note}>
-                    By proceeding, you agree to our
-                    <span className={styles.highlight}> Terms & Conditions</span> &
-                    <span className={styles.highlight}> Privacy Policy</span>
-                </p>
+
             </div>
         </Modal>
     )

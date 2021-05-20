@@ -23,9 +23,12 @@ const Header: React.FC = () => {
                     {isLoggedIn ?
                         <UserOptions />
                         :
-                        <Button className={styles.header_login_btn} size={ButtonSize.LARGE} onClick={() => redirectTo('/login')}>
-                            {constants.partner_login}
-                        </Button>
+                        <>
+                            <UserOptions />
+                            <Button className={styles.header_login_btn} size={ButtonSize.LARGE} onClick={() => redirectTo('/login')}>
+                                {constants.partner_login}
+                            </Button>
+                        </>
                     }
                 </div>
                 {/* <NavBar /> */}

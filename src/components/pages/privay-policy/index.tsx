@@ -4,13 +4,14 @@ import './styles.scss';
 import * as constants from '../../../utils/constants';
 import Info from "../../organisms/info";
 import { useEffect } from "react";
+import Footer from "../../organisms/footer";
 
 const PrivacyPolicy = () => {
     useEffect(() => window.scroll(0, 0), []);
     return (
-        <>
+        <div className="privacy">
             <Header />
-            <BgVideo className="bg-video-children">
+            <BgVideo className="bg-video-privacy">
                 <h1>Privacy Policy</h1>
                 <h2>We treat your data if it was our own</h2>
             </BgVideo>
@@ -42,7 +43,8 @@ const PrivacyPolicy = () => {
             <div className="questions">
                 <Info data={constants.privacy_policy_questions} />
             </div>
-        </>
+            <Footer />
+        </div>
     );
 }
 export default PrivacyPolicy;

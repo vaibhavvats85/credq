@@ -13,7 +13,7 @@ const Step1: React.FC<Step1Props> = (props) => {
     return (
         <div className="container">
             <label htmlFor="language">
-                <h1>Choose Language</h1>
+                <h1>Choose <span className="highlight">Language</span></h1>
             </label>
             <Radio selected_value={props.language} handleChange={props.handleChange}
                 sub_values={language.english} values={language.native} group="language" disabled={language.disabled} />

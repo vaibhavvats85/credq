@@ -15,9 +15,10 @@ export interface Inputprops {
     autocomplete?: string;
     sub_label?: string;
     format?: boolean;
+    logo?: any;
 }
 
-const Input: React.FC<Inputprops> = ({ name, value, label, placeholder, onChange, type, className, dimension, autocomplete, inputClass, sub_label, format }) => {
+const Input: React.FC<Inputprops> = ({ name, value, label, placeholder, onChange, type, className, dimension, autocomplete, inputClass, sub_label, format, logo }) => {
     const id = label?.toLowerCase();
     const classProps = classnames(
         styles.input,
@@ -25,7 +26,7 @@ const Input: React.FC<Inputprops> = ({ name, value, label, placeholder, onChange
     )
     return (
         <div className={classProps}>
-            {label && <label htmlFor={id}>{label}</label>}
+            {label && <label htmlFor={id}>{label}{logo}</label>}
             {sub_label && <p>{sub_label}</p>}
             {!format ? <input name={name}
                 className={inputClass}

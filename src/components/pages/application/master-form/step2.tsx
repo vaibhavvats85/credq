@@ -3,6 +3,7 @@ import './styles.scss';
 import { useSelector } from "react-redux";
 import { CredqState } from "../../../../store/rootReducer";
 import { LocationFinder } from "../../../atoms/location-finder";
+
 export interface Step2Props {
     currentStep: number;
     location: string;

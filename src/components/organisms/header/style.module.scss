@@ -6,7 +6,7 @@
     padding: 0 2rem;
     background-color: $header-bg;
     width: 100%;
-    height: 96px;
+    height: $header-height;
     position: fixed;
     min-width: 100vw;
     z-index: 9999;
@@ -34,25 +34,40 @@
                 height: 2.8rem;
             }
         }
-
-        &_links {
-            display: none;
-        }
     }
 }
 
 @media only screen and (max-width: 768px) {
     .header {
+        height: $mobile-header-height;
+        align-items: unset;
+        padding: 0;
         &_logo {
+            height: fit-content;
+            width: 100%;
+            position: absolute;
             &_image {
                 width: 6rem;
                 height: 2.5rem;
             }
         }
 
+        &_links {
+            display: none;
+        }
+
         &_login {
+            margin-left: auto;
+            padding-right: 2rem;
+            display: flex;
+            justify-content: flex-end;
             &_btn {
-                font-size: 3vw;
+                font-size: 2vw;
+                position: absolute;
+                bottom: 10px;
+                right: 50%;
+                transform: translateX(50%);
+                width: 10rem;
             }
         }
     }
@@ -62,14 +77,19 @@
     .header {
         &_logo {
             &_image {
-                width: 4rem;
-                height: 1.5rem;
+                width: 5rem;
+                height: 2rem;
             }
+        }
+
+        &_links {
+            display: none;
         }
 
         &_login {
             &_btn {
                 font-size: 3vw;
+                width: 12rem;
             }
         }
     }

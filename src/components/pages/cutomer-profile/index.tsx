@@ -7,6 +7,7 @@ import { loadPreferences } from "../../../store/preferences";
 import { loadReports } from "../../../store/reports";
 import { CredqState } from "../../../store/rootReducer";
 import { loadCapabilityScore, loadScore, loadWillingnessScore } from "../../../store/scores";
+import Button, { ButtonSize } from "../../atoms/button";
 import Input from "../../atoms/input";
 import Modal from "../../atoms/modal";
 import './styles.scss';
@@ -39,12 +40,14 @@ const CustomerProfile: React.FC = () => {
         setFilter(value.toLowerCase());
     }
     return (
-        <Modal show={modalOpen} close={hideModal}>
-            <h1>
-                Customer's Profile
-            </h1>
+        <Modal show={modalOpen} close={hideModal} className="modal-cust_profile">
+            <div className="back">
+                <Button className="back_btn" size={ButtonSize.MEDIUM} onClick={() => history.push('/application')}>
+                    Back
+            </Button>
+            </div>
             <div className="search">
-                <Input inputClass="inputClass" label="Search Customers" placeholder="Search by ID/Name" onChange={searchCustomer} />
+                <Input inputClass="inputClass" placeholder="Search by ID/Name" onChange={searchCustomer} />
             </div>
             <div className="customer-profile">
                 <table>

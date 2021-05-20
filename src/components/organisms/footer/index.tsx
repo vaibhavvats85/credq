@@ -19,15 +19,15 @@ const Footer = () => {
                     <Label className={styles.footer_label} isLink path={'privacy'}>{constants.privacy_policy}</Label>
                     <Label className={styles.footer_label} isLink path={'terms'}>{constants.terms_conditions}</Label>
                 </div>
-
+                <div className={styles.footer_logo}>
+                    <Logo imageClass={styles.footer_logo_image} logo={credq} /><span>Copyright © CredQ 2021</span>
+                </div>
                 <div className={styles.footer_social}>
-                    <h3 style={{ textAlign: 'center' }}>{constants.social}</h3>
-                    <Logo dimension={{ height: '2.5rem' }} onClick={() => openWindow(linkedInUrl)} className={styles.footer_linkedin} logo={linkedin} />
+                    <h3 style={{ textAlign: 'center', width: 'fit-content', margin: '1rem auto' }}>{constants.social}</h3>
+                    <Logo dimension={{ height: '2.5rem', width: '5rem' }} onClick={() => openWindow(linkedInUrl)} className={styles.footer_linkedin} logo={linkedin} />
                 </div>
             </div>
-            <div className={styles.footer_logo}>
-                <Logo imageClass={styles.footer_logo_image} logo={credq} /><span>CredQ © COPYRIGHT 2021</span>
-            </div>
+
 
         </div>
     )

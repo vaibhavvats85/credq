@@ -19,10 +19,13 @@
         .header {
             margin-right: auto;
             margin-left: auto;
-            border-bottom: 2px solid;
             width: fit-content;
-            color: $primary;
+            color: black;
+            span{
+                color: $primary;
+            }
         }
+
         .count {
             width: 8vw;
             height: 8vw;
@@ -45,11 +48,17 @@
 .button {
     font-size: 1rem;
     margin: auto;
+    width: 15rem;
+    height: 3.5rem;
 }
 
 .nav-applications {
     margin-left: 2rem !important;
     margin-top: 2rem;
+    .menu {
+        position: absolute;
+        top: -70px;
+    }
 }
 
 .overlay-applications {
@@ -83,12 +92,16 @@
 @media only screen and (max-width: 768px) {
     .application {
         width: 80%;
+        box-shadow: none;
         .column {
+            padding: 0;
             .count {
                 width: 13vw;
                 height: 13vw;
                 line-height: 13vw;
                 font-size: 3vw;
+                margin: 4rem auto;
+                border: 2vw solid;
             }
         }
     }
@@ -100,13 +113,16 @@
             width: auto;
             margin: 0 1rem;
             .header {
-                font-size: 5vw;
+                font-size: 7vw;
             }
             .count {
-                width: 15vw;
-                height: 15vw;
-                line-height: 15vw;
-                font-size: 4vw;
+                width: 35vw;
+                height: 35vw;
+                line-height: 35vw;
+                font-size: 8vw;
+            }
+            .button{
+                font-size: 1rem;
             }
         }
     }

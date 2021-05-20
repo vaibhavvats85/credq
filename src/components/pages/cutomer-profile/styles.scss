@@ -31,6 +31,17 @@
         color: black;
     }
 }
+
+.back {
+    width: 80%;
+    margin: 1rem auto;
+    &_btn {
+        width: 6rem;
+        border-radius: 0.5rem;
+        display: block;
+        margin-left: 0;
+    }
+}
 .search {
     margin: 2rem auto;
     width: 80%;
@@ -39,7 +50,7 @@ h1 {
     color: $primary;
 }
 
-.inputClass{
+.inputClass {
     margin-top: 1rem;
 }
 
@@ -50,6 +61,12 @@ h1 {
     font-weight: bold;
     &:hover {
         color: $primary;
+    }
+}
+
+.modal-cust_profile {
+    .close {
+        display: none;
     }
 }
 

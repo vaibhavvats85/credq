@@ -1,8 +1,11 @@
+@import '../../../_settings/colors';
+
 .steps {
     margin: 2rem auto;
     width: 50%;
     .btn {
         margin: 1rem;
+        min-width: 7rem;
     }
 }
 .container {
@@ -10,9 +13,19 @@
     &-input {
         margin: 1rem 0;
     }
+    h1{
+        margin-bottom: 0;
+        color: black;
+    }
+    p{
+        margin-top: 0;
+    }
 }
 .input {
     font-size: 1rem;
+}
+.highlight{
+    color: $primary;
 }
 
 @media only screen and (max-width: 768px) {

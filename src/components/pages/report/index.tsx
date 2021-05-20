@@ -23,22 +23,19 @@ const Report: React.FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         if (location.state?.updateApplications) {
-            const req: ApplicationReport= {
-                username, 
+            const req: ApplicationReport = {
+                username,
                 applicant,
-                score: overall, 
-                capability, 
+                score: overall,
+                capability,
                 willingness
             }
             dispatch(updateApplications(req))
         }
-    });
+    }, [applicant, capability, dispatch, location.state?.updateApplications, overall, username, willingness]);
     const handleFinish = () => {
-        const leave = window.confirm("Are you sure you want to leave? If yes click 'OK'");
-        if (leave) {
-            dispatch(resetScore());
-            history.push('/application');
-        };
+        dispatch(resetScore());
+        history.push('/application');
     }
     useEffect(() => {
         if (overall >= 800) {
