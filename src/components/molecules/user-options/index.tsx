@@ -89,7 +89,7 @@ const UserOptions: React.FC<UserOptionsProps> = ({ menuClass, overlayClass, from
                             <li onClick={() => redirectTo('/custprofile')}>{constants.cust_profile} <SearchOutlined /></li>
                             <li onClick={() => redirectTo('/planbilling')}>{constants.plan_billing}</li>
                             {!fromApplicationPage && <li onClick={() => redirectTo('/products')}>Our Product</li>}
-                            <li onClick={() => window.open('https://wa.me/13218060588')}>{constants.help_center}</li>
+                            <li onClick={() => window.open('https://wa.me/918174970428')}>{constants.help_center}</li>
                             <li onClick={logout}>{constants.logout}</li>
                         </ul> :
                         <ul>

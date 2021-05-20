@@ -14,7 +14,7 @@ export const intel_ai_engine = 'Intelligent AI-Risk Engine';
 export const what_we_do = 'What We do';
 export const how_it_works = 'How It Works';
 export const products = 'Products';
-
+export const scheduleDemoSubmitMsg = 'Thanks for reaching out to us. Our Sales Team will get back to you with more information within 24 hrs.'
 export const working_steps: any = {
     point_1: {
         text: 'CredQ collects ', suffix: 'alternative data'
@@ -143,7 +143,7 @@ export const privacy_policy_questions = [
     {
         ques: 'Changes to Privacy Policy',
         ans: ['CredQ reserves the right to change this policy from time to time. Any changes shall be effective immediately upon the posting of the revised Privacy Policy. We encourage you to periodically review this page for latest information on our privacy practices.',
-            'If you have any concerns about how data is processed, stored, or have any comments or questions regarding your privacy, please do not hesitate to contact us at <u>info@credq.org</u.']
+            'If you have any concerns about how data is processed, stored, or have any comments or questions regarding your privacy, please do not hesitate to contact us at info@credq.org.']
     }
 ];
 
