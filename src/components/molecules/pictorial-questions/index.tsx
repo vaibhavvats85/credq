@@ -37,7 +37,7 @@ const PictorialQuestions: React.FC<PictorialQuestionProps> = ({ question, option
                     </div>)
                 )
             }
-            <div className="option dont_understand" onClick={() => next(0, measure)}>
+            <div className="pict-option dont_understand" onClick={() => next(0, measure)}>
                 <h3 className="en">{dont_understand.english}</h3>
                 {locale !== 'english' && <h3 className="translation">{dont_understand[locale]}</h3>}
             </div>

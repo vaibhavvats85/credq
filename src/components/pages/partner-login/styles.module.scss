@@ -1,72 +1,72 @@
 @import "../../_settings/";
 
 .login {
-    &_box {
-        background-color: transparent;
-        width: 30rem;
-        height: 20rem;
-        margin: auto;
-        margin-top: 5%;
-        margin-bottom: 1%;
-        box-shadow: 3px 3px 6px 3px $grey-2;
-        padding: 1rem;
-        h1 {
-            font-size: 1.5rem;
-        }
-        &_input {
-            flex-direction: row;
-            justify-content: center;
-            padding: 0 3rem;
-            margin-top: 3rem;
-            align-items: baseline;
-        }
-
-        &_submit {
-            margin: 2rem auto;
-            border-radius: 5px;
-        }
+  &_box {
+    background-color: transparent;
+    width: 30rem;
+    height: fit-content;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 1%;
+    box-shadow: 1px 1px 5px 0px #ccc;
+    padding: 1rem;
+    h1 {
+      font-size: 1.5rem;
+      color: black !important;
     }
+    &_input {
+      flex-direction: row;
+      justify-content: center;
+      padding: 0 3rem;
+      margin-top: 3rem;
+      align-items: baseline;
+    }
+
+    &_submit {
+      margin: 2rem auto;
+      border-radius: 5px;
+    }
+  }
 }
 
 .error {
-    // background: rgba($color: $product-essential, $alpha: 0.2);
-    width: 100%;
-    padding: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 2px;
-    .message {
-        font-size: 1rem;
-        &_error {
-            color: red;
-        }
-        &_success {
-            color: green;
-        }
+  // background: rgba($color: $product-essential, $alpha: 0.2);
+  width: 100%;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2px;
+  .message {
+    font-size: 1rem;
+    &_error {
+      color: red;
     }
+    &_success {
+      color: green;
+    }
+  }
 }
 .highlight {
-    color: $primary;
+  color: $primary;
+  cursor: pointer;
 }
 .note {
-    position: absolute;
-    bottom: 1rem;
-    font-size: 10px;
-    width: 51%;
-    left: 25%;
+  font-size: 10px;
+  color: black;
+  margin-top: 0;
 }
 
 @media only screen and (max-width: 768px) {
-    .login {
+  .login {
+    width: 90%;
+    margin: auto;
+    &_box {
+      width: auto;
+      box-shadow: none;
+      &_input {
         width: 90%;
-        margin: auto;
-        &_box {
-            width: auto;
-            box-shadow: none;
-            &_input {
-                width: 90%;
-                padding: 0 1rem;
-            }
-        }
+        padding: 0 1rem;
+      }
     }
+  }
 }

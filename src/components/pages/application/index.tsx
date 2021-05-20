@@ -16,10 +16,10 @@ const Application: React.FC = () => {
     }, []);
     return (
         <>
-            <UserOptions menuClass="nav-applications" overlayClass="overlay-applications" />
+            <UserOptions fromApplicationPage menuClass="nav-applications" overlayClass="overlay-applications" />
             <div className="application">
                 <div className="column">
-                    <h1 className="header">{constants.applications_tracker}</h1>
+                    <h1 className="header">Application <span>Tracker</span></h1>
                     {
                         applicationCount ?
                             (<>
@@ -36,14 +36,14 @@ const Application: React.FC = () => {
                 </div>
                 <div className="column">
                     {
-                        applicationCount ?
+                        applicationCount > 0 ?
                             (<>
                                 <Button className="button" onClick={() => history.push('/application/start')}>
                                     {constants.start_application}
                                 </Button>
                             </>) :
                             (
-                                <h2>
+                                <h2 style={{fontSize: '1rem'}}>
                                     {constants.cant_proceed_msg}
                                 </h2>
                             )

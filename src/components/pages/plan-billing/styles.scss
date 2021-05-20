@@ -5,6 +5,9 @@
     flex-direction: row;
     justify-content: space-evenly;
 }
+.highlight{
+    color: $primary;
+}
 .purchase {
     width: 30%;
     display: flex;
@@ -23,9 +26,6 @@
 
     .header {
         font-size: 1.5rem;
-        span {
-            color: $product-essential;
-        }
     }
     .tot-amount {
         color: $primary;
@@ -100,10 +100,22 @@
     .pay-now {
         @extend .request-upgrade;
         background: black;
+        width: 10rem;
         &:hover {
             color: black;
             background: transparent;
         }
+    }
+}
+
+.back-billing {
+    width: 80%;
+    margin: 1rem;
+    &_btn {
+        width: 6rem;
+        border-radius: 0.5rem;
+        display: block;
+        margin-left: 0;
     }
 }
 

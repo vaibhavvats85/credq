@@ -88,16 +88,17 @@ const Quiz: React.FC<QuizProps> = () => {
                     </div>
                 ))
             }
-            <PictorialQuestions
-                question={questions[questionSet][4].question}
-                options={questions[questionSet][4].options}
-                locale={locale}
-                serial={5}
-                questionNum={questionNum}
-                next={_next}
-                measure={questions[questionSet][4].tag}
-            />
-
+            <div className="pictorial">
+                <PictorialQuestions
+                    question={questions[questionSet][4].question}
+                    options={questions[questionSet][4].options}
+                    locale={locale}
+                    serial={5}
+                    questionNum={questionNum}
+                    next={_next}
+                    measure={questions[questionSet][4].tag}
+                />
+            </div>
         </div>
     );
 }

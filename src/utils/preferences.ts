@@ -53,7 +53,11 @@ export const personal_details: any = {
             hindi: 'वैवाहिक स्थिति'
         },
         options: {
-            english: ['Single', 'Married', 'Prefer Not to answer'],
+            english: ['Single',
+                'Married, have no kids',
+                'Married, have kids',
+                'Prefer Not to Answer'
+            ],
             tamil: ['திருமணமாகாதவர்', 'திருமணமானவர்', 'விரும்பவில்லை'],
             hindi: ['अविवाहित', 'विवाहित', 'जवाब नहीं देना चाहता']
         }

@@ -4,6 +4,7 @@ import * as constants from '../../../utils/constants';
 import Header from '../../organisms/header';
 import Button, { ButtonSize, ButtonType } from '../../atoms/button';
 import { useHistory } from 'react-router';
+import Footer from '../../organisms/footer';
 
 const Products: React.FC<{ open: boolean }> = () => {
     const features = [
@@ -21,7 +22,7 @@ const Products: React.FC<{ open: boolean }> = () => {
         window.scroll(0, 0);
     }, []);
     return (
-        <>
+        <div className="our-product">
             <Header />
             <div className="product">
                 <div className="row">
@@ -30,11 +31,14 @@ const Products: React.FC<{ open: boolean }> = () => {
                         <p>CredQ’s proprietary financial technology leverages an alternative data source – credit bureau data,
                         utility bills, demographic, geolocation, government reports coupled with psychometric data to
                     assess the creditworthiness and reliability of each applicant.</p>
+                        <div className="image-0">
+                            <img alt="product_1" src={`${process.env.PUBLIC_URL}/assets/product_1.png`} />
+                        </div>
                         <p>Our AI risk scoring algorithm crunches over these data to discover
                         highly predictive delinquent behavioral and financial patterns and then translates
                         it into accurate personality score. With risk scoring taking mere seconds,
                         CredQ is the fastest and most accurate alternative risk scoring provider today.</p>
-                        <Button size={ButtonSize.MEDIUM} type={ButtonType.BUTTON} onClick={() => history.push('/', { link: 'demo' })}>
+                        <Button size={ButtonSize.LARGE} className="demo" type={ButtonType.BUTTON} onClick={() => history.push('/', { link: 'demo' })}>
                             {constants.schedule_demo}
                         </Button>
                     </div>
@@ -59,7 +63,8 @@ const Products: React.FC<{ open: boolean }> = () => {
 
                 </div>
             </div>
-        </>
+            <Footer />
+        </div>
     );
 }
 export default Products;

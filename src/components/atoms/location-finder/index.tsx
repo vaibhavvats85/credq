@@ -1,3 +1,4 @@
+import { SearchOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { location } from "../../../utils/preferences";
@@ -25,6 +26,7 @@ export const LocationFinder: React.FC<LocationFinderProps> = (props) => {
                     <Input value={address} name="location" placeholder="Enter City Name/Pincode"
                         label={location.title.english} sub_label={props.locale !== 'english' && location.title[props.locale]}
                         inputClass="container-input" className="input" autocomplete="off"
+                        logo={<SearchOutlined />}
                         {...getInputProps()}
                     />
                     <div className="autocomplete-dropdown-container">

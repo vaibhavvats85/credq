@@ -4,6 +4,7 @@ import Input from "../../atoms/input";
 import styles from './styles.module.scss';
 import * as constants from '../../../utils/constants';
 import React from "react";
+import { useHistory } from "react-router";
 
 export interface LoginProps {
     username: string;
@@ -14,7 +15,8 @@ export interface LoginProps {
 }
 
 const Login: React.FC<LoginProps> = ({ username, password, handlePasswordChange, handleUserChange, authenticateUser }) => {
-    const inputDimension = { height: '3rem' };
+    const inputDimension = { height: '2.5rem' };
+    const history = useHistory();
     return (
 
         <>
@@ -23,9 +25,13 @@ const Login: React.FC<LoginProps> = ({ username, password, handlePasswordChange,
             <Input dimension={inputDimension} placeholder={constants.password_label} value={password} className={styles.login_box_input} type="password" onChange={handlePasswordChange} />
             <Button className={styles.login_box_submit} size={ButtonSize.LARGE} type={ButtonType.BUTTON} onClick={authenticateUser}>
                 <LockFilled /> {constants.login_btn}
-
             </Button>
-
+            <p className={styles.note}>
+                By proceeding, you agree to our
+                    <span onClick={() => history.push('/terms')} className={styles.highlight}> Terms & Conditions</span> &
+                    <span onClick={() => history.push('/privacy')} className={styles.highlight}> Privacy Policy</span>
+            </p>
+            <h2 style={{ marginBottom: '0', cursor: 'pointer' }} onClick={() => window.open('https://wa.me/13218060588')}>Need <span className={styles.highlight}>Help?</span></h2>
         </>
     );
 }

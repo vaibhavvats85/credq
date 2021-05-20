@@ -6,7 +6,7 @@
     justify-content: space-around;
     background-color: $footer-bg;
     width: 100%;
-    height: 350px;
+    height: $footer-height;
     text-align: start;
     position: absolute;
     bottom: 0;
@@ -17,8 +17,10 @@
         justify-content: space-around;
     }
     &_logo {
-        margin: 2rem auto;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         span {
             font-size: 10px;
             color: $grey-1;
@@ -47,7 +49,9 @@
 @media only screen and (max-width: 768px) {
     .footer {
         font-size: 3vw;
+        flex-direction: column;
         &_logo {
+            display: none;
             &_image {
                 width: 6rem;
                 height: 2rem;

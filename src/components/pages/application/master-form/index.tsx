@@ -10,8 +10,6 @@ import './styles.scss';
 import * as preferences from '../../../../store/preferences';
 import { Preferences } from "../../../../models";
 import { useHistory } from "react-router";
-import DialogModal from "../../../atoms/dialog";
-import { close_warning } from "../../../../utils";
 
 export interface MasterFormProps {
     currentStep: number;
@@ -138,7 +136,6 @@ const MasterForm: React.FC<MasterFormProps> = () => {
     }
     return (
         <div className="steps">
-            <DialogModal type="success" header={close_warning} onClose={() => setDialogShow(false)} isOpen={dialogShow} />
             <form onSubmit={handleSubmit}>
                 {/* 
         render the form steps and pass required props in

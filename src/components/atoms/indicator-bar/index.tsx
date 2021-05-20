@@ -15,16 +15,13 @@ const IndicatorBar: React.FC<IndicatorBarProps> = ({ indicate }) => {
     },
     {
         color: '#FFFF00',
-        tag: 'Average'
-    },
-    {
-        color: '#FE9292',
-        tag: 'Poor'
+        tag: 'Fair'
     },
     {
         color: '#FF0000',
-        tag: 'Very Poor'
-    }];
+        tag: 'Poor'
+    }
+    ];
     useEffect(() => {
 
     }, []);

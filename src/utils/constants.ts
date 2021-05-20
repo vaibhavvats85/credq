@@ -45,8 +45,7 @@ export const new_password = 'New Password';
 export const confirm_password = 'Confirm Password';
 export const submit_btn = 'Submit';
 export const login_btn = 'Proceed Securely';
-export const fname_label = 'First Name';
-export const lname_label = 'Last Name';
+export const name_label = 'Name';
 export const email_label = 'Email';
 export const phone_label = 'Phone';
 export const org_label = 'Organization';
@@ -79,7 +78,7 @@ export const premium_features = [
 ];
 
 // Application Page
-export const applications_tracker = 'Applications Tracker';
+export const application_tracker = 'Application Tracker';
 export const application_count_prefix = 'You have';
 export const application_count_suffix = 'applications left with you';
 export const no_applications_msg = 'You have exhausted your applications!';
@@ -93,8 +92,8 @@ export const noInvoiceMsg = 'There are no invoices yet for your organization';
 export const close_warning = 'Please complete the form';
 
 // User Option Links 
-export const cust_profile = "Customer's Profile";
-export const plan_billing = 'Plan & billing';
+export const cust_profile = "Search Customer Profile";
+export const plan_billing = 'Billing';
 export const help_center = 'Help Center';
 export const logout = 'Logout';
 
@@ -150,7 +149,6 @@ export const privacy_policy_questions = [
 
 export const terms_conditions_questions = [
     {
-        ques: 'Terms & Conditions',
         ans: [
             'These terms and conditions explain how that works. They were last updated on 1st Jan, 2021.',
             'Confused? Got questions? Send us an email at info@credq.org'
@@ -170,7 +168,7 @@ export const terms_conditions_questions = [
     },
     {
         ques: 'How can I pay to avail CredQ’s services ?',
-        ans: ['You can pay with a credit or debit card, UPI, Wallets Net banking etc. We have no access to payment data, and we don’t store that information. Only the company processing payments has access to this information.  Please make sure your payment information is up-to-date. If payment isn’t processed, we might suspend or delete your account.']
+        ans: ['You can pay with a credit or debit card, UPI, Wallets, Net banking etc. We have no access to payment data, and we don’t store that information. Only the company processing payments has access to this information.  Please make sure your payment information is up-to-date. If payment isn’t processed, we might suspend or delete your account.']
     },
     {
         ques: 'How do you invoice ?',

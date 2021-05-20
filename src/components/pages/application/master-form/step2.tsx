@@ -3,6 +3,8 @@ import './styles.scss';
 import { useSelector } from "react-redux";
 import { CredqState } from "../../../../store/rootReducer";
 import { LocationFinder } from "../../../atoms/location-finder";
+import { SearchOutlined } from "@ant-design/icons";
+
 export interface Step2Props {
     currentStep: number;
     location: string;

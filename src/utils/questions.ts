@@ -56,14 +56,14 @@ export const questions: any = {
             options: [
                 {
                     english: 'A planned life is a good life.',
-                    tamil: '3 மாதங்களில்',
-                    hindi: 'एक नियोजित जीवन ही एक अच्छा जीवन होता है ।',
+                    tamil: 'திட்டமிட்ட வாழ்க்கை ஒரு நல்ல வாழ்க்கை.',
+                    hindi: 'एक नियोजित जीवन ही एक अच्छा जीवन होता है।',
                     score: 150
                 },
                 {
-                    english: 'Today',
-                    tamil: 'இன்று',
-                    hindi: 'भविष्य के बारे में मत सोचो। बस हर दिन का आनंद लो !',
+                    english: "Don't think long term. Just enjoy each day!",
+                    tamil: 'எதிர்காலத்தைப் பற்றி சிந்திக்க வேண்டாம். ஒவ்வொரு நாளும் மகிழுங்கள்!',
+                    hindi: 'भविष्य के बारे में मत सोचो। बस हर दिन का आनंद लो!',
                     score: 100
                 }
             ],
@@ -350,13 +350,13 @@ export const questions: any = {
                     english: 'Invest the portion of savings in bank schemes.',
                     tamil: 'சேமிப்பில் ஒரு பகுதியை வங்கி திட்டங்களில் முதலீடு செய்வேன்.',
                     hindi: 'बचत का एक हिस्सा बैंक योजनाओं में निवेश करूंगा ।',
-                    score: 130
+                    score: 120
                 },
                 {
                     english: 'Invest all the savings in bank schemes.',
                     tamil: 'அனைத்து சேமிப்பு வங்கி திட்டங்களிலும் முதலீடு செய்வேன்.',
                     hindi: 'सभी बचत बैंक योजनाओं में निवेश करूंगा ।',
-                    score: 110
+                    score: 100
                 }
             ],
             tag: constants.repayment_willingness
@@ -379,11 +379,11 @@ export const questions: any = {
                 },
                 {
                     url: 'set_3_option_3',
-                    score: 0
+                    score: 100
                 },
                 {
                     url: 'set_3_option_4',
-                    score: 100
+                    score: 0
                 },
             ],
             tag: constants.repayment_willingness

@@ -5,7 +5,7 @@ import Label from '../../atoms/labels';
 import styles from './style.module.scss';
 
 
-const headerLinks: Link[] = [
+export const headerLinks: Link[] = [
     { label: 'Home', path: 'home' },
     { label: 'What we do', path: 'about' },
     { label: 'How It Works', path: 'works' },

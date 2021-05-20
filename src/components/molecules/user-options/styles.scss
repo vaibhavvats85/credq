@@ -4,6 +4,7 @@
     width: max-content;
     cursor: pointer;
     margin-left: auto;
+    margin-top: 12px;
     .menu {
         display: none;
     }
@@ -29,6 +30,7 @@
     border-radius: 5px;
     padding-bottom: 1.5rem;
     box-shadow: 1px 1px 5px 0px #ccc;
+    z-index: 99;
     .close {
         right: 1rem;
         position: absolute;
@@ -36,18 +38,15 @@
     }
     ul {
         list-style-type: "";
-        padding-left: 1.5rem;
+        padding-left: 0.5rem;
         text-align: start;
-        border-top: 1px solid $grey-2;
         margin-left: 10px;
         margin-right: 10px;
-        border-bottom: 1px solid $grey-2;
         .products {
             display: none;
         }
     }
     li {
-        color: $primary;
         font-weight: 400;
         font-size: 1.5rem;
         padding: 0.5rem 0;
@@ -62,6 +61,7 @@
     .start_application {
         font-size: 1rem;
         font-weight: 500;
+        margin-top: 1rem;
     }
     .user {
         font-family: sf pro display, -apple-system, BlinkMacSystemFont, Roboto, segoe ui, Helvetica, Arial, sans-serif,
@@ -70,20 +70,15 @@
         line-height: 1.2;
         letter-spacing: -0.02rem;
         font-size: 1.3rem;
-        padding: 1.5rem;
-        margin-top: 2rem;
+        padding: 2.5rem 1.5rem;
+        background-color: $primary;
+        color: white;
     }
 }
 
 @media only screen and (max-width: 1024px) {
     .nav {
         font-size: 3vw;
-        .menu {
-            display: block;
-        }
-        .initials {
-            display: none;
-        }
         .close {
             display: block;
         }
@@ -103,10 +98,18 @@
     }
 }
 
-@media only screen and (max-width: 786px) {
+@media only screen and (max-width: 768px) {
     .nav {
         font-size: 4vw;
+        position: absolute;
+        .initials {
+            display: none;
+        }
+        .menu {
+            display: block;
+        }
     }
+
     .overlay {
         width: 50vw;
         left: 0;
