@@ -4,7 +4,7 @@ import Questions from "../../molecules/questions";
 import './styles.scss';
 import * as constants from '../../../utils/constants';
 import { useDispatch, useSelector } from "react-redux";
-import { loadCapabilityScore, loadScore, loadWillingnessScore, resetScore } from "../../../store/scores";
+import { loadCapabilityScore, loadScore, loadWillingnessScore } from "../../../store/scores";
 import { CredqState } from "../../../store/rootReducer";
 import { useHistory } from "react-router";
 import PictorialQuestions from "../../molecules/pictorial-questions";
@@ -36,7 +36,6 @@ const Quiz: React.FC<QuizProps> = () => {
             default:
                 break;
         }
-        dispatch(resetScore());
     }, [dispatch]);
     useEffect(() => {
         const shuffledQuestions = questions[questionSet].slice(0, 4).map((a: any) => ({ sort: Math.random(), value: a }))
