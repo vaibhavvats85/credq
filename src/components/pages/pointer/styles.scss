@@ -1,0 +1,79 @@
+.progressVisualFull {
+    display: flex;
+    /* change the value if you want different thickness */
+    padding: 2rem;
+    .progressLabel {
+      /* Nothing here, move along */
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        margin-right: 2rem;
+        width: 13%;
+        font-weight: bold;
+      font-size: 1rem;
+      text-align: left!important;
+    }
+    .item {
+      width: 7% !important;
+      margin-right: 1px !important;
+      height: 16px !important;
+      border-radius: 11%;
+      border: 1px solid #0071bc;
+    }
+    
+  }
+  
+
+
+  @media (max-width: 1024px) {
+
+    .progressVisualFull {
+      display: flex;
+      width: 13rem;
+      /* width: 111%; */
+      width: 20%important;
+      padding: 2rem;
+      margin-left: -2rem;
+      .progressLabel {
+        /* Nothing here, move along */
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+          margin-right: 3rem;
+          width: 13%;
+          font-weight: bold;
+        font-size: 0.8rem!important;
+        text-align: left!important;
+      }
+    }
+    
+    .item {
+      width: 20% !important;
+      margin-right: 1px !important;
+      height: 16px !important;
+      border-radius: 11%;
+      border: 1px solid #0071bc;
+    }
+
+    .end{
+      margin-left: 0.5rem!important;
+      font-weight: bold;
+      font-size: 0.8rem!important;
+    }
+  }
+ 
+  
+  
+  
+  body {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+  }
+  
+  
+  
+  .end{
+    margin-left: 2rem;
+    font-weight: bold;
+    font-size: 1rem;
+  }

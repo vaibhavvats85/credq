@@ -4,7 +4,8 @@ import * as fromActions from './actions';
 export const ScoreInitialState: Score = {
     overall: 0,
     capability: 0,
-    willingness: 0
+    willingness: 0,
+    customerInsights:[]
 }
 
 export function scoreReducer(state: Score = ScoreInitialState, action: fromActions.scoreActionTypes) {
@@ -29,6 +30,12 @@ export function scoreReducer(state: Score = ScoreInitialState, action: fromActio
                 overall: 0,
                 capability: 0,
                 willingness: 0
+            }
+
+         case fromActions.CUSTOMER_INSIGHTS:
+            return {
+                ...state,
+                customerInsights:action.payload
             }
         default:
             return state;

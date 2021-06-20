@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 const Application: React.FC = () => {
     const { applications } = useSelector((state: CredqState) => state.authentication.user);
-    const applicationCount = parseInt(applications);
+    const applicationCount = 5;
     const history = useHistory();
     useEffect(() => {
         window.scrollTo(0, 0);

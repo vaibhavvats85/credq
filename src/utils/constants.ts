@@ -114,6 +114,9 @@ export const BASE_URL = 'http://localhost:5000';
 // Scoring
 export const repayment_capability = 'repayment_capability';
 export const repayment_willingness = 'repayment_willingness';
+export const social_engagement = 'social_engagement';
+export const Ambition = 'Ambition';
+
 
 
 export const privacy_policy_questions = [

@@ -47,6 +47,17 @@ const MasterForm: React.FC<MasterFormProps> = () => {
         storePreferencetState(name, value);
     }
 
+    const handleChangeApplicantName = (event: any) => {
+        const val=event?.target.value;
+        if(!val.match(/^[a-zA-Z]+$/) && val!=""){
+           return;
+        }
+        else{
+            const { name, value } = event?.target;
+            storePreferencetState(name, value);
+        }
+    }
+
     const handleAmountChange = (values: any) => {
         const value = values.formattedValue.slice(1, values.formattedValue.length);
         storePreferencetState('amount', value);
@@ -156,6 +167,7 @@ const MasterForm: React.FC<MasterFormProps> = () => {
                 />
                 <Step4
                     currentStep={currentStep}
+                    handleChangeApplicantName={handleChangeApplicantName}
                     handleChange={handleChange}
                     name={formValues.name}
                     marital_status={formValues.marital_status}

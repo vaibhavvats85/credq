@@ -12,6 +12,8 @@ export interface Step4Props {
     gender: string;
     marital_status: string;
     handleChange: (event: any) => void;
+    handleChangeApplicantName: (event: any) => void;
+
 }
 const Step4: React.FC<Step4Props> = (props) => {
     const dispatch = useDispatch();
@@ -38,7 +40,7 @@ const Step4: React.FC<Step4Props> = (props) => {
                 placeholder="Enter Name"
                 label={personal_details.applicant_name.title.english}
                 sub_label={locale !== 'english' && personal_details.applicant_name.title[locale]}
-                onChange={props.handleChange}
+                onChange={props.handleChangeApplicantName}
                 className="location input"
                 inputClass="container-input"
             />

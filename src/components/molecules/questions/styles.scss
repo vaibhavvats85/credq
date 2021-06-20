@@ -27,3 +27,16 @@ p {
 .translation {
     font-weight: bold;
 }
+
+.image_options {
+    cursor: pointer;
+    display: inline-block;
+    width: 50%;
+    h4 {
+        color: $primary;
+    }
+    img {
+        width: 10rem;
+        height: 10rem;
+    }
+}

@@ -16,7 +16,7 @@ const Step5: React.FC<Step5Props> = (props) => {
     }
     return (
         <div className="container">
-            <h1>{age.title.english}</h1>
+            <label className="font-check">{age.title.english}</label>
             {locale !== 'english' && <p>{age.title[locale]}</p>}
             <Radio
                 selected_value={props.age}
