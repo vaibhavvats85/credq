@@ -1,5 +1,4 @@
-import { constants } from 'os';
-import React, { useEffect } from 'react';
+import React from 'react';
 import './styles.scss';
 
 export interface QuestionProps {
@@ -32,7 +31,6 @@ const Questions: React.FC<QuestionProps> = ({ question, options, locale, questio
         console.log(shuffledOptions);
         const alpha = ['A', 'B', 'C'];
 
-        // let checkImg= measure===constants.social_engagement|| question.tag===constants.stability
 
     return (
         questionNum === serial ? <>

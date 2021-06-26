@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './styles.scss';
 
 export interface ProgressLineProps {
@@ -9,23 +9,12 @@ export interface ProgressLineProps {
 
 
 const ProgressLine: React.FC<ProgressLineProps> = ({ visualParts, label,end }) => {
-  debugger
-      const [widths, setWidths] = useState(
+      const [widths] = useState(
         visualParts.map(() => {
           return 0;
         })
       );
 
-
-      // useEffect(() => {
-      //   requestAnimationFrame(() => {
-      //     setWidths(
-      //       visualParts.map((item) => {
-      //         return item.climate;
-      //       })
-      //     );
-      //   });
-      // }, [visualParts]);
 
 
   return (

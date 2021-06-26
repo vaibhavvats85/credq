@@ -3,14 +3,15 @@
 .credqScore{
   width: 70%;
     margin: auto;
-    box-shadow: 1px 1px 5px 0px #ccc;
-    /* margin: 2rem 0; */
     background-color: white;
     padding: 1rem 2rem;
     /* text-align: start; */
     height: -moz-fit-content;
     height: fit-content;
     display: flex;
+    .riskTab{
+      display: none;
+    }
     .score{
       display: flex;
      border: 1px solid;
@@ -19,8 +20,8 @@
      justify-content: space-around;
      width: 30%;
      height: auto;
-     max-width: 70%!important;
-      h1 {
+     max-width: 90%!important;
+    .headingPara {
     margin: auto 0;
     font-size: 3rem;
     font-weight: 500;
@@ -30,6 +31,12 @@
     flex-direction: column;
       align-items: center;
     }
+    .div-align{
+      font-size: 0.9rem!important;
+      width: 13rem;
+      margin-left: -0.4rem;
+      
+    }
  
   
        }
@@ -37,8 +44,10 @@
 }
 
 .div-align{
-  float: left;
+  margin-left: -1.5rem;
+  
 }
+
 
 .label-willing{
   text-align: initial;
@@ -53,7 +62,7 @@
 .insights{
   width: 68%;
   margin: auto;
-  box-shadow: 1px 1px 5px 0px #ccc;
+  //box-shadow: 1px 1px 5px 0px #ccc;
   background-color: white;
   padding: 1rem 3rem;
   height: -moz-fit-content;
@@ -72,27 +81,69 @@
   justify-content: space-around;
   width: 50%;
   height: auto;
-  max-width: 70%!important;
+  max-width: 90%!important;
   margin-left: 5rem;
 }
 
+.finish{
+  padding: 0.8rem;
+  background: #3e98c7;
+  color: #e6e6e6;
+  border: 1px solid #acc9f9;
+  font-weight: 800;
+  width: 6rem;
+}
+
 @media (max-width: 1024px) {
+
+  .finish{
+    padding: 0.4rem;
+    background: #3e98c7;
+    color: #e6e6e6;
+    border: 1px solid #acc9f9;
+    font-weight: 800;
+    width: 4rem;
+  }
+  .riskProgfileTab{
+  display: none;
+  }
+  
    .credqScore {
       flex-direction: column;
       align-items: center;
+      width: 20rem;
       .CircularProgressbar {
         width: 90%!important;
         vertical-align: middle!important;
         }
+        .riskTab{
+          margin-left: 8rem;
+          margin-top: 3rem;
+          padding: 1rem;
+          margin-right: 7rem;
+          background: #3e98c7;
+          color: #e6e6e6;
+          border: 1px solid #acc9f9;
+          font-weight: 800;
+          width: 9rem;
+          display: block;
+          margin-bottom: -2rem;
+        }
+  }
+
+  .ButtonStyle{
+    flex-direction: column;
+      align-items: center;
+      width: 26rem;
   }
 
  
   .score{
-    width: 70% !important;
-    margin: auto;
-    padding: 2.5rem!important;
+    width: 83% !important;
+    padding: 3rem!important;
+   
   }
-  h1 {
+  headingPara {
     margin: auto 0;
     margin-right: 7vh!important;
     font-size: 3rem;
@@ -104,8 +155,16 @@
     margin-bottom: 1rem!important;
     }
     .circularCheck {
-      width: 70%!important;
+      width: 90%!important;
       margin-top: 3rem;
+      margin-right: 5rem;
+      .label-willing{
+        width: 12rem;
+      }
+      .div-align{
+        margin-left: -7rem!important;
+      }
+      
     }
 
     .CircularProgressbar {
@@ -113,9 +172,9 @@
       vertical-align: middle!important;
       }
  
-      .div-style ,
+      .div-style ,.label-willing,.div-align ,
       h4{
-        font-size: 0.8rem;
+        font-size: 0.7rem;
       }
       .indicatorStyle{
         margin-top: 0rem;
@@ -123,20 +182,49 @@
 
 
       .insights {
-        width: 84%;
-        box-shadow: 1px 1px 5px 0px #ccc;
+        width: 97%;
+       // box-shadow: 1px 1px 5px 0px #ccc;
         background-color: white;
-        padding: 1rem 2rem;
-        height: -moz-fit-content;
+        padding: 1rem 4rem;
         height: fit-content;
         .border-insights{
-          width: -webkit-fill-available;
+          width: 22rem;
+          margin-left: -2rem;
           background-color: #000;
           color: #f5f5f5 !important;
           text-align: start;
           font-size: 0.5rem!important;
           padding: 0.1rem;
+         
+         
+    
         }
+        .margin-top{
+          margin-top: 2rem !important;
+          text-align: justify;
+          font-size: 1.1rem !important;
+          margin-left: -1rem !important;
+          font-weight: 500 !important;
+          width: 20rem;
+        }
+
+        .margin-top-label{
+          margin-top: 1.5rem;
+          text-align: justify;
+          font-size: 1.1rem;
+          font-weight: 500;
+          width: 20rem;
+          margin-left: -1rem !important;
+         
+        }
+
+        .margin-top-slider {
+    margin-top: 2rem;
+    width: 20rem;
+    /* margin-left: -13rem; */
+}
+
+ 
     }
  
      
@@ -179,14 +267,14 @@
         
       }
       .circle {
-        display: flex!important;
-        background-color: #a9a8a1!important;
-        border-radius: 50%!important;
-        margin-top: -2px!important;
-        border: 1px solid!important;
+        display: flex !important;
+        background-color: #a9a8a1 !important;
+        border-radius: 50% !important;
+        margin-top: -2px !important;
+        border: 1px solid !important;
         height: 15px;
-        margin-left: 13px!important;
-        width: 13px!important;
+        margin-left: 1.7rem !important;
+        width: 15px !important;
     }
 
     .placeholder {
@@ -274,6 +362,9 @@ dominant-baseline: middle;
 text-anchor: middle;
 }
 
+
+
+
 .item {
   width: 7% !important;
   margin-right: 1px !important;
@@ -348,6 +439,7 @@ text-anchor: middle;
   text-align: initial;
   font-size: 1.1rem;
   font-weight: 500;
+  display: flex;
 }
 .circle {
   display: flex;
@@ -368,7 +460,7 @@ text-anchor: middle;
   .score,
   .invoice {
       td,
-      h1{
+      headingPara{
           font-size: 2vw;
       }
   }
@@ -482,7 +574,7 @@ text-anchor: middle;
 //   padding: 2rem;
 //   justify-content: space-around;
 //   // max-width: 20rem;
-//   h1 {
+//   headingPara {
 //     margin: auto 0;
 //     font-size: 3rem;
 //     font-weight: 500;

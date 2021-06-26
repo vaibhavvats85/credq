@@ -14,7 +14,7 @@ export interface QuizProps {
 }
 const Quiz: React.FC<QuizProps> = () => {
     const [questionNum, setQuestionNum] = useState(1);
-    const [checkImgQues, setCheckImgQues] = useState(false);
+    const [checkImgQues] = useState(false);
     const [shuffledQuestions, setShuffledQuestions] = useState<any>([]);
     // const recipietnList=[{ questionType: '',
     //     status: '',

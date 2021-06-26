@@ -28,21 +28,27 @@
 
     .progressVisualFull {
       display: flex;
-      width: 13rem;
-      /* width: 111%; */
-      width: 20%important;
+      width: 18rem;
       padding: 2rem;
-      margin-left: -2rem;
+      margin-left: -3rem;
       .progressLabel {
         /* Nothing here, move along */
         font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
           "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
           margin-right: 3rem;
-          width: 13%;
+          width: 20%;
           font-weight: bold;
         font-size: 0.8rem!important;
         text-align: left!important;
       }
+      .progressVisualFull .item {
+        width: 7% !important;
+        margin-right: 1px !important;
+        height: 16px !important;
+        border-radius: 11%;
+        padding: 0rem 0.5rem;
+        border: 1px solid #0071bc;
+    }
     }
     
     .item {
@@ -54,8 +60,7 @@
     }
 
     .end{
-      margin-left: 0.5rem!important;
-      font-weight: bold;
+      width: 0rem;
       font-size: 0.8rem!important;
     }
   }
@@ -63,12 +68,12 @@
   
   
   
-  body {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #e5e5e5;
-    border-radius: 6px;
-  }
+  // body {
+  //   margin: 20px;
+  //   padding: 20px;
+  //   border: 1px solid #e5e5e5;
+  //   border-radius: 6px;
+  // }
   
   
   

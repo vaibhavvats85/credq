@@ -3,9 +3,9 @@ export const questions: any = {
     Set_1: [
         {
             question: {
-                english: "Would you take Rs 10,000 today or Rs 35,000 in 3 months” ? Which choice would you prefer ?",
-                tamil: "நீங்கள் இன்று ரூ.10,000 அல்லது 3 மாதங்களில் ரூ. 35,000 எடுப்பீர்களா ? எந்த விருப்பத்தை விரும்புகிறீர்கள் ?",
-                hindi: "क्या आप आज 10,000 रुपये लेना चाहेंगे या आप 3 महीने में 35,000 रुपये लेना चाहेंगे? आप कौन सा विकल्प पसंद करेंगे ?",
+                english: "“Would you take Rs 10,000 today or Rs 35,000 in 3 months or Rs 75,000 in 6 months ”? Which choice would you prefer ?​",
+                tamil: "“நீங்கள் இன்று ரூ .10,000 எடுக்க விரும்புகிறீர்களா அல்லது 3 மாதங்களில் ரூ .35,000 எடுக்க விரும்புகிறீர்களா அல்லது 6 மாதங்களில் ரூ .75,000 எடுக்க விரும்புகிறீர்களா”? எந்த விருப்பத்தை விரும்புகிறீர்கள் ?",
+                hindi: "“क्या आप आज 10,000 रुपये लेना चाहेंगे या आप 3 महीने में 35,000 रुपये लेना चाहेंगे या फिर आप 6 महीने में 75,000 रुपये लेना चाहेंगे ”? आप कौन सा विकल्प पसंद करेंगे?",
                 questionType:'Future Orientation'
             },
             options: [
@@ -440,9 +440,9 @@ export const questions: any = {
     Set_3: [
         {
             question: {
-                english: "Would you take Rs 12,000 today or Rs 25,000 in 4 months” ? Which choice would you prefer ?",
-                tamil: "நீங்கள் இன்று ரூ.12,000 அல்லது 4 மாதங்களில் ரூ. 25,000 எடுப்பீர்களா ? எந்த விருப்பத்தை விரும்புகிறீர்கள் ?",
-                hindi: 'क्या आप आज 12,000 रुपये लेना चाहेंगे या आप 4 महीने में 25,000 रुपये लेना चाहेंगे ? आप कौन सा विकल्प पसंद करेंगे ?',
+                english: "Would you take Rs 12,000 today or Rs 18,000 in 3 months or Rs 25,000 in 4 months”? Which choice would you prefer ?",
+                tamil: "நீங்கள் இன்று ரூ .12,000 எடுக்க விரும்புகிறீர்களா அல்லது 3 மாதங்களில் ரூ .18,000 எடுக்க விரும்புகிறீர்களா அல்லது 4 மாதங்களில் ரூ .25,000 எடுக்க விரும்புகிறீர்களா ? எந்த விருப்பத்தை விரும்புகிறீர்கள் ?",
+                hindi: 'क्या आप आज 12,000 रुपये लेना चाहेंगे या आप 3 महीने में 18,000 रुपये लेना चाहेंगे या फिर आप 4 महीने में 25,000 रुपये लेना चाहेंगे"? आप कौन सा विकल्प पसंद करेंगे ?​',
                 questionType:'Future Orientation'
             },
             options: [
@@ -507,7 +507,7 @@ export const questions: any = {
         },
         {
             question: {
-                english: "If you have a meeting with your business partner at 6pm, then when are you more likely to arrive ? Select the appropriate option.",
+                english: "If you have a meeting with your business partner at 6pm, then when are you more likely to arrive ? Select the appropriate option.",
                 tamil: "மாலை 6 மணிக்கு உங்கள் வணிக கூட்டாளரை சந்திக்க திட்டமிட்டால், நீங்கள் எந்த நேரத்தில் வருவீர்கள்? சரியான விருப்பத்தைத் தேர்வுசெய்க.",
                 hindi: 'यदि आप शाम 6 बजे अपने बिजनेस पार्टनर के साथ मिलने की योजना बना रहे हैं, तो आप किस समय पहुंचेंगे? सही विकल्प चुनें।',
                 questionType:'Perfectionism'
@@ -533,14 +533,6 @@ export const questions: any = {
                     climate:'Low'
 
                 },
-                {
-                    english: 'I will arrive at my convenient time.',
-                    tamil: 'எனது வசதியான நேரத்திற்கு வருவேன்.',
-                    hindi: 'मैं अपने सुविधाजनक समय पर पहुंचूंगा।',
-                    score: 100,
-                    climate:'Extremely Low'
-
-                }
             ],
             tag: constants.repayment_willingness
         },
