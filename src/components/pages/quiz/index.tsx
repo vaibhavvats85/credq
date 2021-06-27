@@ -27,10 +27,8 @@ const Quiz: React.FC<QuizProps> = () => {
     const [questionType, setQuestionType] = useState("");
 
     const scores = useSelector((state: CredqState) => state.scores);
-
-
+  
     useEffect(() => {
-        debugger
         console.log(questionNum)
 
         const extraHigh = [{ color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }]
@@ -38,7 +36,6 @@ const Quiz: React.FC<QuizProps> = () => {
         const low = [{ color: 'pink' }, { color: 'pink' }, { color: 'pink' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }]
         const extraLow = [{ color: 'red' }, { color: 'red' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }]
         const high = [{ color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }]
-        // let updateConsumer=[];
         if (climate === "Moderate") {
             setcustomerInsightList((customerInsightList: any[]) => {
                const checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: moderate }
@@ -47,7 +44,6 @@ const Quiz: React.FC<QuizProps> = () => {
                 )
                 return checkList;
             })
-            // updateConsumer= customerInsightList.concat({questionType: questionType, status: climate, color:moderate});
         }
         else if (climate === "Low") {
             setcustomerInsightList((customerInsightList: any[]) => {
@@ -88,9 +84,6 @@ const Quiz: React.FC<QuizProps> = () => {
              })
         }
 
-
-
-
         if (questionNum === 8) {
             history.push({
                 pathname: '/application/report',
@@ -127,16 +120,16 @@ const Quiz: React.FC<QuizProps> = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-
+        
     }, [questionNum]);
 
 
 
-    const _next = (score: number, measure: string, climate: string, questionType: string) => {
+    const _next = (score: number, measure: string,climate:string,questionType:string) => {
         debugger
         setClimate(climate);
         setQuestionType(questionType);
-        setQuestionNum((num) => num + 1);
+            setQuestionNum((num) => num + 1);
         switch (measure) {
             case constants.repayment_capability: dispatch(loadCapabilityScore(scores.capability + score));
                 break;
@@ -171,7 +164,7 @@ const Quiz: React.FC<QuizProps> = () => {
             }
             <div className="pictorial">
 
-                <PictorialQuestions
+            <PictorialQuestions
                     question={questions[questionSet][6].question}
                     options={questions[questionSet][6].options}
                     locale={locale}

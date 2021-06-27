@@ -92,13 +92,14 @@ const Report: React.FC = () => {
                 applicant,
                 score: overall,
                 capability,
-                willingness
+                willingness,
+                customerInsights
             }
             dispatch(updateApplications(req))
         }
 
 
-    }, [applicant, capability, dispatch, location.state?.updateApplications, overall, username, willingness]);
+    }, [applicant, capability, dispatch, location.state?.updateApplications, overall, username, willingness,customerInsights]);
 
     useEffect(() => {
        if(overall>=800 && overall<=900)

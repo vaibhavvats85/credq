@@ -4,4 +4,5 @@ export interface ApplicationReport {
     score: number;
     capability: number;
     willingness: number;
+    customerInsights:[];
 }
