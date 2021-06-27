@@ -126,7 +126,6 @@ const Quiz: React.FC<QuizProps> = () => {
 
 
     const _next = (score: number, measure: string,climate:string,questionType:string) => {
-        debugger
         setClimate(climate);
         setQuestionType(questionType);
             setQuestionNum((num) => num + 1);

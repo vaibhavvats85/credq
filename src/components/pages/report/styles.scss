@@ -22,7 +22,7 @@
      height: auto;
      max-width: 90%!important;
     .headingPara {
-    margin: auto 0;
+    margin: auto 4rem;
     font-size: 3rem;
     font-weight: 500;
     color: $primary;
@@ -34,7 +34,8 @@
     .div-align{
       font-size: 0.9rem!important;
       width: 13rem;
-      margin-left: -0.4rem;
+      text-align: initial;
+      font-weight: bold;
       
     }
  
@@ -44,15 +45,17 @@
 }
 
 .div-align{
-  margin-left: -1.5rem;
-  
+ text-align: initial;
+ width: 21rem;
+ font-weight: bold;
 }
 
 
 .label-willing{
   text-align: initial;
-  width: 17rem;
+  width: 19rem;
   margin-top: 0rem;
+  font-weight: bold;
 }
 
 .indicatorStyle{
@@ -91,18 +94,24 @@
   color: #e6e6e6;
   border: 1px solid #acc9f9;
   font-weight: 800;
-  width: 6rem;
+  font-size: 2.5vh;
+  border-radius: 1rem;
+  width: 9rem;
+  margin-top: 2rem;
 }
 
 @media (max-width: 1024px) {
 
   .finish{
-    padding: 0.4rem;
+    padding: 0.5rem;
     background: #3e98c7;
     color: #e6e6e6;
     border: 1px solid #acc9f9;
+    font-size: 1.3rem;
+    margin-top: 2.5rem;
     font-weight: 800;
-    width: 4rem;
+    width: 9rem;
+    margin-left: 3rem;
   }
   .riskProgfileTab{
   display: none;
@@ -125,7 +134,7 @@
           color: #e6e6e6;
           border: 1px solid #acc9f9;
           font-weight: 800;
-          width: 9rem;
+          width: 9.2rem;
           display: block;
           margin-bottom: -2rem;
         }
@@ -159,10 +168,12 @@
       margin-top: 3rem;
       margin-right: 5rem;
       .label-willing{
-        width: 12rem;
+        width: 14rem;
+        font-weight: bold;
       }
       .div-align{
-        margin-left: -7rem!important;
+       text-align: initial!important;
+       font-weight: bold;
       }
       
     }
@@ -176,6 +187,7 @@
       h4{
         font-size: 0.7rem;
       }
+     
       .indicatorStyle{
         margin-top: 0rem;
       }
@@ -498,6 +510,7 @@ text-anchor: middle;
   color: #e6e6e6;
   border: 1px solid #acc9f9;
   font-weight: 800;
+  width: 9.2rem;
 
 }
 

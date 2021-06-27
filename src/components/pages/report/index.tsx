@@ -213,7 +213,7 @@ const Report: React.FC = () => {
         <div className="circularCheck ">
           <div className="displayFlex">
             <div className={circularBarAbility}>
-         <h4>Ability to repay</h4>
+         <h4>Ability to Repay</h4>
           <CircularProgressbar
         value={capabilityIndicateValue}
         strokeWidth={15}
@@ -228,7 +228,7 @@ const Report: React.FC = () => {
          
       
           <div className={circularBarWillingNess}>
-          <h4>Willingness to repay</h4>
+          <h4 >Willingness to Repay</h4>
           <CircularProgressbar
         value={willingnessIndicateValue}
         strokeWidth={15}
@@ -243,8 +243,8 @@ const Report: React.FC = () => {
            <div className="div-style">
         Requested Loan Amount:  ₹{loanAmount}
       </div>
-      <div className="label-willing">Predicted Ability to repay: {'>'}{abilityMoney}</div>
-      <div className="div-align">Predicted Willingness to repay: {'>'}{willingNessMoney}</div>
+      <div className="label-willing">Predicted Ability to Repay: {'>'}{abilityMoney}</div>
+      <div className="div-align">Predicted Willingness to Repay: {'>'}{willingNessMoney}</div>
       </div>
       </div>
      
@@ -309,10 +309,10 @@ ranges from 525-900.
         Moderately Safe
         </div>
         <div className="placeholder">
-        safe
+        Safe
         </div>
         <div className="placeholder">
-        highly Safe
+        Highly Safe
         </div>
       </div>
       </div>

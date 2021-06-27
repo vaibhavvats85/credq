@@ -49,7 +49,7 @@ const MasterForm: React.FC<MasterFormProps> = () => {
 
     const handleChangeApplicantName = (event: any) => {
         const val=event?.target.value;
-        if(!val.match(/^[a-zA-Z]+$/) && val!==""){
+        if(!val.match(/^[a-zA-Z\s]*$/) && val!==""){
            return;
         }
         else{
