@@ -19,7 +19,7 @@ const Quiz: React.FC<QuizProps> = () => {
     // const recipietnList=[{ questionType: '',
     //     status: '',
     //     color:[]}]
-    const [customerInsightList, setcustomerInsightList] = useState<any>([]);
+    const [, setcustomerInsightList] = useState<any>([]);
     const [questionSet, setQuestionSet] = useState<string>('Set_1');
     const dispatch = useDispatch();
     const history = useHistory();
@@ -27,47 +27,77 @@ const Quiz: React.FC<QuizProps> = () => {
     const [questionType, setQuestionType] = useState("");
 
     const scores = useSelector((state: CredqState) => state.scores);
-    const extraHigh = [{color:"DarkGreen"},{color:"DarkGreen"} ,{color:"DarkGreen"},{color:"DarkGreen"},{color:"DarkGreen"},{color:"DarkGreen"}]
-    const moderate = [{color:'Yellow'},{color: 'Yellow'}, {color:'Yellow'},{color:'Yellow'},{color:'#e6e6e6'},{color:'#e6e6e6'}]
-    const low = [{color:'pink'},{color: 'pink'}, {color:'pink'},{color:'#e6e6e6'},{color:'#e6e6e6'},{color:'#e6e6e6'}]
-    const extraLow = [{color:'red'},{color: 'red'}, {color:'#e6e6e6'},{color:'#e6e6e6'},{color:'#e6e6e6'},{color:'#e6e6e6'}]
-    const high = [{color:'LightGreen'},{color: 'LightGreen'}, {color:'LightGreen'},{color:'LightGreen'},{color:'LightGreen'},{color:'LightGreen'}]
+
 
     useEffect(() => {
         debugger
-        let updateConsumer=[];
-        if(climate==="Moderate"){
-            updateConsumer= customerInsightList.concat({questionType: questionType, status: climate, color:moderate});
+        console.log(questionNum)
+
+        const extraHigh = [{ color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }]
+        const moderate = [{ color: 'Yellow' }, { color: 'Yellow' }, { color: 'Yellow' }, { color: 'Yellow' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }]
+        const low = [{ color: 'pink' }, { color: 'pink' }, { color: 'pink' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }]
+        const extraLow = [{ color: 'red' }, { color: 'red' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }]
+        const high = [{ color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }]
+        // let updateConsumer=[];
+        if (climate === "Moderate") {
+            setcustomerInsightList((customerInsightList: any[]) => {
+               const checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: moderate }
+               )
+               dispatch(customerInsights(checkList)
+                )
+                return checkList;
+            })
+            // updateConsumer= customerInsightList.concat({questionType: questionType, status: climate, color:moderate});
         }
-        else if(climate==="Low"){
-            updateConsumer= customerInsightList.concat({questionType: questionType, status: climate, color:low});
+        else if (climate === "Low") {
+            setcustomerInsightList((customerInsightList: any[]) => {
+                const checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: low }
+                )
+                dispatch(customerInsights(checkList)
+                 )
+                 return checkList;
+             })
         }
 
-        else if (climate==="Extremely High"){
-            updateConsumer= customerInsightList.concat({questionType: questionType, status: climate, color:extraHigh});
+        else if (climate === "Extremely High") {
+            setcustomerInsightList((customerInsightList: any[]) => {
+                const checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: extraHigh }
+                )
+                dispatch(customerInsights(checkList)
+                 )
+                 return checkList;
+             })
         }
-         else if (climate==="High"){
-            updateConsumer= customerInsightList.concat({questionType: questionType, status: climate, color:high});
+        else if (climate === "High") {
+            setcustomerInsightList((customerInsightList: any[]) => {
+                const checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: high }
+                )
+                dispatch(customerInsights(checkList)
+                 )
+                 return checkList;
+             })
 
-         }
-         else if(climate==="Extremely Low"){
-            updateConsumer= customerInsightList.concat({questionType: questionType, status: climate, color:extraLow});
-         }
+        }
+        else if (climate === "Extremely Low") {
+            setcustomerInsightList((customerInsightList: any[]) => {
+                const checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: extraLow }
+                )
+                dispatch(customerInsights(checkList)
+                 )
+                 return checkList;
+             })
+        }
 
 
-         setcustomerInsightList(updateConsumer);
-         console.clear();
-         console.log(updateConsumer);
-         console.log(questionNum);
 
-         dispatch(customerInsights(updateConsumer));
+
         if (questionNum === 8) {
             history.push({
                 pathname: '/application/report',
                 state: { updateApplications: true }
             });
         }
-      }, [questionType,climate,questionNum]);
+    }, [questionType, climate, questionNum, dispatch, history]);
 
 
     useEffect(() => {
@@ -97,16 +127,16 @@ const Quiz: React.FC<QuizProps> = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        
+
     }, [questionNum]);
 
 
 
-    const _next = (score: number, measure: string,climate:string,questionType:string) => {
+    const _next = (score: number, measure: string, climate: string, questionType: string) => {
         debugger
         setClimate(climate);
         setQuestionType(questionType);
-            setQuestionNum((num) => num + 1);
+        setQuestionNum((num) => num + 1);
         switch (measure) {
             case constants.repayment_capability: dispatch(loadCapabilityScore(scores.capability + score));
                 break;
@@ -141,7 +171,7 @@ const Quiz: React.FC<QuizProps> = () => {
             }
             <div className="pictorial">
 
-            <PictorialQuestions
+                <PictorialQuestions
                     question={questions[questionSet][6].question}
                     options={questions[questionSet][6].options}
                     locale={locale}

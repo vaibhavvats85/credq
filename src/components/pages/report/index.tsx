@@ -45,7 +45,7 @@ const Report: React.FC = () => {
     }, [willingNessAmount,abilityAmount]);
 
     useEffect(() => {
-     customerInsights.map((item:any)=>{
+     customerInsights.forEach((item:any)=>{
         if(item.questionType==="Perfectionism"){
           customerObj.questionType='Stability';
           customerObj.status=item.status;
@@ -55,7 +55,7 @@ const Report: React.FC = () => {
         }
         })
 
-    }, [customerObj]);
+    }, [customerObj,customerInsights]);
 
     const handleFinish = () => {
       dispatch(resetScore());
