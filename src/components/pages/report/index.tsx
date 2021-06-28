@@ -33,7 +33,7 @@ const Report: React.FC = () => {
   const dispatch = useDispatch();
   const loanAmount = useSelector((state: CredqState) => state.preferences.amount);
   const abilityString = Math.trunc((capabilityIndicateValue / 100) * parseInt(loanAmount.replace(",", "")));
-  const willingNessString = ((willingnessIndicateValue / 100) * parseInt(loanAmount.replace(",", "")));
+  const willingNessString =Math.trunc((willingnessIndicateValue / 100) * parseInt(loanAmount.replace(",", "")));
   const history = useHistory();
 
   const abilityAmount = abilityString.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "");
