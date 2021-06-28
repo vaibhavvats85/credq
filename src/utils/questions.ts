@@ -217,7 +217,7 @@ export const questions: any = {
     Set_2: [
         {
             question: {
-                english: "Would you take Rs 8,000 today or Rs 18,000 in 4 months or Rs 29,000 in 6 months”? Which choice would you prefer",
+                english: "Would you take Rs 8,000 today or Rs 18,000 in 4 months or Rs 29,000 in 6 months”? Which choice would you prefer?",
                 tamil: "நீங்கள் இன்று ரூ .8,000 எடுக்க விரும்புகிறீர்களா அல்லது 4 மாதங்களில் ரூ .18,000 எடுக்க விரும்புகிறீர்களா அல்லது 6 மாதங்களில் ரூ .29,000 எடுக்க விரும்புகிறீர்களா? எந்த விருப்பத்தை விரும்புகிறீர்கள் ?",
                 hindi: 'क्या आप आज 8,000 रुपये लेना चाहेंगे या आप 4 महीने में 18,000 रुपये लेना चाहेंगे या फिर आप 6 महीने में 29,000 रुपये लेना चाहेंगे"? आप कौन सा विकल्प पसंद करेंगे?​',
                 questionType:'Future Orientation'
@@ -481,21 +481,21 @@ export const questions: any = {
                     english: 'Scheme',
                     tamil: 'திட்டம்'
                 },
-                english: "Which of the following saving scheme you will select to invest your money",
-                tamil: "உங்கள் பணத்தை முதலீடு செய்ய பின்வரும் எந்த சேமிப்பு திட்டங்களை நீங்கள் தேர்வு செய்கிறீர்கள்",
-                hindi: 'निम्नलिखित में से कौन सी बचत योजना आप अपने पैसे का निवेश करने के लिए चुनेंगे:',
+                english: "Which of the following saving scheme you will select to invest your money ?",
+                tamil: "உங்கள் பணத்தை முதலீடு செய்ய பின்வரும் எந்த சேமிப்பு திட்டங்களை நீங்கள் தேர்வு செய்கிறீர்கள்?",
+                hindi: 'निम्नलिखित में से कौन सी बचत योजना आप अपने पैसे का निवेश करने के लिए चुनेंगे ?',
                 questionType:'Risk Aversion'
             },
             options: [
                 {
-                    english: 'The fixed return of 4% and  maximum return of 9% .',
+                    english: 'The fixed return of 4% and  maximum return of 9% ',
                     tamil: 'நிலையான வருமானம் 4% மற்றும் அதிகபட்ச வருவாய் 9%',
                     hindi: '4% की तय वापसी और 9% की अधिकतम वापसी',
                     score: 150,
                     climate:'Extremely High'
                 },
                 {
-                    english: "The average return of 6% and maximum return of 8%.",
+                    english: "The average return of 6% and maximum return of 8%",
                     tamil: ': சராசரி வருமானம் 6% மற்றும் அதிகபட்ச வருவாய் 8%',
                     hindi: '6% की औसत वापसी और 8% की अधिकतम वापसी',
                     score: 130,

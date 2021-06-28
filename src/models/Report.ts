@@ -5,4 +5,7 @@ export interface ApplicationReport {
     capability: number;
     willingness: number;
     customerInsights:[];
+    loanAmount:string;
+   
+
 }

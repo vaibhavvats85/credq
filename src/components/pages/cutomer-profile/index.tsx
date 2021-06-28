@@ -28,11 +28,12 @@ const CustomerProfile: React.FC = () => {
     }, [dispatch, username]);
 
     const viewReport = (report: ReportBackendResponse) => {
-        const { score, capability, willingness, applicant,customerInsights:insightsList } = report;
+        const { score, capability, willingness, applicant,customerInsights:insightsList,loanAmount } = report;
         dispatch(loadScore(parseInt(score)));
         dispatch(loadCapabilityScore(parseInt(capability)));
         dispatch(loadWillingnessScore(parseInt(willingness)));
         dispatch(loadPreferences({ ...preferences, name: applicant }));
+        dispatch(loadPreferences({ ...preferences, amount: loanAmount }));
         dispatch(customerInsights(insightsList));
         history.push('/application/report');
     }

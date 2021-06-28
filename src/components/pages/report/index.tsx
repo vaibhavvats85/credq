@@ -32,8 +32,8 @@ const Report: React.FC = () => {
     const location: any = useLocation();
     const dispatch = useDispatch();
     const loanAmount = useSelector((state: CredqState) => state.preferences.amount);
-    const abilityAmount= (capabilityIndicateValue/100) * parseInt(loanAmount.replace(",",""));
-    const willingNessAmount= (willingnessIndicateValue/100) * parseInt(loanAmount.replace(",",""));
+    const abilityAmount= Math.round((capabilityIndicateValue/100) * parseInt(loanAmount.replace(",","")));
+    const willingNessAmount= Math.round((willingnessIndicateValue/100) * parseInt(loanAmount.replace(",","")));
     const history = useHistory();
 
 
@@ -93,13 +93,16 @@ const Report: React.FC = () => {
                 score: overall,
                 capability,
                 willingness,
-                customerInsights
+                customerInsights,
+                loanAmount
+         
+
             }
             dispatch(updateApplications(req))
         }
 
 
-    }, [applicant, capability, dispatch, location.state?.updateApplications, overall, username, willingness,customerInsights]);
+    }, [applicant, capability, dispatch, location.state?.updateApplications, overall,loanAmount, username, willingness,customerInsights]);
 
     useEffect(() => {
        if(overall>=800 && overall<=900)
