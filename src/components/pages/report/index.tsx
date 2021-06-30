@@ -19,10 +19,10 @@ const Report: React.FC = () => {
   const [capabilityIndicate, setCapabilityIndicate] = useState('');
   const [capabilityIndicateValue, setcapabilityIndicateValue] = useState(0);
   const [willingnessIndicate, setWillingnessIndicate] = useState('');
+
+
   const [willingnessIndicateValue, setWillingnessIndicateValue] = useState(0);
   const [customerValue, setcustomerValue] = useState('');
-  const [abilityMoney, setAbilityMoney] = useState('');
-  const [willingNessMoney, setWillingNessMoney] = useState('');
   const { user: { username } } = useSelector((state: CredqState) => state.authentication);
   const { overall, capability, willingness, customerInsights } = useSelector((state: CredqState) => state.scores);
   const [customerObj] = useState<any>({ questionType: '', status: '', color: [] });
@@ -35,14 +35,37 @@ const Report: React.FC = () => {
   const abilityString = Math.trunc((capabilityIndicateValue / 100) * parseInt(loanAmount.replace(",", "")));
   const willingNessString =Math.trunc((willingnessIndicateValue / 100) * parseInt(loanAmount.replace(",", "")));
   const history = useHistory();
+  const [willingAmount, setWillingAmount] =  useState('');
+  const [capabilityAmount, setcapabilityAmount] = useState('');
 
-  const abilityAmount = abilityString.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "");
-  const willingNessAmount = willingNessString.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "");
+
   useEffect(() => {
-    setAbilityMoney(formatMoney(abilityAmount))
-    setWillingNessMoney(formatMoney(willingNessAmount))
+    if(capabilityIndicateValue===100){
+      const frep= abilityString.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "")
+      setcapabilityAmount(formatMoney(parseInt(frep)));   
+     }
 
-  }, [willingNessAmount, abilityAmount]);
+    else {
+      const ability= (abilityString * 3/100)+abilityString;
+      const frep= ability.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "")
+      setcapabilityAmount(formatMoney(parseInt(frep)));
+    }
+
+  }, [capabilityIndicateValue, capabilityAmount,abilityString]);
+
+
+  useEffect(() => {
+   if(willingnessIndicateValue===100){
+    const frep= willingNessString.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "")
+    setWillingAmount(formatMoney(parseInt(frep)));   
+  }
+
+  else {
+    const willin=(willingNessString * 4/100)+willingNessString;
+    const frep= willin.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "")
+    setWillingAmount(formatMoney(parseInt(frep)));
+  }
+}, [willingAmount, willingnessIndicateValue,willingNessString]);
 
   useEffect(() => {
     customerInsights.forEach((item: any) => {
@@ -56,6 +79,8 @@ const Report: React.FC = () => {
     })
 
   }, [customerObj, customerInsights]);
+
+
 
   const handleFinish = () => {
     dispatch(resetScore());
@@ -131,6 +156,7 @@ const Report: React.FC = () => {
 
 
   useEffect(() => {
+    console.log(willingness);
     if (overall >= 800) {
       setIndicate(1);
       // setScale('high');
@@ -145,24 +171,27 @@ const Report: React.FC = () => {
       // setScale('low');
     }
 
-    if (capability >= 250) {
+    if (capability === 250) {
       setCapabilityIndicate('100%');
       setcapabilityIndicateValue(100);
     }
-    else if (capability >= 230) {
+    else if (capability === 230) {
       setCapabilityIndicate('>90%');
       setcapabilityIndicateValue(90);
 
     }
-    else if (capability >= 150) {
+    else if (capability === 150) {
       setCapabilityIndicate('>80%');
       setcapabilityIndicateValue(80);
 
     }
-    else if (capability >= 70) {
+    
+    else if (capability === 130) {
       setCapabilityIndicate('>70%');
       setcapabilityIndicateValue(70)
     }
+
+    
     if (willingness >= 550) {
       setWillingnessIndicateValue(100);
       setWillingnessIndicate('100%');
@@ -176,11 +205,11 @@ const Report: React.FC = () => {
       setWillingnessIndicateValue(80);
     }
 
-    else if (willingness <= 449 && willingness >= 400) {
+    else if (willingness >= 400 && willingness <= 449) {
       setWillingnessIndicate('>70%');
       setWillingnessIndicateValue(70);
     }
-    else if (willingness <= 399) {
+    else if (willingness < 400) {
       setWillingnessIndicate('>60%');
       setWillingnessIndicateValue(60);
     }
@@ -242,8 +271,17 @@ const Report: React.FC = () => {
             <div className="div-style">
               Requested Loan Amount:  ₹{loanAmount}
             </div>
-            <div className="label-willing">Predicted Ability to Repay: {'>'}{abilityMoney}</div>
-            <div className="div-align">Predicted Willingness to Repay: {'>'}{willingNessMoney}</div>
+         {
+           capabilityIndicateValue===100
+           ? <div className="label-willing">Predicted Ability to Repay: {capabilityAmount}</div>
+           : <div className="label-willing">Predicted Ability to Repay: {'upto'} {capabilityAmount}</div>
+         }  
+
+         {
+             willingnessIndicateValue===100
+             ?<div className="div-align">Predicted Willingness to Repay: {willingAmount}</div>
+             :<div className="div-align">Predicted Willingness to Repay: {'upto'} {willingAmount}</div>
+         }
           </div>
         </div>
 
@@ -302,7 +340,7 @@ const Report: React.FC = () => {
           </div>
           <div className="recommedation">
             <div className="placeholder margin-left-slider">
-              Not safe
+              Not Safe
             </div>
             <div className="placeholder">
               Moderately Safe

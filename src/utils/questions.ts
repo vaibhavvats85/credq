@@ -210,7 +210,7 @@ export const questions: any = {
 
                 },
             ],
-            tag: constants.repayment_willingness
+            tag: constants.repayment_capability
         },
        
     ],
@@ -433,7 +433,7 @@ export const questions: any = {
 
                 },
             ],
-            tag: constants.repayment_willingness
+            tag: constants.repayment_capability
         },
         
     ],
@@ -656,7 +656,7 @@ export const questions: any = {
 
                 },
             ],
-            tag: constants.repayment_willingness
+            tag: constants.repayment_capability
         },
         
     ]

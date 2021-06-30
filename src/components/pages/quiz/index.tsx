@@ -35,7 +35,7 @@ const Quiz: React.FC<QuizProps> = () => {
         const moderate = [{ color: 'Yellow' }, { color: 'Yellow' }, { color: 'Yellow' }, { color: 'Yellow' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }]
         const low = [{ color: 'pink' }, { color: 'pink' }, { color: 'pink' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }]
         const extraLow = [{ color: 'red' }, { color: 'red' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }]
-        const high = [{ color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }]
+        const high = [{ color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: '#e6e6e6' }]
         if (climate === "Moderate") {
             setcustomerInsightList((customerInsightList: any[]) => {
                const checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: moderate }
