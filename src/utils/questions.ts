@@ -14,7 +14,7 @@ export const questions: any = {
                     tamil: '3 மாதங்களில்',
                     hindi: '3 महीने में',
                     img: '35k',
-                    score: 300,
+                    score: 200,
                     climate:'Moderate',
                 },
                 {
@@ -22,7 +22,7 @@ export const questions: any = {
                     tamil: 'இன்று',
                     hindi: '3 महीने में',
                     img: '10k',
-                    score: 200,
+                    score: 150,
                     climate:'Low',
 
                 },
@@ -50,7 +50,7 @@ export const questions: any = {
                     tamil: 'எனது பணத்தை கவனமாக ஒழுங்கமைக்கிறேன்.',
                     hindi: 'मैं अपना पैसा ध्यान से व्यवस्थित करता हूं।',
                     score: 130,
-                    climate:'Moderate'
+                    climate:'High'
                 },
                 {
                     english: 'I avoid risky financial situations.',
@@ -292,7 +292,7 @@ export const questions: any = {
                     tamil: 'முதலில் முடிவு செய்து, பின்னர் சிந்தியுங்கள் !',
                     hindi: 'पहले तय करें, और फिर बाद में सोचें !',
                     score: 100,
-                    climate:'Low'
+                    climate:'Moderate'
                 },
                 {
                     english: 'Think long before making a decision and stick to it.',
@@ -499,7 +499,7 @@ export const questions: any = {
                     tamil: ': சராசரி வருமானம் 6% மற்றும் அதிகபட்ச வருவாய் 8%',
                     hindi: '6% की औसत वापसी और 8% की अधिकतम वापसी',
                     score: 130,
-                    climate:'Moderate'
+                    climate:'High'
 
                 }
             ],

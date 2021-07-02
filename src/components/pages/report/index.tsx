@@ -221,7 +221,7 @@ const Report: React.FC = () => {
   }, [capability, overall, willingness, capabilityIndicateValue]);
   return (
     <div>
-      <div className="ButtonStyle">
+      <div style={{marginTop:'2rem'}}>
         <button className="credqtab">
           CREDQ SCORE
         </button>
@@ -348,13 +348,13 @@ const Report: React.FC = () => {
             <div className="placeholder">
               Safe
             </div>
-            <div className="placeholder">
+            <div className="placeholder marginLeft">
               Highly Safe
             </div>
           </div>
         </div>
       </div>
-      <button className="finish" onClick={handleFinish}>Finish</button>
+      <button className="finish" onClick={handleFinish}>FINISH</button>
 
     </div>
 
