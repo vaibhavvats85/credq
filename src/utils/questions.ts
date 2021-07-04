@@ -395,11 +395,12 @@ export const questions: any = {
                 {
                     url: 'strong',
                     score: 0,
-                    Climate:'High'
+                    climate:'High'
                 },
             ],
             tag: constants.Ambition
         },
+        
         {
             question: {
                 english: "Find the right sequence. Select the appropriate option.",

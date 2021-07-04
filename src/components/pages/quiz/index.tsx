@@ -25,12 +25,13 @@ const Quiz: React.FC<QuizProps> = () => {
     const history = useHistory();
     const [climate, setClimate] = useState("");
     const [questionType, setQuestionType] = useState("");
-
     const scores = useSelector((state: CredqState) => state.scores);
+    const [bool,setBool] = useState(false);
+
   
     useEffect(() => {
         console.log(questionNum)
-
+        let checkList: any[]
         const extraHigh = [{ color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }]
         const moderate = [{ color: 'Yellow' }, { color: 'Yellow' }, { color: 'Yellow' }, { color: 'Yellow' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }]
         const low = [{ color: 'pink' }, { color: 'pink' }, { color: 'pink' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }]
@@ -38,60 +39,89 @@ const Quiz: React.FC<QuizProps> = () => {
         const high = [{ color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: '#e6e6e6' }]
         if (climate === "Moderate") {
             setcustomerInsightList((customerInsightList: any[]) => {
-               const checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: moderate }
+                checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: moderate }
                )
                dispatch(customerInsights(checkList)
                 )
+                // setBool(checkList.length===8)
+
                 return checkList;
             })
+            
         }
         else if (climate === "Low") {
             setcustomerInsightList((customerInsightList: any[]) => {
-                const checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: low }
+                 checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: low }
                 )
                 dispatch(customerInsights(checkList)
                  )
+                //  setBool(checkList.length===8)
+
                  return checkList;
              })
+
         }
 
         else if (climate === "Extremely High") {
             setcustomerInsightList((customerInsightList: any[]) => {
-                const checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: extraHigh }
+                 checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: extraHigh }
                 )
                 dispatch(customerInsights(checkList)
                  )
+                //  setBool(checkList.length===8)
+
                  return checkList;
              })
+
         }
         else if (climate === "High") {
             setcustomerInsightList((customerInsightList: any[]) => {
-                const checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: high }
+                 checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: high }
                 )
                 dispatch(customerInsights(checkList)
                  )
+                //  setBool(checkList.length===8)
+
+
                  return checkList;
              })
+
 
         }
         else if (climate === "Extremely Low") {
             setcustomerInsightList((customerInsightList: any[]) => {
-                const checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: extraLow }
+                 checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: extraLow }
                 )
                 dispatch(customerInsights(checkList)
                  )
+                //  setBool(checkList.length===8)
+               
+
                  return checkList;
              })
+             
         }
+       if(questionNum === 8) {
+        setBool(true);
+       }
 
-        if (questionNum === 8) {
+        if (bool) {
             history.push({
                 pathname: '/application/report',
                 state: { updateApplications: true }
             });
         }
-    }, [questionType, climate, questionNum, dispatch, history]);
 
+     
+    },[questionType, climate, questionNum, dispatch,bool,history]);
+
+
+    // useEffect(()=>{
+    //     setBool(customerInsightList===8)
+        
+        
+    // },[questionNum,history,customerInsightList,bool])
+  
 
     useEffect(() => {
         switch (getCookie(constants.question_set)) {
@@ -126,9 +156,12 @@ const Quiz: React.FC<QuizProps> = () => {
 
 
     const _next = (score: number, measure: string,climate:string,questionType:string) => {
+        debugger
         setClimate(climate);
         setQuestionType(questionType);
-            setQuestionNum((num) => num + 1);
+      
+       setQuestionNum((num) => num + 1);
+        
         switch (measure) {
             case constants.repayment_capability: dispatch(loadCapabilityScore(scores.capability + score));
                 break;
