@@ -28,7 +28,9 @@ const MasterForm: React.FC<MasterFormProps> = () => {
         name: '',
         gender: '',
         marital_status: '',
-        age: ''
+        age: '',
+        date: Date.now(),
+        member_id:''
     });
     window.addEventListener('popstate', function (event) {
         history.go(1);
@@ -66,9 +68,11 @@ const MasterForm: React.FC<MasterFormProps> = () => {
         setFormValues((form: any) => {
             const updatedForm = {
                 ...form,
-                [name]: value
+                [name]: value,
+                
             };
             dispatch(preferences.loadPreferences(updatedForm));
+
             return updatedForm;
         });
     }

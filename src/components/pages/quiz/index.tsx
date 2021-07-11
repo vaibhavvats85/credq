@@ -16,9 +16,6 @@ const Quiz: React.FC<QuizProps> = () => {
     const [questionNum, setQuestionNum] = useState(1);
     const [checkImgQues] = useState(false);
     const [shuffledQuestions, setShuffledQuestions] = useState<any>([]);
-    // const recipietnList=[{ questionType: '',
-    //     status: '',
-    //     color:[]}]
     const [, setcustomerInsightList] = useState<any>([]);
     const [questionSet, setQuestionSet] = useState<string>('Set_1');
     const dispatch = useDispatch();
@@ -26,9 +23,9 @@ const Quiz: React.FC<QuizProps> = () => {
     const [climate, setClimate] = useState("");
     const [questionType, setQuestionType] = useState("");
     const scores = useSelector((state: CredqState) => state.scores);
-    const [bool,setBool] = useState(false);
+    const [bool, setBool] = useState(false);
 
-  
+
     useEffect(() => {
         console.log(questionNum)
         let checkList: any[]
@@ -39,71 +36,59 @@ const Quiz: React.FC<QuizProps> = () => {
         const high = [{ color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: 'LightGreen' }, { color: '#e6e6e6' }]
         if (climate === "Moderate") {
             setcustomerInsightList((customerInsightList: any[]) => {
-                checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: moderate }
-               )
-               dispatch(customerInsights(checkList)
+                checkList = customerInsightList.concat({ questionType: questionType, status: climate, color: moderate }
                 )
-                // setBool(checkList.length===8)
-
+                dispatch(customerInsights(checkList)
+                )
                 return checkList;
             })
-            
+
         }
         else if (climate === "Low") {
             setcustomerInsightList((customerInsightList: any[]) => {
-                 checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: low }
+                checkList = customerInsightList.concat({ questionType: questionType, status: climate, color: low }
                 )
                 dispatch(customerInsights(checkList)
-                 )
-                //  setBool(checkList.length===8)
-
-                 return checkList;
-             })
+                )
+                return checkList;
+            })
 
         }
 
         else if (climate === "Extremely High") {
             setcustomerInsightList((customerInsightList: any[]) => {
-                 checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: extraHigh }
+                checkList = customerInsightList.concat({ questionType: questionType, status: climate, color: extraHigh }
                 )
                 dispatch(customerInsights(checkList)
-                 )
-                //  setBool(checkList.length===8)
-
-                 return checkList;
-             })
+                )
+                return checkList;
+            })
 
         }
         else if (climate === "High") {
             setcustomerInsightList((customerInsightList: any[]) => {
-                 checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: high }
+                checkList = customerInsightList.concat({ questionType: questionType, status: climate, color: high }
                 )
                 dispatch(customerInsights(checkList)
-                 )
-                //  setBool(checkList.length===8)
-
-
-                 return checkList;
-             })
+                )
+                return checkList;
+            })
 
 
         }
         else if (climate === "Extremely Low") {
             setcustomerInsightList((customerInsightList: any[]) => {
-                 checkList= customerInsightList.concat({ questionType: questionType, status: climate, color: extraLow }
+                checkList = customerInsightList.concat({ questionType: questionType, status: climate, color: extraLow }
                 )
                 dispatch(customerInsights(checkList)
-                 )
-                //  setBool(checkList.length===8)
-               
+                )
+                return checkList;
+            })
 
-                 return checkList;
-             })
-             
         }
-       if(questionNum === 8) {
-        setBool(true);
-       }
+        if (questionNum === 8) {
+            setBool(true);
+        }
 
         if (bool) {
             history.push({
@@ -112,16 +97,12 @@ const Quiz: React.FC<QuizProps> = () => {
             });
         }
 
-     
-    },[questionType, climate, questionNum, dispatch,bool,history]);
+
+    }, [questionType, climate, questionNum, dispatch, bool, history]);
 
 
-    // useEffect(()=>{
-    //     setBool(customerInsightList===8)
-        
-        
-    // },[questionNum,history,customerInsightList,bool])
-  
+
+
 
     useEffect(() => {
         switch (getCookie(constants.question_set)) {
@@ -150,18 +131,18 @@ const Quiz: React.FC<QuizProps> = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        
+
     }, [questionNum]);
 
 
 
-    const _next = (score: number, measure: string,climate:string,questionType:string) => {
+    const _next = (score: number, measure: string, climate: string, questionType: string) => {
         debugger
         setClimate(climate);
         setQuestionType(questionType);
-      
-       setQuestionNum((num) => num + 1);
-        
+
+        setQuestionNum((num) => num + 1);
+
         switch (measure) {
             case constants.repayment_capability: dispatch(loadCapabilityScore(scores.capability + score));
                 break;
@@ -196,7 +177,7 @@ const Quiz: React.FC<QuizProps> = () => {
             }
             <div className="pictorial">
 
-            <PictorialQuestions
+                <PictorialQuestions
                     question={questions[questionSet][6].question}
                     options={questions[questionSet][6].options}
                     locale={locale}

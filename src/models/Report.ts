@@ -6,6 +6,8 @@ export interface ApplicationReport {
     willingness: number;
     customerInsights:[];
     loanAmount:string;
+    gender:string;
+    date: string;
    
 
 }

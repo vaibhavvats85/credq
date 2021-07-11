@@ -3,6 +3,9 @@ export const LOAD_CAPABILITY_SCORE = '[LOAD SCORE] Load Capability score';
 export const LOAD_WILLINGNESS_SCORE = '[LOAD SCORE] Load Willingness score';
 export const RESET_SCORE = '[RESET SCORE] Reset score';
 export const CUSTOMER_INSIGHTS  = '[CUSTOMER INSIGHTS] Customer Insights';
+export const VIEW_REPORTS  = '[VIEW REPORTS] View Reports';
+export const RESET_VIEW_REPORTS  = '[RESET VIEW REPORTS] Reset View Reports';
+
 
 
 
@@ -66,10 +69,31 @@ export function customerInsights(payload: any): CustomerInsights{
     }
 };
 
+interface ViewReport {
+    type: typeof VIEW_REPORTS,
+}
 
+export function getViewReport(): ViewReport{
+    return {
+        type: VIEW_REPORTS,
+    }
+};
+
+
+interface ResetViewReport {
+    type: typeof RESET_VIEW_REPORTS,
+}
+
+export function resetViewReport(): ResetViewReport{
+    return {
+        type: RESET_VIEW_REPORTS,
+    }
+};
 
 export type scoreActionTypes = LoadCapabilityScore |
     LoadWillingnessScore |
     LoadScore |
     ResetScore |
-    CustomerInsights;
+    CustomerInsights |
+    ViewReport|
+    ResetViewReport;

@@ -6,4 +6,6 @@ export interface Preferences {
     gender: string;
     marital_status: string;
     age: string;
+    date: number;
+    member_id:string;
 }

@@ -4,6 +4,8 @@ export interface ReportBackendResponse {
     score: string;
     capability: string;
     willingness: string;
-    customerInsights:[];
-     loanAmount:string;
+    customerInsights: [];
+    loanAmount: string;
+    gender: string;
+    date: number;
 }

@@ -4,6 +4,21 @@
   margin-top: 2rem;
 
 }
+
+.view-Align{
+  color: #0071bc;
+    font-weight: bold;
+}
+
+.header-view{
+  width: 65%;
+  margin: auto;
+  background-color: white;
+  padding: 1rem 2rem;
+  height: fit-content;
+  border-bottom: 2px solid;
+  
+}
 .credqScore{
   width: 70%;
     margin: auto;
@@ -103,6 +118,16 @@
 
 @media (max-width: 1024px) {
 
+  .header-view{
+    width: 75%;
+    margin: auto;
+    background-color: white;
+    padding: 1rem 2rem;
+    height: fit-content;
+    border-bottom: 2px solid;
+    font-size: 0.8rem;
+    
+  }
   .finish{
     padding: 0.5rem;
     background: #0071bc;

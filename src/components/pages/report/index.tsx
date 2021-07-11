@@ -19,53 +19,55 @@ const Report: React.FC = () => {
   const [capabilityIndicate, setCapabilityIndicate] = useState('');
   const [capabilityIndicateValue, setcapabilityIndicateValue] = useState(0);
   const [willingnessIndicate, setWillingnessIndicate] = useState('');
-
-
   const [willingnessIndicateValue, setWillingnessIndicateValue] = useState(0);
   const [customerValue, setcustomerValue] = useState('');
   const { user: { username } } = useSelector((state: CredqState) => state.authentication);
-  const { overall, capability, willingness, customerInsights } = useSelector((state: CredqState) => state.scores);
+  const { overall, capability, willingness, customerInsights,viewReport } = useSelector((state: CredqState) => state.scores);
   const [customerObj] = useState<any>({ questionType: '', status: '', color: [] });
   const [customerProgress, setCustomerProgress] = useState<any>([]);
   const applicant = useSelector((state: CredqState) => state.preferences.name);
+  const gender = useSelector((state: CredqState) => state.preferences.gender);
   const [indicate, setIndicate] = useState(0);
   const location: any = useLocation();
   const dispatch = useDispatch();
   const loanAmount = useSelector((state: CredqState) => state.preferences.amount);
+  const dateUnix = useSelector((state: CredqState) => state.preferences.date);
+  const member_id = useSelector((state: CredqState) => state.preferences.member_id);
+  const date = new Date(dateUnix).toLocaleDateString("en-US")
   const abilityString = Math.trunc((capabilityIndicateValue / 100) * parseInt(loanAmount.replace(",", "")));
-  const willingNessString =Math.trunc((willingnessIndicateValue / 100) * parseInt(loanAmount.replace(",", "")));
+  const willingNessString = Math.trunc((willingnessIndicateValue / 100) * parseInt(loanAmount.replace(",", "")));
   const history = useHistory();
-  const [willingAmount, setWillingAmount] =  useState('');
+  const [willingAmount, setWillingAmount] = useState('');
   const [capabilityAmount, setcapabilityAmount] = useState('');
 
 
   useEffect(() => {
-    if(capabilityIndicateValue===100){
-      const frep= abilityString.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "")
-      setcapabilityAmount(formatMoney(parseInt(frep)));   
-     }
-
-    else {
-      const ability= (abilityString * 3/100)+abilityString;
-      const frep= ability.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "")
+    if (capabilityIndicateValue === 100) {
+      const frep = abilityString.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "")
       setcapabilityAmount(formatMoney(parseInt(frep)));
     }
 
-  }, [capabilityIndicateValue, capabilityAmount,abilityString]);
+    else {
+      const ability = (abilityString * 3 / 100) + abilityString;
+      const frep = ability.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "")
+      setcapabilityAmount(formatMoney(parseInt(frep)));
+    }
+
+  }, [capabilityIndicateValue, capabilityAmount, abilityString]);
 
 
   useEffect(() => {
-   if(willingnessIndicateValue===100){
-    const frep= willingNessString.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "")
-    setWillingAmount(formatMoney(parseInt(frep)));   
-  }
+    if (willingnessIndicateValue === 100) {
+      const frep = willingNessString.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "")
+      setWillingAmount(formatMoney(parseInt(frep)));
+    }
 
-  else {
-    const willin=(willingNessString * 4/100)+willingNessString;
-    const frep= willin.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "")
-    setWillingAmount(formatMoney(parseInt(frep)));
-  }
-}, [willingAmount, willingnessIndicateValue,willingNessString]);
+    else {
+      const willin = (willingNessString * 4 / 100) + willingNessString;
+      const frep = willin.toString().replace(/^(\d+\.\d*?[1-9])0+$/, "")
+      setWillingAmount(formatMoney(parseInt(frep)));
+    }
+  }, [willingAmount, willingnessIndicateValue, willingNessString]);
 
   useEffect(() => {
     customerInsights.forEach((item: any) => {
@@ -84,6 +86,7 @@ const Report: React.FC = () => {
 
   const handleFinish = () => {
     dispatch(resetScore());
+
     history.push('/application');
   }
 
@@ -119,15 +122,16 @@ const Report: React.FC = () => {
         capability,
         willingness,
         customerInsights,
-        loanAmount
-
+        loanAmount,
+        gender,
+        date
 
       }
       dispatch(updateApplications(req))
     }
 
 
-  }, [applicant, capability, dispatch, location.state?.updateApplications, overall, loanAmount, username, willingness, customerInsights]);
+  }, [applicant,gender, date,capability, dispatch, location.state?.updateApplications, overall, loanAmount, username, willingness, customerInsights]);
 
   useEffect(() => {
     if (overall >= 800 && overall <= 900) {
@@ -185,13 +189,13 @@ const Report: React.FC = () => {
       setcapabilityIndicateValue(80);
 
     }
-    
+
     else if (capability === 130) {
       setCapabilityIndicate('>70%');
       setcapabilityIndicateValue(70)
     }
 
-    
+
     if (willingness >= 550) {
       setWillingnessIndicateValue(100);
       setWillingnessIndicate('100%');
@@ -221,7 +225,26 @@ const Report: React.FC = () => {
   }, [capability, overall, willingness, capabilityIndicateValue]);
   return (
     <div>
-      <div style={{marginTop:'2rem'}}>
+      {
+        viewReport
+        ? <div className="header-view">
+           <div style={{ float: 'right' }}>
+            <span  className="view-Align">Member Id : </span> {member_id} 
+            </div>
+          <div  style={{ textAlign: 'left' }}>
+            <span className="view-Align">Applicant Name : </span>{applicant}
+            </div>
+            <div  style={{ textAlign: 'left' }}>
+            <span className="view-Align">Gender : </span> {gender} 
+            </div>
+            <div style={{ textAlign: 'left' }}>
+            <span  className="view-Align">Date : </span> {date} 
+            </div>
+            
+        </div>
+        : <></>
+      }
+      <div style={{ marginTop: '2rem' }}>
         <button className="credqtab">
           CREDQ SCORE
         </button>
@@ -271,17 +294,17 @@ const Report: React.FC = () => {
             <div className="div-style">
               Requested Loan Amount:  ₹{loanAmount}
             </div>
-         {
-           capabilityIndicateValue===100
-           ? <div className="label-willing">Predicted Ability to Repay: {capabilityAmount}</div>
-           : <div className="label-willing">Predicted Ability to Repay: {'upto'} {capabilityAmount}</div>
-         }  
+            {
+              capabilityIndicateValue === 100
+                ? <div className="label-willing">Predicted Ability to Repay: {capabilityAmount}</div>
+                : <div className="label-willing">Predicted Ability to Repay: {'upto'} {capabilityAmount}</div>
+            }
 
-         {
-             willingnessIndicateValue===100
-             ?<div className="div-align">Predicted Willingness to Repay: {willingAmount}</div>
-             :<div className="div-align">Predicted Willingness to Repay: {'upto'} {willingAmount}</div>
-         }
+            {
+              willingnessIndicateValue === 100
+                ? <div className="div-align">Predicted Willingness to Repay: {willingAmount}</div>
+                : <div className="div-align">Predicted Willingness to Repay: {'upto'} {willingAmount}</div>
+            }
           </div>
         </div>
 

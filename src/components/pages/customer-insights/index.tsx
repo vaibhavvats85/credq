@@ -6,7 +6,7 @@ import { ReportBackendResponse } from "../../../models";
 import { loadPreferences } from "../../../store/preferences";
 import { loadReports } from "../../../store/reports";
 import { CredqState } from "../../../store/rootReducer";
-import { loadCapabilityScore, loadScore, loadWillingnessScore } from "../../../store/scores";
+import { getViewReport, loadCapabilityScore, loadScore, loadWillingnessScore, VIEW_REPORTS } from "../../../store/scores";
 import Button, { ButtonSize } from "../../atoms/button";
 import Input from "../../atoms/input";
 import Modal from "../../atoms/modal";
@@ -24,6 +24,7 @@ const CustomerProfile: React.FC = () => {
         history.push('/');
     }
     useEffect(() => {
+        debugger
         dispatch(loadReports(username));
     }, [dispatch, username]);
 

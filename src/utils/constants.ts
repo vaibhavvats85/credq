@@ -108,8 +108,9 @@ export const jwt_token = 'X-JWT-Authorization';
 export const question_set = 'question_set';
 
 //URLS
-// export const BASE_URL = 'https://backend-dev.credq.org/.netlify/functions/api';
-export const BASE_URL = 'http://localhost:5000';
+export const BASE_URL = 'https://backend-dev.credq.org/.netlify/functions/api';
+// export const BASE_URL = 'http://localhost:5000';
+
 
 // Scoring
 export const repayment_capability = 'repayment_capability';
