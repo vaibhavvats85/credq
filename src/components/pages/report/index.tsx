@@ -228,8 +228,8 @@ const Report: React.FC = () => {
       {
         viewReport
         ? <div className="header-view">
-           <div style={{ float: 'right' }}>
-            <span  className="view-Align">Member Id : </span> {member_id} 
+           <div className="view-float">
+            <span  className="view-Align">Member ID : </span> {member_id} 
             </div>
           <div  style={{ textAlign: 'left' }}>
             <span className="view-Align">Applicant Name : </span>{applicant}
@@ -377,7 +377,10 @@ const Report: React.FC = () => {
           </div>
         </div>
       </div>
-      <button className="finish" onClick={handleFinish}>FINISH</button>
+    { viewReport
+     ?<button className="finish" onClick={handleFinish}>Close</button>
+     :<button className="finish" onClick={handleFinish}>FINISH</button>
+    }  
 
     </div>
 

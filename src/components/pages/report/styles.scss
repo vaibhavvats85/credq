@@ -5,6 +5,10 @@
 
 }
 
+.view-float{
+  float: right;
+}
+
 .view-Align{
   color: #0071bc;
     font-weight: bold;
@@ -118,6 +122,10 @@
 
 @media (max-width: 1024px) {
 
+  .view-float{
+    text-align: left!important;
+    float: none;
+  }
   .header-view{
     width: 75%;
     margin: auto;
