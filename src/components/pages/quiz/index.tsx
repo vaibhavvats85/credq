@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { questions } from "../../../utils/questions";
 import Questions from "../../molecules/questions";
 import './styles.scss';
@@ -9,11 +9,15 @@ import { CredqState } from "../../../store/rootReducer";
 import { useHistory } from "react-router";
 import PictorialQuestions from "../../molecules/pictorial-questions";
 import { getCookie, setCookie } from "../../../utils/service";
+import { AppData } from "../../../models/AppData";
+import { loadAppData } from "../../../store/appdata";
 export interface QuizProps {
 
 }
 const Quiz: React.FC<QuizProps> = () => {
     const [questionNum, setQuestionNum] = useState(1);
+    const [question, setQuestion] = useState("");
+    const [option, setOption] = useState("");
     const [checkImgQues] = useState(false);
     const [shuffledQuestions, setShuffledQuestions] = useState<any>([]);
     const [, setcustomerInsightList] = useState<any>([]);
@@ -24,10 +28,41 @@ const Quiz: React.FC<QuizProps> = () => {
     const [questionType, setQuestionType] = useState("");
     const scores = useSelector((state: CredqState) => state.scores);
     const [bool, setBool] = useState(false);
+    const [startTime, setStartTime] = useState(Number);
+    const [endTime, setEndTime] = useState(Number);
+    const { amount, age, gender, language, location, marital_status, name, } = useSelector((state: CredqState) => state.preferences);
+
+
+
+
+    const [, setFormValues] = useState<AppData>({
+        language: '',
+        location: '',
+        amount: '',
+        name: '',
+        gender: '',
+        marital_status: '',
+        age: '',
+        date: Date.now(),
+        questionOne: '',
+        questionTwo: '',
+        questionThree: '',
+        questionFour: '',
+        questionFive: '',
+        questionSix: '',
+        questionSeven: '',
+        questionOneOption: '',
+        questionTwoOption: '',
+        questionThreeOption: '',
+        questionFourOption: '',
+        questionFiveOption: '',
+        questionSixOption: '',
+        questionSevenOption: '',
+        duration: '',
+    });
 
 
     useEffect(() => {
-        console.log(questionNum)
         let checkList: any[]
         const extraHigh = [{ color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }, { color: "DarkGreen" }]
         const moderate = [{ color: 'Yellow' }, { color: 'Yellow' }, { color: 'Yellow' }, { color: 'Yellow' }, { color: '#e6e6e6' }, { color: '#e6e6e6' }]
@@ -136,11 +171,89 @@ const Quiz: React.FC<QuizProps> = () => {
 
 
 
-    const _next = (score: number, measure: string, climate: string, questionType: string) => {
-        debugger
+    const storePreferencetState = useCallback((name: string, value: string) => {
+        setFormValues((form: any) => {
+            const updatedForm = {
+                ...form,
+                [name]: value,
+
+            };
+            dispatch(loadAppData(updatedForm));
+
+            return updatedForm;
+        });
+    }, [dispatch])
+
+    useEffect(() => {
+        if (questionNum === 2) {
+            storePreferencetState("questionOne", question);
+            storePreferencetState("questionOneOption", option)
+            storePreferencetState("amount", amount);
+            storePreferencetState("gender", gender);
+            storePreferencetState("age", age);
+            storePreferencetState("marital_status", marital_status);
+            storePreferencetState("language", language);
+            storePreferencetState("location", location);
+            storePreferencetState("name", name);
+
+        }
+        else if (questionNum === 3) {
+            storePreferencetState("questionTwo", question)
+            storePreferencetState("questionTwoOption", option)
+
+        }
+        else if (questionNum === 4) {
+            storePreferencetState("questionThree", question)
+            storePreferencetState("questionThreeOption", option)
+
+        }
+        else if (questionNum === 5) {
+            storePreferencetState("questionFour", question)
+            storePreferencetState("questionFourOption", option)
+
+        }
+        else if (questionNum === 6) {
+            storePreferencetState("questionFive", question)
+            storePreferencetState("questionFiveOption", option)
+
+        }
+        else if (questionNum === 7) {
+            storePreferencetState("questionSix", question)
+            storePreferencetState("questionSixOption", option)
+
+        }
+        else if (questionNum === 8) {
+            storePreferencetState("questionSeven", question)
+            storePreferencetState("questionSevenOption", option)
+
+        }
+
+        const duration = endTime - startTime;
+        var date = new Date(duration * 1000);
+        // Minutes part from the timestamp
+        var minutes = "0" + date.getMinutes();
+        storePreferencetState("duration", minutes)
+    }, [questionNum, question, option, endTime, startTime, age, amount, gender, language, location, marital_status, name, storePreferencetState]);
+
+
+    const _next = (score: number, measure: string, climate: string, questionType: string, question: string, option: string) => {
         setClimate(climate);
         setQuestionType(questionType);
+        setQuestion(question);
+        if (questionNum === 1) {
+            setStartTime(Date.now());
+        }
+        else if (questionNum === 7) {
+            setEndTime(Date.now());
 
+        }
+        if (questionType === "Fluid Intelligence" || questionType === "Ambition" || questionType === "Social Engagement") {
+            setOption(climate);
+        }
+        else {
+            setOption(option);
+
+        }
         setQuestionNum((num) => num + 1);
 
         switch (measure) {

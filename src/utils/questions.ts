@@ -666,5 +666,7 @@ export const questions: any = {
 export const dont_understand: any = {
     english: 'I don’t understand the question.',
     tamil: 'எனக்கு கேள்வி புரியவில்லை.',
-    hindi: 'मुझे सवाल समझ नहीं आया ।'
+    hindi: 'मुझे सवाल समझ नहीं आया ।',
+    questionType:'Fluid Intelligence',
+    climate:'Low'
 }

@@ -9,6 +9,6 @@ export default function* rootSaga() {
     watchAuthenticationLogout(),
     watchChangePassword(),
     watchInvoices(),
-    watchUpdateApplications()
+    watchUpdateApplications(),
     ]);
 }

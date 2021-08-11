@@ -30,7 +30,8 @@ const MasterForm: React.FC<MasterFormProps> = () => {
         marital_status: '',
         age: '',
         date: Date.now(),
-        member_id:''
+        member_id:'',
+       
     });
     window.addEventListener('popstate', function (event) {
         history.go(1);

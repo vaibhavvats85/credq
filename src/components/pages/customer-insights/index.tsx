@@ -24,7 +24,6 @@ const CustomerProfile: React.FC = () => {
         history.push('/');
     }
     useEffect(() => {
-        debugger
         dispatch(loadReports(username));
     }, [dispatch, username]);
 

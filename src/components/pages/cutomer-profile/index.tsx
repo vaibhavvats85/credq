@@ -28,7 +28,6 @@ const CustomerProfile: React.FC = () => {
     }, [dispatch, username]);
 
     const viewReport = (report: ReportBackendResponse) => {
-        debugger
         const { score, capability, willingness, applicant,customerInsights:insightsList,loanAmount,date:today,gender,member_id } = report;
         dispatch(getViewReport());
         dispatch(loadScore(parseInt(score)));

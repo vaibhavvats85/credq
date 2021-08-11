@@ -12,6 +12,7 @@ import classNames from 'classnames'
 import ProgressLine from '../Progress';
 import { resetScore } from '../../../store/scores';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 
 
@@ -22,7 +23,7 @@ const Report: React.FC = () => {
   const [willingnessIndicateValue, setWillingnessIndicateValue] = useState(0);
   const [customerValue, setcustomerValue] = useState('');
   const { user: { username } } = useSelector((state: CredqState) => state.authentication);
-  const { overall, capability, willingness, customerInsights,viewReport } = useSelector((state: CredqState) => state.scores);
+  const { overall, capability, willingness, customerInsights, viewReport } = useSelector((state: CredqState) => state.scores);
   const [customerObj] = useState<any>({ questionType: '', status: '', color: [] });
   const [customerProgress, setCustomerProgress] = useState<any>([]);
   const applicant = useSelector((state: CredqState) => state.preferences.name);
@@ -39,6 +40,8 @@ const Report: React.FC = () => {
   const history = useHistory();
   const [willingAmount, setWillingAmount] = useState('');
   const [capabilityAmount, setcapabilityAmount] = useState('');
+  const appData = useSelector((state: CredqState) => state.appData);
+
 
 
   useEffect(() => {
@@ -86,6 +89,8 @@ const Report: React.FC = () => {
 
   const handleFinish = () => {
     dispatch(resetScore());
+    axios.post(`${process.env.REACT_APP_BASE_URL}/report/updateExcelData`,
+      appData, { withCredentials: true });
 
     history.push('/application');
   }
@@ -131,7 +136,7 @@ const Report: React.FC = () => {
     }
 
 
-  }, [applicant,gender, date,capability, dispatch, location.state?.updateApplications, overall, loanAmount, username, willingness, customerInsights]);
+  }, [applicant, gender, date, capability, dispatch, location.state?.updateApplications, overall, loanAmount, username, willingness, customerInsights]);
 
   useEffect(() => {
     if (overall >= 800 && overall <= 900) {
@@ -227,22 +232,22 @@ const Report: React.FC = () => {
     <div>
       {
         viewReport
-        ? <div className="header-view">
-           <div className="view-float">
-            <span  className="view-Align">Member ID : </span> {member_id} 
-            </div>
-          <div  style={{ textAlign: 'left' }}>
-            <span className="view-Align">Applicant Name : </span>{applicant}
-            </div>
-            <div  style={{ textAlign: 'left' }}>
-            <span className="view-Align">Gender : </span> {gender} 
+          ? <div className="header-view">
+            <div className="view-float">
+              <span className="view-Align">Member ID : </span> {member_id}
             </div>
             <div style={{ textAlign: 'left' }}>
-            <span  className="view-Align">Date : </span> {date} 
+              <span className="view-Align">Applicant Name : </span>{applicant}
             </div>
-            
-        </div>
-        : <></>
+            <div style={{ textAlign: 'left' }}>
+              <span className="view-Align">Gender : </span> {gender}
+            </div>
+            <div style={{ textAlign: 'left' }}>
+              <span className="view-Align">Date : </span> {date}
+            </div>
+
+          </div>
+          : <></>
       }
       <div style={{ marginTop: '2rem' }}>
         <button className="credqtab">
@@ -377,10 +382,10 @@ const Report: React.FC = () => {
           </div>
         </div>
       </div>
-    { viewReport
-     ?<button className="finish" onClick={handleFinish}>Close</button>
-     :<button className="finish" onClick={handleFinish}>FINISH</button>
-    }  
+      {viewReport
+        ? <button className="finish" onClick={handleFinish}>Close</button>
+        : <button className="finish" onClick={handleFinish}>FINISH</button>
+      }
 
     </div>
 

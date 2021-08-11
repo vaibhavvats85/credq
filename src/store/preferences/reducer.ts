@@ -12,6 +12,14 @@ export const PreferenceInitialState: Preferences = {
     age: '',
     date: Date.now(),
     member_id:'',
+  
+
+
+
+
+
+
+
 }
 
 export function preferencesReducer(state: Preferences = PreferenceInitialState, action: fromActions.preferenceActionTypes) {
