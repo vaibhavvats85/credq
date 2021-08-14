@@ -12,12 +12,12 @@ const Works: React.FC<Worksprops> = () => {
         <div className={styles.works}>
             <h1>{constants.how_it_works}</h1>
             <div className={styles.works_cols}>
-                <div>
+                <div style={{ marginTop: '-30px' }}>
                     {
                         Object.keys(constants.working_steps).slice(0, 3).map((point, idx) => (
                             <Pointer key={idx} number={idx + 1} className={idx === 3 ? styles.works_pointer : styles.marginBottom}>
 
-                                <p>
+                                <p style={{ minHeight: '72px' }}>
                                     {constants.working_steps[point]?.text}
                                     <span className={styles.works_pointer_highlight}>{constants.working_steps[point]?.suffix}</span>
                                 </p>
@@ -29,7 +29,7 @@ const Works: React.FC<Worksprops> = () => {
                     {
                         Object.keys(constants.working_steps).slice(3, 6).map((point, idx) => (
                             <Pointer key={idx} number={idx + 4} className={styles.works_pointer}>
-                                <p>
+                                <p style={{ minHeight: '72px' }}>
                                     {constants.working_steps[point]?.text}
                                     <span className={styles.works_pointer_highlight}>{constants.working_steps[point]?.suffix}</span>
                                 </p>
