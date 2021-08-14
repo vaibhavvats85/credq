@@ -249,13 +249,17 @@ const Report: React.FC = () => {
           </div>
           : <></>
       }
-      <div style={{ marginTop: '2rem' }}>
-        <button className="credqtab">
-          CREDQ SCORE
+      <div style={{ margin: 'auto', marginTop: '2rem' }} className='btn-wrapper'>
+        <div className="score-btn">
+          <button className="credqtab">
+            CREDQ SCORE
         </button>
-        <button className="riskProgfileTab">
-          RISK PROFILE
+        </div>
+        <div className="risk-btn">
+          <button className="riskProgfileTab">
+            RISK PROFILE
         </button>
+        </div>
       </div>
 
       <div className="credqScore">
@@ -340,7 +344,7 @@ const Report: React.FC = () => {
         </div>
         <div className="margin-top-label">
           <p>This score is based on our database of profiled users and their subsequent payment performance. A typical score
-            ranges from 525-900.
+          ranges from 525-900.
           </p>
         </div>
         <div className="margin-top-slider">
@@ -368,16 +372,19 @@ const Report: React.FC = () => {
           </div>
           <div className="recommedation">
             <div className="placeholder margin-left-slider">
-              Not Safe
+              <span className='text'>Not Safe</span>
             </div>
             <div className="placeholder">
-              Moderately Safe
+              <span className='text'>Moderately Safe</span>
+
             </div>
             <div className="placeholder">
-              Safe
+              <span className='text'>Safe</span>
+
             </div>
             <div className="placeholder marginLeft">
-              Highly Safe
+              <span className='text'>Highly Safe</span>
+
             </div>
           </div>
         </div>
