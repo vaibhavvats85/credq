@@ -36,7 +36,7 @@ const Demoform = () => {
         event.preventDefault();
 
         if (state.name === '' || state.organization === '' || state.email === '' || state.phone === '' || state.message === '') {
-            setFormStatus({ message: 'Make sure you have provided information in each field', status: 'warning' });
+            setFormStatus({ message: 'Please fill all the required fields', status: 'warning' });
         } else {
             setFormStatus({ message: 'Please wait while we are trying to capture your information....', status: 'loading' })
             axios.post(process.env.REACT_APP_BASE_URL + '/email', state).then(data => {
