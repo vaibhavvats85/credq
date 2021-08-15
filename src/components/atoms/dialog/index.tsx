@@ -1,5 +1,6 @@
 import { CheckCircleFilled, ExclamationCircleFilled, WarningFilled } from "@ant-design/icons";
 import './style.scss';
+import Loader from 'react-loader-spinner';
 
 export interface DialogModalProps {
     header: string;
@@ -33,6 +34,8 @@ const renderIcon = (type: string | undefined) => {
             return <WarningFilled className="warning" />
         case 'fail':
             return <ExclamationCircleFilled className="fail" />
+        case 'loading':
+            return <Loader type="ThreeDots" color="#0071bc" height="100" width="100" />    
         default:
             return null;
     }
