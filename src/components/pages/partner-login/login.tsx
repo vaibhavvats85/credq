@@ -15,7 +15,7 @@ export interface LoginProps {
 }
 
 const Login: React.FC<LoginProps> = ({ username, password, handlePasswordChange, handleUserChange, authenticateUser }) => {
-    const inputDimension = { height: '2.5rem' };
+    const inputDimension = { height: '2.5rem', paddingLeft: '1rem' };
     const history = useHistory();
     return (
 

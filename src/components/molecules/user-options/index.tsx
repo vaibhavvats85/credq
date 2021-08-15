@@ -74,7 +74,7 @@ const UserOptions: React.FC<UserOptionsProps> = ({ menuClass, overlayClass, from
             { menuOpen &&
                 <div className={`overlay ${overlayClass}`} ref={container}>
                     {menuOpen &&
-                        <CloseOutlined className="close" onClick={() => setMenuopen(false)} />}
+                        <CloseOutlined className="close" onClick={() => setMenuopen(false)} style={{ fontSize: '1.5rem' }} />}
                     {isLoggedIn &&
                         <>
                             <div className="user">{organization}</div>

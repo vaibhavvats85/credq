@@ -11,7 +11,7 @@ export const partner_login = 'Partner Login';
 export const alt_data_source = 'Alternative Data Sources';
 export const psych_test = 'Psychometrics';
 export const intel_ai_engine = 'Intelligent AI-Risk Engine';
-export const what_we_do = 'What We do';
+export const what_we_do = 'What We Do';
 export const how_it_works = 'How It Works';
 export const products = 'Products';
 export const scheduleDemoSubmitMsg = 'Thanks for reaching out to us. Our Sales Team will get back to you with more information within 24 hrs.'
@@ -40,7 +40,7 @@ export const terms_conditions = 'Terms and Conditions';
 
 // Form labels
 export const enter_username = 'Enter CredQ credentials';
-export const user_label = 'User Id';
+export const user_label = 'User ID';
 export const password_label = 'Password';
 export const new_password = 'New Password';
 export const confirm_password = 'Confirm Password';

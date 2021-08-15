@@ -7,7 +7,7 @@ import styles from './style.module.scss';
 
 export const headerLinks: Link[] = [
     { label: 'Home', path: 'home' },
-    { label: 'What we do', path: 'about' },
+    { label: 'What We Do', path: 'about' },
     { label: 'How It Works', path: 'works' },
     { label: 'Our Product', path: 'products' }
 ];
