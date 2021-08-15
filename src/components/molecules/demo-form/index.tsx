@@ -14,41 +14,43 @@ const inputMsgStyle = {
     borderRadius: '0',
 }
 const Demoform = () => {
-    const [, setResult] = useState(null);
-
-    const onChange = (event:any) => { 
-        const { name, value } = event.target;
-
-    setState({
-      ...state,
-      [name]: value
-    });
+    const [formStatus, setFormStatus] = useState({ message: '', status: '' });
+    const onChange = (event: any) => {
+        const { id: name, value } = event.target;
+        setState({
+            ...state,
+            [name]: value
+        });
     };
     const [isDialogOpen, setDialogOpen] = useState(false);
 
     const [state, setState] = useState({
         name: '',
-        organization:'',
+        organization: '',
         email: '',
-        phone:'',
+        phone: '',
         message: ''
-      });
+    });
 
-      const sendEmail = (event:any) => {
+    const sendEmail = (event: any) => {
         event.preventDefault();
-        axios
-         .post('/send', { ...state })
-         .then(response => {
-           setResult(response.data);
-           setState({ name: '', organization: '', email: '',phone: '', message: '' });
-         })
-         .catch(() => {
-        //    return setResult({ success: false, message: 'Something went wrong. Try again later' });
-       });
+
+        if (state.name === '' || state.organization === '' || state.email === '' || state.phone === '' || state.message === '') {
+            setFormStatus({ message: 'Make sure you have provided information in each field', status: 'warning' });
+        } else {
+            setFormStatus({ message: 'Please wait while we are trying to capture your information....', status: 'loading' })
+            axios.post(process.env.REACT_APP_BASE_URL + '/email', state).then(data => {
+                setFormStatus({ message: constants.scheduleDemoSubmitMsg, status: 'success' });
+                setState({ name: '', organization: '', email: '', phone: '', message: '' });
+            }).catch(err => {
+                setFormStatus({ message: constants.scheduleDemoFormFail, status: 'fail' });
+            });
+        }
+
     }
     return (
         <form className={styles.demo_form} onSubmit={sendEmail}>
-            <DialogModal type="success" isOpen={isDialogOpen} header={constants.scheduleDemoSubmitMsg} onClose={() => setDialogOpen(false)} />
+            <DialogModal type={formStatus.status} isOpen={isDialogOpen} header={formStatus.message} onClose={() => setDialogOpen(false)} />
             <div className={styles.row}>
                 <Input className={styles.demo_form_input} label={constants.name_label} type="text" value={state.name} onChange={onChange} />
             </div>
@@ -68,9 +70,9 @@ const Demoform = () => {
                 {constants.submit_btn}
             </Button>
 
-            
+
         </form>
-        
+
     )
 }
 

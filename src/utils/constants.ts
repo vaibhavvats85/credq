@@ -15,6 +15,7 @@ export const what_we_do = 'What We do';
 export const how_it_works = 'How It Works';
 export const products = 'Products';
 export const scheduleDemoSubmitMsg = 'Thanks for reaching out to us. Our Sales Team will get back to you with more information within 24 hrs.'
+export const scheduleDemoFormFail = 'Something went wrong. Try again later';
 export const working_steps: any = {
     point_1: {
         text: 'CredQ collects ', suffix: 'alternative data'
