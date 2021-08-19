@@ -21,7 +21,7 @@ const Radio: React.FC<RadioProps> = ({ values, sub_values = [], group, handleCha
             {values.map((value, idx) => {
                 const id = value.toLowerCase();
                 return (
-                    <div key={idx} className="radio-btn">
+                    <div key={idx} className="radio-btn" style={group === 'age' ? { height: '2rem' } : {}}>
                         <div className="label">
                             <h4>{value}</h4>
                             <label htmlFor={id}>{sub_values[idx]}</label>

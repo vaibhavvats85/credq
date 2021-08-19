@@ -23,7 +23,7 @@ const Step5: React.FC<Step5Props> = (props) => {
                 handleChange={props.handleChange}
                 group="age"
                 values={['21-29', '30-35', '36-40', '41-45', '46-50', '51-59', '60+']}
-                className="input" />
+                className="input age-radio" />
         </div>
     );
 }

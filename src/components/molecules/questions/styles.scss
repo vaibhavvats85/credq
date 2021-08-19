@@ -1,42 +1,43 @@
 @import "../../_settings/colors";
 
 .option {
-    background-color: #0585da;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin: 15px auto;
-    font-size: 0.7rem;
-    cursor: pointer;
-    width: 13rem;
-    h3 {
-        margin: 0;
-    }
-    .en {
-        color: white;
-    }
+  background-color: #0585da;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 40px auto;
+  font-size: 0.7rem;
+  cursor: pointer;
+  width: 13rem;
+  min-height: 2rem;
+  h3 {
+    margin: 0;
+  }
+  .en {
+    color: white;
+  }
 }
 .dont_understand {
-    margin-top: 5rem;
+  margin-top: 5rem;
 }
 img {
-    width: 12rem;
+  width: 12rem;
 }
 p {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 .translation {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .image_options {
-    cursor: pointer;
-    display: inline-block;
-    width: 51%;
-    h4 {
-        color: $primary;
-    }
-    img {
-        width: 10rem;
-        height: 10rem;
-    }
+  cursor: pointer;
+  display: inline-block;
+  width: 51%;
+  h4 {
+    color: $primary;
+  }
+  img {
+    width: 10rem;
+    height: 10rem;
+  }
 }

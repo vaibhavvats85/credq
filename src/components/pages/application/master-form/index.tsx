@@ -16,8 +16,9 @@ export interface MasterFormProps {
     email: string;
     username: string;
     password: string;
+    className: string;
 }
-const MasterForm: React.FC<MasterFormProps> = () => {
+const MasterForm: React.FC<MasterFormProps> = ({ className = '' }) => {
     const [currentStep, setCurrentStep] = useState(1);
     const dispatch = useDispatch();
     const history = useHistory();
@@ -30,8 +31,8 @@ const MasterForm: React.FC<MasterFormProps> = () => {
         marital_status: '',
         age: '',
         date: Date.now(),
-        member_id:'',
-       
+        member_id: '',
+
     });
     window.addEventListener('popstate', function (event) {
         history.go(1);
@@ -51,11 +52,11 @@ const MasterForm: React.FC<MasterFormProps> = () => {
     }
 
     const handleChangeApplicantName = (event: any) => {
-        const val=event?.target.value;
-        if(!val.match(/^[a-zA-Z\s]*$/) && val!==""){
-           return;
+        const val = event?.target.value;
+        if (!val.match(/^[a-zA-Z\s]*$/) && val !== "") {
+            return;
         }
-        else{
+        else {
             const { name, value } = event?.target;
             storePreferencetState(name, value);
         }
@@ -70,7 +71,7 @@ const MasterForm: React.FC<MasterFormProps> = () => {
             const updatedForm = {
                 ...form,
                 [name]: value,
-                
+
             };
             dispatch(preferences.loadPreferences(updatedForm));
 
@@ -150,7 +151,7 @@ const MasterForm: React.FC<MasterFormProps> = () => {
         return null;
     }
     return (
-        <div className="steps">
+        <div className={`steps ${className}`} style={currentStep === 5 ? { margin: '5rem 1rem' } : {}}>
             <form onSubmit={handleSubmit}>
                 {/* 
         render the form steps and pass required props in
