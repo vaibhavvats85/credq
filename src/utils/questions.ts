@@ -20,7 +20,7 @@ export const questions: any = {
                 {
                     english: 'Today',
                     tamil: 'இன்று',
-                    hindi: '3 महीने में',
+                    hindi: 'आज',
                     img: '10k',
                     score: 150,
                     climate:'Low',
@@ -480,7 +480,8 @@ export const questions: any = {
             question: {
                 prefix: {
                     english: 'Scheme',
-                    tamil: 'திட்டம்'
+                    tamil: 'திட்டம்',
+                    hindi: 'योजना'
                 },
                 english: "Which of the following saving scheme you will select to invest your money ?",
                 tamil: "உங்கள் பணத்தை முதலீடு செய்ய பின்வரும் எந்த சேமிப்பு திட்டங்களை நீங்கள் தேர்வு செய்கிறீர்கள்?",
