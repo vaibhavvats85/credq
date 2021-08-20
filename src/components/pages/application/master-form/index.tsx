@@ -151,7 +151,7 @@ const MasterForm: React.FC<MasterFormProps> = ({ className = '' }) => {
         return null;
     }
     return (
-        <div className={`steps ${className}`} style={currentStep === 5 ? { margin: '5rem 1rem' } : {}}>
+        <div className={`steps ${className}`} style={currentStep === 5 ? { margin: '5rem auto' } : {}}>
             <form onSubmit={handleSubmit}>
                 {/* 
         render the form steps and pass required props in

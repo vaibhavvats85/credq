@@ -274,11 +274,12 @@ const Quiz: React.FC<QuizProps> = () => {
             {
                 shuffledQuestions.map((question: any, idx: number) =>
                 (
-                    <div key={idx}>
-                        {/* style={question.question.questionType === 'Risk Aversion' ||
-                        (questionSet === 'Set_1' && question.question.questionType === 'Perfectionism') ||
-                        (questionSet === 'Set_2' && question.question.questionType === 'Perfectionism') ||
-                        question.question.questionType === 'Risk Perception' ? { marginTop: '7rem' } : { marginTop: '0' }} */}
+                    <div key={idx}
+                        style={(question.question.questionType === 'Risk Aversion' ||
+                            (questionSet === 'Set_1' && question.question.questionType === 'Perfectionism') ||
+                            (questionSet === 'Set_2' && question.question.questionType === 'Perfectionism') ||
+                            question.question.questionType === 'Risk Perception') &&
+                            questionNum === idx + 1 ? { marginTop: '7rem' } : { marginTop: '0' }}>
                         <Questions
                             question={question.question}
                             options={question.options}
