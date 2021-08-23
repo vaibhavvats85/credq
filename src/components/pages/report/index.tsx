@@ -13,6 +13,7 @@ import ProgressLine from '../Progress';
 import { resetScore } from '../../../store/scores';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import { loadPreferenceData } from '../../../store/loadPreferenceData';
 
 
 
@@ -42,7 +43,9 @@ const Report: React.FC = () => {
   const [capabilityAmount, setcapabilityAmount] = useState('');
   const appData = useSelector((state: CredqState) => state.appData);
 
-
+  useEffect(() => {
+    dispatch(loadPreferenceData(appData));
+  }, [])
 
   useEffect(() => {
     if (capabilityIndicateValue === 100) {
@@ -165,7 +168,6 @@ const Report: React.FC = () => {
 
 
   useEffect(() => {
-    console.log(willingness);
     if (overall >= 800) {
       setIndicate(1);
       // setScale('high');

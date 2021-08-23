@@ -183,4 +183,252 @@ export const terms_conditions_questions = [
         ques: 'Can I get a refund if I decided to stop using the product/service ?',
         ans: ['Sorry, no. If you decided to stop using our product/service after the payment, then we can’t refund you or grant any credit.']
     }
-]
+];
+
+export const question_mapping = [
+    {
+        "actual _question": "“Would you take Rs 10,000 today or Rs 35,000 in 3 months or Rs 75,000 in 6 months ”? Which choice would you prefer ?",
+        "question_id": "Q1",
+        "Response": "In 6 months",
+        "Score(Value)": "300"
+    },
+    {
+        "actual _question": "“Would you take Rs 10,000 today or Rs 35,000 in 3 months or Rs 75,000 in 6 months ”? Which choice would you prefer ?",
+        "question_id": "Q1",
+        "Response": "In 3 months",
+        "Score(Value)": "200"
+    },
+    {
+        "actual _question": "“Would you take Rs 10,000 today or Rs 35,000 in 3 months or Rs 75,000 in 6 months ”? Which choice would you prefer ?",
+        "question_id": "Q1",
+        "Response": "Today",
+        "Score(Value)": "150"
+    },
+    {
+        "actual _question": "Which of the following statement describes your financial attitude?",
+        "question_id": "Q2",
+        "Response": "I organize my finances carefully.",
+        "Score(Value)": "130"
+    },
+    {
+        "actual _question": "Which of the following statement describes your financial attitude?",
+        "question_id": "Q2",
+        "Response": "I avoid risky financial situations. ",
+        "Score(Value)": "150"
+    },
+    {
+        "actual _question": "Which approach to life you will prefer ?",
+        "question_id": "Q3",
+        "Response": "A planned life is a good life.",
+        "Score(Value)": "150"
+    },
+    {
+        "actual _question": "Which approach to life you will prefer ?",
+        "question_id": "Q3",
+        "Response": "Don’t think long term. Just enjoy each day!",
+        "Score(Value)": "100"
+    },
+    {
+        "actual _question": "Do you agree with a following statement - “You would start or invest in a business based on a conversation with friend, family member or colleague”.",
+        "question_id": "Q4",
+        "Response": "Agree",
+        "Score(Value)": "120"
+    },
+    {
+        "actual _question": "Do you agree with a following statement - “You would start or invest in a business based on a conversation with friend, family member or colleague”.",
+        "question_id": "Q4",
+        "Response": "Neither Agree or Disagree",
+        "Score(Value)": "100"
+    },
+    {
+        "actual _question": "Do you agree with a following statement - “You would start or invest in a business based on a conversation with friend, family member or colleague”.",
+        "question_id": "Q4",
+        "Response": "Disagree",
+        "Score(Value)": "150"
+    },
+    {
+        "actual _question": "Find the right sequence. Select the appropriate option.",
+        "question_id": "Q5",
+        "Response": "Correct Option(D)",
+        "Score(Value)": "100"
+    },
+    {
+        "actual _question": "How much money is enough for you ? Select the appropriate image.",
+        "question_id": "Q6",
+        "Response": "Irrelevant",
+        "Score(Value)": "0"
+    },
+    {
+        "actual _question": "How do you feel about your future ? Select the appropriate image.",
+        "question_id": "Q7",
+        "Response": "Irrelevant",
+        "Score(Value)": "0"
+    },
+    {
+        "actual _question": "Would you take Rs 8,000 today or Rs 18,000 in 4 months or Rs 29,000 in 6 months”? Which choice would you prefer?",
+        "question_id": "Q8",
+        "Response": "In 6 months",
+        "Score(Value)": "300"
+    },
+    {
+        "actual _question": "Would you take Rs 8,000 today or Rs 18,000 in 4 months or Rs 29,000 in 6 months”? Which choice would you prefer?",
+        "question_id": "Q8",
+        "Response": "In 3 months",
+        "Score(Value)": "200"
+    },
+    {
+        "actual _question": "Would you take Rs 8,000 today or Rs 18,000 in 4 months or Rs 29,000 in 6 months”? Which choice would you prefer?",
+        "question_id": "Q8",
+        "Response": "Today",
+        "Score(Value)": "150"
+    },
+    {
+        "actual _question": "Imagine the following one-time opportunity. Which option would you choose ?",
+        "question_id": "Q9",
+        "Response": "You have a 50/50 chance to either win Rs 50,000 or lose Rs 10,000. ",
+        "Score(Value)": "130"
+    },
+    {
+        "actual _question": "Imagine the following one-time opportunity. Which option would you choose ?",
+        "question_id": "Q9",
+        "Response": "You will leave empty-handed, but you can't lose anything. ",
+        "Score(Value)": "150"
+    },
+    {
+        "actual _question": "Which of the following describes me best ?",
+        "question_id": "Q10",
+        "Response": "Decide first, and then think later!",
+        "Score(Value)": "100"
+    },
+    {
+        "actual _question": "Which of the following describes me best ?",
+        "question_id": "Q10",
+        "Response": "Think long before making a decision and stick to it.   ",
+        "Score(Value)": "150"
+    },
+    {
+        "actual _question": "Which of the following business or investment type do you prefer ?",
+        "question_id": "Q11",
+        "Response": "Business / Investment with no fluctuation in profits.",
+        "Score(Value)": "150"
+    },
+    {
+        "actual _question": "Which of the following business or investment type do you prefer ?",
+        "question_id": "Q11",
+        "Response": "Business / Investment  with some fluctuation in profits.",
+        "Score(Value)": "130"
+    },
+    {
+        "actual _question": "Which of the following business or investment type do you prefer ?",
+        "question_id": "Q11",
+        "Response": "Business / Investment with moderate fluctuations in profits.",
+        "Score(Value)": "110"
+    },
+    {
+        "actual _question": "Which of the following business or investment type do you prefer ?",
+        "question_id": "Q11",
+        "Response": "Business / Investment with large fluctuations in profits.",
+        "Score(Value)": "100"
+    },
+    {
+        "actual _question": "Find the right sequence. Select the appropriate option.",
+        "question_id": "Q12",
+        "Response": "Correct Option(D)",
+        "Score(Value)": "100"
+    },
+    {
+        "actual _question": "How much money is enough for you ? Select the appropriate image.",
+        "question_id": "Q6",
+        "Response": "Irrelevant",
+        "Score(Value)": "0"
+    },
+    {
+        "actual _question": "How do you feel about your future ? Select the appropriate image.",
+        "question_id": "Q7",
+        "Response": "Irrelevant",
+        "Score(Value)": "0"
+    },
+    {
+        "actual _question": "Would you take Rs 12,000 today or Rs 18,000 in 3 months or Rs 25,000 in 4 months”? Which choice would you prefer ?",
+        "question_id": "Q13",
+        "Response": "in 4 months",
+        "Score(Value)": "300"
+    },
+    {
+        "actual _question": "Would you take Rs 12,000 today or Rs 18,000 in 3 months or Rs 25,000 in 4 months”? Which choice would you prefer ?",
+        "question_id": "Q13",
+        "Response": "in 3 months",
+        "Score(Value)": "200"
+    },
+    {
+        "actual _question": "Would you take Rs 12,000 today or Rs 18,000 in 3 months or Rs 25,000 in 4 months”? Which choice would you prefer ?",
+        "question_id": "Q13",
+        "Response": "Today",
+        "Score(Value)": "150"
+    },
+    {
+        "actual _question": "Which of the following saving scheme you will select to invest your money :",
+        "question_id": "Q14",
+        "Response": "Scheme 1 : The fixed return of 4% and  maximum return of 9% ",
+        "Score(Value)": "150"
+    },
+    {
+        "actual _question": "Which of the following saving scheme you will select to invest your money :",
+        "question_id": "Q14",
+        "Response": "Scheme 2 : The average return of 6% and maximum return of 8%.",
+        "Score(Value)": "130"
+    },
+    {
+        "actual _question": "If you have a meeting with your business partner at 6pm, then when are you more likely to arrive ? Select the appropriate option",
+        "question_id": "Q15",
+        "Response": "5:50 PM",
+        "Score(Value)": "150"
+    },
+    {
+        "actual _question": "If you have a meeting with your business partner at 6pm, then when are you more likely to arrive ? Select the appropriate option",
+        "question_id": "Q15",
+        "Response": "6:00 PM",
+        "Score(Value)": "130"
+    },
+    {
+        "actual _question": "If you have a meeting with your business partner at 6pm, then when are you more likely to arrive ? Select the appropriate option",
+        "question_id": "Q15",
+        "Response": "6:15 PM",
+        "Score(Value)": "100"
+    },
+    {
+        "actual _question": "You recently faced a financial crisis due to Covid-19  and you lost 50% of your saving. Suppose if you had those savings then you would :",
+        "question_id": "Q16",
+        "Response": "I will hold my savings with me. ",
+        "Score(Value)": "150"
+    },
+    {
+        "actual _question": "You recently faced a financial crisis due to Covid-19  and you lost 50% of your saving. Suppose if you had those savings then you would :",
+        "question_id": "Q16",
+        "Response": "Invest the portion of savings in bank schemes. ",
+        "Score(Value)": "120"
+    },
+    {
+        "actual _question": "You recently faced a financial crisis due to Covid-19  and you lost 50% of your saving. Suppose if you had those savings then you would :",
+        "question_id": "Q16",
+        "Response": "Invest all the savings in bank schemes",
+        "Score(Value)": "100"
+    },
+    {
+        "actual _question": "Find the right sequence. Select the appropriate option",
+        "question_id": "Q17",
+        "Response": "Correct Option(C)",
+        "Score(Value)": "100"
+    },
+    {
+        "actual _question": "How much money is enough for you ? Select the appropriate image.",
+        "question_id": "Q6",
+        "Response": "Irrelevant",
+        "Score(Value)": "0"
+    },
+    {
+        "actual _question": "How do you feel about your future ? Select the appropriate image.",
+        "question_id": "Q7",
+        "Response": "Irrelevant",
+        "Score(Value)": "0"
+    }];

@@ -28,7 +28,6 @@ const Questions: React.FC<QuestionProps> = ({ question, options, locale, questio
     let shuffledOptions = options.map((a) => ({ sort: Math.random(), value: a }))
         .sort((a, b) => a.sort - b.sort)
         .map((a) => a.value);
-        console.log(shuffledOptions);
         const alpha = ['A', 'B', 'C'];
 
 
