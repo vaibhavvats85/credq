@@ -156,7 +156,6 @@ const Quiz: React.FC<QuizProps> = () => {
             default:
                 break;
         }
-        setQuestionSet(() => 'Set_2')
     }, [dispatch]);
     useEffect(() => {
         const shuffledQuestions = questions[questionSet].slice(0, 6).map((a: any) => ({ sort: Math.random(), value: a }))
