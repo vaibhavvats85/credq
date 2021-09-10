@@ -45,7 +45,7 @@ const Report: React.FC = () => {
 
   useEffect(() => {
     dispatch(loadPreferenceData(appData));
-  }, [appData, dispatch])
+  }, [])
 
   useEffect(() => {
     if (capabilityIndicateValue === 100) {

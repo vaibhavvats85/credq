@@ -237,7 +237,7 @@ const Quiz: React.FC<QuizProps> = () => {
         // Minutes part from the timestamp
         var minutes = "0" + date.getMinutes();
         storePreferencetState("duration", minutes)
-    }, [questionSet, shuffledQuestions, questionNum, question, option, endTime, startTime, age, amount, gender, language, location, marital_status, name, storePreferencetState]);
+    }, [questionNum, question, option, endTime, startTime, age, amount, gender, language, location, marital_status, name, storePreferencetState]);
 
 
     const _next = (score: number, measure: string, climate: string, questionType: string, question: string, option: string) => {
@@ -272,7 +272,7 @@ const Quiz: React.FC<QuizProps> = () => {
 
     }
     const locale = useSelector((state: CredqState) => state.preferences.language);
-
+    
     return (
         <div className="question">
             {
