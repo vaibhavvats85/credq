@@ -15,6 +15,7 @@ const PictorialQuestions: React.FC<PictorialQuestionProps> = ({ question, option
         .sort((a, b) => a.sort - b.sort)
         .map((a) => a.value);
     const alpha = ['A', 'B', 'C', 'D'];
+    console.log(shuffledOptions)
     return (
         questionNum === serial ? <>
             <h3>{question.english}</h3>

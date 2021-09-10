@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { questions } from "../../../utils/questions";
+import { questions, surveyQuestion } from "../../../utils/questions";
 import Questions from "../../molecules/questions";
 import './styles.scss';
 import * as constants from '../../../utils/constants';
@@ -156,6 +156,7 @@ const Quiz: React.FC<QuizProps> = () => {
             default:
                 break;
         }
+        setQuestionSet(() => 'Set_2')
     }, [dispatch]);
     useEffect(() => {
         const shuffledQuestions = questions[questionSet].slice(0, 6).map((a: any) => ({ sort: Math.random(), value: a }))
@@ -185,6 +186,10 @@ const Quiz: React.FC<QuizProps> = () => {
     }, [dispatch])
 
     useEffect(() => {
+        if (questionSet === 'Set_2') {
+            const questionSeries = [...shuffledQuestions, questions[questionSet][6], surveyQuestion];
+            setShuffledQuestions(questionSeries);
+        }
         if (questionNum === 2) {
             storePreferencetState("questionOne", question);
             storePreferencetState("questionOneOption", option)
@@ -268,7 +273,7 @@ const Quiz: React.FC<QuizProps> = () => {
 
     }
     const locale = useSelector((state: CredqState) => state.preferences.language);
-
+    
     return (
         <div className="question">
             {
@@ -289,22 +294,25 @@ const Quiz: React.FC<QuizProps> = () => {
                             next={_next}
                             measure={question.tag}
                             checkImg={checkImgQues}
+                            questionSet={questionSet}
                         />
                     </div>
                 ))
             }
-            <div className="pictorial">
-
-                <PictorialQuestions
-                    question={questions[questionSet][6].question}
-                    options={questions[questionSet][6].options}
-                    locale={locale}
-                    serial={7}
-                    questionNum={questionNum}
-                    next={_next}
-                    measure={questions[questionSet][6].tag}
-                />
-            </div>
+            {
+                questionSet !== 'Set_2' &&
+                <div className="pictorial">
+                    <PictorialQuestions
+                        question={questions[questionSet][6].question}
+                        options={questions[questionSet][6].options}
+                        locale={locale}
+                        serial={7}
+                        questionNum={questionNum}
+                        next={_next}
+                        measure={questions[questionSet][6].tag}
+                    />
+                </div>
+            }
         </div >
     );
 }

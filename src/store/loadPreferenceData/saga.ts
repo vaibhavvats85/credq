@@ -12,7 +12,6 @@ function loadPreference(payload: PreferenceModel) {
 }
 
 function* getPreferenceData(action: any): any {
-    console.log(action)
     try {
         const { data } = yield call<any>(loadPreference, action.data);
         yield put(fromActions.loadPreferenceData(data));

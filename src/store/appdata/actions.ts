@@ -10,7 +10,6 @@ interface LoadAppData {
 }
 
 export function loadAppData(payload: AppData): LoadAppData {
-    console.log(payload, 'DB DATA')
     return {
         type: APP_DATA,
         payload
