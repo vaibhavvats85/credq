@@ -37,8 +37,8 @@ const Questions: React.FC<QuestionProps> = ({ question, options, locale, questio
 
     return (
         questionNum === serial ? <>
-            <p>{question.english}</p>
-            {locale !== 'english' && <p className="translation">{question[locale]}</p>}
+            <p>{question[locale]}</p>
+            {/* {locale !== 'english' && <p className="translation">{question[locale]}</p>} */}
             {
                 shuffledOptions.map((option, idx) =>
 
@@ -47,8 +47,7 @@ const Questions: React.FC<QuestionProps> = ({ question, options, locale, questio
                             {option.img && <img src={`${process.env.PUBLIC_URL}/assets/${option.img}.png`} alt={option.img} />}
                             <div className="option" onClick={() => next(option.score, measure, option.climate, question.questionType, question.english, option.english)}>
 
-                                <h3 className="en">{question.prefix && `${question.prefix.english} ${idx + 1}: `} {option.english}</h3>
-                                {locale !== 'english' && <h3 className="translation">{question.prefix && `${question.prefix[locale]} ${idx + 1}: `} {option[locale]}</h3>}
+                                <h3 className="en">{question.prefix && `${question.prefix[locale]} ${idx + 1}: `} {option[locale]}</h3>
                             </div>
                         </div>
                         : <div className="image_options" key={idx}>
