@@ -158,7 +158,6 @@ const Quiz: React.FC<QuizProps> = () => {
             default:
                 break;
         }
-        setQuestionSet(() => 'Set_2')
     }, [dispatch]);
     useEffect(() => {
         const shuffledQuestions = questions[questionSet].slice(0, 6).map((a: any) => ({ sort: Math.random(), value: a }))
@@ -284,8 +283,8 @@ const Quiz: React.FC<QuizProps> = () => {
                     <div key={idx}
                         style={(question.question.questionType === 'Risk Aversion' ||
                             (questionSet === 'Set_1' && question.question.questionType === 'Perfectionism') ||
-                            (questionSet === 'Set_2' && question.question.questionType === 'Perfectionism') ||
-                            question.question.questionType === 'Risk Perception') &&
+                            (questionSet === 'Set_2' && question.question.questionType === 'Risk Perception') ||
+                            question.tag === 'survey') &&
                             questionNum === idx + 1 ? { marginTop: '7rem' } : { marginTop: '0' }}>
                         <Questions
                             question={question.question}

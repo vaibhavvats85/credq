@@ -294,17 +294,17 @@ export const questions: any = {
                 {
                     score: 100,
                     climate: 'Moderate',
-                    url: 'set_1_risk_perc_1'
+                    url: 'set_2_perf_1'
                 },
                 {
                     score: 150,
                     climate: 'High',
-                    url: 'set_1_risk_perc_2'
+                    url: 'set_2_perf_2'
                 },
                 {
                     score: 100,
                     climate: 'Moderate',
-                    url: 'set_1_risk_perc_3'
+                    url: 'set_2_perf_3'
                 }
             ],
             tag: constants.repayment_willingness
@@ -442,7 +442,7 @@ export const questions: any = {
             },
             options: [
                 {
-                    english: 'In 4 months',
+                    english: 'After 4 months',
                     tamil: '4 மாதங்களில்',
                     hindi: '4 महीने में',
                     img: '25k',
@@ -459,7 +459,7 @@ export const questions: any = {
 
                 },
                 {
-                    english: 'In 3 months',
+                    english: 'After 3 months',
                     tamil: '3 மாதங்களில்',
                     hindi: '3 महीने में',
                     img: '18k',
