@@ -121,8 +121,10 @@ const Quiz: React.FC<QuizProps> = () => {
             })
 
         }
-        if (questionNum === 8) {
+        if (questionNum === 8 && (questionSet === 'Set_1' || questionSet === 'Set_3')) {
             setBool(true);
+        } else if (questionSet === 'Set_2' && questionNum === 9) {
+            setBool(true)
         }
 
         if (bool) {
@@ -156,6 +158,7 @@ const Quiz: React.FC<QuizProps> = () => {
             default:
                 break;
         }
+        setQuestionSet(() => 'Set_2')
     }, [dispatch]);
     useEffect(() => {
         const shuffledQuestions = questions[questionSet].slice(0, 6).map((a: any) => ({ sort: Math.random(), value: a }))
@@ -272,7 +275,7 @@ const Quiz: React.FC<QuizProps> = () => {
 
     }
     const locale = useSelector((state: CredqState) => state.preferences.language);
-    
+
     return (
         <div className="question">
             {

@@ -25,6 +25,12 @@ const Questions: React.FC<QuestionProps> = ({ question, options, locale, questio
         checkImg = true;
     } else if (question.questionType === 'Perfectionism' && questionSet === 'Set_2') {
         checkImg = true;
+    } else if (question.questionType === 'Future Orientation' && questionSet === 'Set_1') {
+        checkImg = true;
+    } else if (question.questionType === 'Future Orientation' && questionSet === 'Set_2') {
+        checkImg = true;
+    }else if (question.questionType === 'Perfectionism' && questionSet === 'Set_3') {
+        checkImg = true;
     }
     else {
         checkImg = false;
@@ -37,8 +43,8 @@ const Questions: React.FC<QuestionProps> = ({ question, options, locale, questio
 
     return (
         questionNum === serial ? <>
-            <p>{question[locale]}</p>
-            {/* {locale !== 'english' && <p className="translation">{question[locale]}</p>} */}
+            <p dangerouslySetInnerHTML={{ __html: question[locale] }} />
+           {measure === 'survey' && <p><span className='highlight-italics'>{question.title[locale]}</span></p>}
             {
                 shuffledOptions.map((option, idx) =>
 

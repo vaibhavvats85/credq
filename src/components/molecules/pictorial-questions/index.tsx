@@ -8,7 +8,7 @@ export interface PictorialQuestionProps {
     questionNum: number;
     serial: number;
     measure: string;
-    next: (score: number, measure: string,questionType:string,climate:string,question:string,option:string) => void;
+    next: (score: number, measure: string, questionType: string, climate: string, question: string, option: string) => void;
 }
 const PictorialQuestions: React.FC<PictorialQuestionProps> = ({ question, options, locale, questionNum, serial, next, measure }) => {
     let shuffledOptions = options.map((a) => ({ sort: Math.random(), value: a }))
@@ -18,8 +18,7 @@ const PictorialQuestions: React.FC<PictorialQuestionProps> = ({ question, option
     console.log(shuffledOptions)
     return (
         questionNum === serial ? <>
-            <h3>{question.english}</h3>
-            { locale !== 'english' && <h2>{question[locale]}</h2>}
+            <h3 dangerouslySetInnerHTML={{ __html: question[locale] }} />
             {
                 question.question_img.map((img: string, idx: number) =>
                 (
@@ -34,13 +33,12 @@ const PictorialQuestions: React.FC<PictorialQuestionProps> = ({ question, option
                 (
                     <div className="image_option" key={idx}>
                         <h4>{alpha[idx]}</h4>
-                        <img onClick={() => next(option.score, measure,option.climate,question.questionType,question.english,option.climate)} src={`${process.env.PUBLIC_URL}/assets/${option.url}.png`} alt={option.url} />
+                        <img onClick={() => next(option.score, measure, option.climate, question.questionType, question.english, option.climate)} src={`${process.env.PUBLIC_URL}/assets/${option.url}.png`} alt={option.url} />
                     </div>)
                 )
             }
-            <div className="pict-option dont_understand" onClick={() => next(0, measure,dont_understand.climate,dont_understand.questionType," ","")}>
-                <h3 className="en">{dont_understand.english}</h3>
-                {locale !== 'english' && <h3 className="translation">{dont_understand[locale]}</h3>}
+            <div className="pict-option dont_understand" onClick={() => next(0, measure, dont_understand.climate, dont_understand.questionType, " ", "")}>
+                <h3 className="en">{dont_understand[locale]}</h3>
             </div>
 
         </> : null

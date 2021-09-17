@@ -12,11 +12,16 @@ export const surveyQuestion = {
     },
     options: [
         {
-            english: 'Yes',
+            english: 'YES',
+            hindi: 'हां',
+            tamil: 'ஆம்',
+            score: 0
         },
         {
-            english: 'No',
-
+            english: 'NO',
+            hindi: 'नहीं',
+            tamil: 'இல்லை',
+            score: 0
         }
     ],
     tag: 'survey'
@@ -32,27 +37,18 @@ export const questions: any = {
             },
             options: [
                 {
-                    english: 'After 3 Months',
-                    tamil: '3 மாதங்களுக்கு பிறகு',
-                    hindi: '3 महीने के बाद',
-                    img: '35k',
+                    url: '35k',
                     score: 200,
                     climate: 'Moderate',
                 },
                 {
-                    english: 'Today',
-                    tamil: 'இன்று',
-                    hindi: 'आज',
-                    img: '10k',
+                    url: '10k',
                     score: 150,
                     climate: 'Low',
 
                 },
                 {
-                    english: 'After 6 Months',
-                    tamil: '6 மாதங்களுக்கு பிறகு',
-                    hindi: '6 महीने के बाद',
-                    img: '75k',
+                    url: '75k',
                     score: 300,
                     climate: 'Extremely High',
                 }
@@ -61,9 +57,9 @@ export const questions: any = {
         },
         {
             question: {
-                english: "Which of the following statement describes your financial attitude?",
-                tamil: "பின்வரும் அறிக்கைகளில் எது உங்கள் நிதி கண்ணோட்டத்தை சிறப்பாக விவரிக்கிறது?",
-                hindi: 'नीचे दिए गए में से कौन सा कथन आपके वित्तीय दृष्टिकोण को अच्छे से बयान करता है?',
+                english: "Which of the following statement describes your <span class='highlight-italics'>financial attitude</span>?",
+                tamil: "பின்வரும் அறிக்கைகளில் எது உங்கள் <span class='highlight-italics'>நிதி கண்ணோட்டத்தை</span> சிறப்பாக விவரிக்கிறது?",
+                hindi: "नीचे दिए गए में से कौन सा कथन आपके <span class='highlight-italics'>वित्तीय दृष्टिकोण</span> को अच्छे से बयान करता है?",
                 questionType: 'Risk Aversion'
             },
             options: [
@@ -247,19 +243,13 @@ export const questions: any = {
             },
             options: [
                 {
-                    english: 'After 6 months',
-                    tamil: '6 மாதங்களுக்கு பிறகு',
-                    hindi: '6 महीने के बाद',
-                    img: '18k',
+                    url: '50_coins',
                     score: 300,
                     climate: 'Moderate'
 
                 },
                 {
-                    english: 'Today',
-                    tamil: 'இன்று',
-                    hinid: 'आज',
-                    img: '8k',
+                    url: '100_coins',
                     score: 150,
                     climate: 'Low'
 
@@ -321,22 +311,22 @@ export const questions: any = {
         },
         {
             question: {
-                english: "Do you agree with a following statement – “At some point in my life, I will experience financial difficulties”",
-                tamil: "பின்வரும் அறிக்கையுடன் நீங்கள் உடன்படுகிறீர்களா - “என் வாழ்க்கையின் ஒரு கட்டத்தில் நான் நிதி சிக்கல்களை எதிர்கொள்ள வேண்டும்”",
-                hindi: 'क्या आप निम्नलिखित कथन से सहमत हैं – “मुझे अपने जीवन में कभी न कभी आर्थिक कठिनाइयों का सामना करना होगा ”',
+                english: "Do you agree with a following statement – <span class='highlight-italics'>“At some point in my life, I will experience financial difficulties”</span>",
+                tamil: "பின்வரும் அறிக்கையுடன் நீங்கள் உடன்படுகிறீர்களா - <span class='highlight-italics'>“என் வாழ்க்கையின் ஒரு கட்டத்தில் நான் நிதி சிக்கல்களை எதிர்கொள்ள வேண்டும்”</span>",
+                hindi: "क्या आप निम्नलिखित कथन से सहमत हैं – <span class='highlight-italics'>“मुझे अपने जीवन में कभी न कभी आर्थिक कठिनाइयों का सामना करना होगा ”</span",
                 questionType: 'Risk Perception',
 
             },
             options: [
                 {
-                    english: 'Yes',
+                    english: 'YES',
                     tamil: 'ஆம்',
                     hindi: 'हां',
                     score: 150,
                     climate: 'High'
                 },
                 {
-                    english: 'Maybe',
+                    english: 'MAYBE',
                     tamil: 'அநேகமாக',
                     hindi: 'शायद',
                     score: 120,
@@ -344,7 +334,7 @@ export const questions: any = {
 
                 },
                 {
-                    english: 'No',
+                    english: 'NO',
                     tamil: 'இல்லை',
                     hindi: 'नहीं',
                     score: 100,
@@ -416,7 +406,7 @@ export const questions: any = {
             },
             options: [
                 {
-                    english: 'Yes',
+                    english: 'YES',
                     tamil: 'ஆம்',
                     hindi: 'हां',
                     score: 50,
@@ -431,7 +421,7 @@ export const questions: any = {
 
                 },
                 {
-                    english: 'No',
+                    english: 'NO',
                     tamil: 'இல்லை',
                     hindi: 'नहीं',
                     score: 100,
@@ -445,7 +435,7 @@ export const questions: any = {
     Set_3: [
         {
             question: {
-                english: "Would you take Rs 12,000 today or Rs 18,000 in 3 months or Rs 25,000 in 4 months”? Which choice would you prefer ?",
+                english: "Would you take Rs 12,000 today or Rs 18,000 after 3 months or Rs 25,000 after 4 months”? Which choice would you prefer?",
                 tamil: "நீங்கள் இன்று ரூ .12,000 எடுக்க விரும்புகிறீர்களா அல்லது 3 மாதங்களில் ரூ .18,000 எடுக்க விரும்புகிறீர்களா அல்லது 4 மாதங்களில் ரூ .25,000 எடுக்க விரும்புகிறீர்களா ? எந்த விருப்பத்தை விரும்புகிறீர்கள் ?",
                 hindi: 'क्या आप आज 12,000 रुपये लेना चाहेंगे या आप 3 महीने में 18,000 रुपये लेना चाहेंगे या फिर आप 4 महीने में 25,000 रुपये लेना चाहेंगे"? आप कौन सा विकल्प पसंद करेंगे ?​',
                 questionType: 'Future Orientation'
@@ -520,21 +510,18 @@ export const questions: any = {
             },
             options: [
                 {
-                    english: '5.50 PM',
-                    img: '5.50PM',
+                    url: '5.50PM',
                     score: 150,
                     climate: 'Extremely High'
                 },
                 {
-                    english: '6.00 PM',
-                    img: '6.00PM',
+                    url: '6.00PM',
                     score: 130,
                     climate: 'High'
 
                 },
                 {
-                    english: '6.15 PM',
-                    img: '6.15PM',
+                    url: '6.15PM',
                     score: 100,
                     climate: 'Low'
 
