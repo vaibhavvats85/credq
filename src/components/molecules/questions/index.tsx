@@ -29,7 +29,7 @@ const Questions: React.FC<QuestionProps> = ({ question, options, locale, questio
         checkImg = true;
     } else if (question.questionType === 'Future Orientation' && questionSet === 'Set_2') {
         checkImg = true;
-    }else if (question.questionType === 'Perfectionism' && questionSet === 'Set_3') {
+    } else if (question.questionType === 'Perfectionism' && questionSet === 'Set_3') {
         checkImg = true;
     }
     else {
@@ -44,14 +44,14 @@ const Questions: React.FC<QuestionProps> = ({ question, options, locale, questio
     return (
         questionNum === serial ? <>
             <p dangerouslySetInnerHTML={{ __html: question[locale] }} />
-           {measure === 'survey' && <p><span className='highlight-italics'>{question.title[locale]}</span></p>}
+            {measure === 'survey' && <p><span className='highlight-italics'>{question.title[locale]}</span></p>}
             {
                 shuffledOptions.map((option, idx) =>
 
                     <>{checkImg === false ?
                         <div key={idx}>
                             {option.img && <img src={`${process.env.PUBLIC_URL}/assets/${option.img}.png`} alt={option.img} />}
-                            <div className="option" onClick={() => next(option.score, measure, option.climate, question.questionType, question.english, option.english)}>
+                            <div className="option" style={measure === 'survey' ? { backgroundColor: 'black' } : {}} onClick={() => next(option.score, measure, option.climate, question.questionType, question.english, option.english)}>
 
                                 <h3 className="en">{question.prefix && `${question.prefix[locale]} ${idx + 1}: `} {option[locale]}</h3>
                             </div>
