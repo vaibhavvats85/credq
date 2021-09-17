@@ -42,7 +42,6 @@ const Report: React.FC = () => {
   const [willingAmount, setWillingAmount] = useState('');
   const [capabilityAmount, setcapabilityAmount] = useState('');
   const appData = useSelector((state: CredqState) => state.appData);
-
   useEffect(() => {
     dispatch(loadPreferenceData(appData));
   }, [])
@@ -181,23 +180,22 @@ const Report: React.FC = () => {
       setIndicate(4);
       // setScale('low');
     }
-
-    if (capability === 250) {
+    if (capability <= 250) {
       setCapabilityIndicate('100%');
       setcapabilityIndicateValue(100);
     }
-    else if (capability === 230) {
+    else if (capability <= 230) {
       setCapabilityIndicate('>90%');
       setcapabilityIndicateValue(90);
 
     }
-    else if (capability === 150) {
+    else if (capability <= 150) {
       setCapabilityIndicate('>80%');
       setcapabilityIndicateValue(80);
 
     }
 
-    else if (capability === 130) {
+    else if (capability <= 130) {
       setCapabilityIndicate('>70%');
       setcapabilityIndicateValue(70)
     }
