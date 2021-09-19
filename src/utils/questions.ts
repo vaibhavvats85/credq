@@ -6,8 +6,8 @@ export const surveyQuestion = {
         hindi: 'आपके जवाबों के आधार पर, यह लगता है कि  आपको जोखिम लेना पसंद हैं और आप  परिणामों की अधिक परवाह नहीं करते हैं।',
         title: {
             english: 'Do you think this is correct assessment?',
-            hindi: 'आपके जवाबों के आधार पर, यह लगता है कि  आपको जोखिम लेना पसंद हैं और आप  परिणामों की अधिक परवाह नहीं करते हैं।',
-            tamil: 'உங்கள் பதில்களின் அடிப்படையில், நீங்கள் ரிஸ்க் எடுக்க விரும்புவது போல் தெரிகிறது மற்றும் விளைவுகளைப் பற்றி அதிகம் கவலைப்படுவதில்லை.'
+            hindi: 'क्या आपको लगता है कि यह सही आकलन है?',
+            tamil: 'இது சரியான மதிப்பீடு என்று நீங்கள் நினைக்கிறீர்களா?'
         }
     },
     options: [
@@ -30,6 +30,7 @@ export const questions: any = {
     Set_1: [
         {
             question: {
+                id: '1FORW',
                 english: "“Would you take Rs 10,000 today or Rs 35,000 after 3 months or Rs 75,000 after 6 months ”? Which choice would you prefer ?",
                 tamil: "“நீங்கள் இன்று ரூ. 10,000 எடுக்க விரும்புகிறீர்களா அல்லது 3 மாதங்களுக்கு பிறகு ரூ. 35,000 எடுக்க விரும்புகிறீர்களா அல்லது 6 மாதங்களுக்கு பிறகு ரூ .75,000 எடுக்க விரும்புகிறீர்களா”? நீங்கள் எந்த விருப்பத்தை விரும்புகிறீர்கள்?",
                 hindi: "“क्या आप आज 10,000 रुपये लेना चाहेंगे या आप 3 महीने बाद 35,000 रुपये लेना चाहेंगे या फिर आप 6 महीने बाद 75,000 रुपये लेना चाहेंगे”? आप कौन सा विकल्प पसंद करेंगे?",
@@ -107,7 +108,7 @@ export const questions: any = {
         },
         {
             question: {
-                english: "How do you feel when your mobile network have low internet connectivity? ",
+                english: "How do you feel when your mobile network has low internet connectivity? ",
                 tamil: "உங்கள் மொபைல் நெட்வொர்க்கில் குறைந்த இணைய இணைப்பு இருக்கும்போது நீங்கள் எப்படி உணருகிறீர்கள்?",
                 hindi: 'जब आपके मोबाइल नेटवर्क में इंटरनेट कनेक्टिविटी कम हो तो आप कैसा महसूस करते हैं?',
                 questionType: 'Risk Perception'
@@ -437,14 +438,14 @@ export const questions: any = {
             question: {
                 english: "Would you take Rs 12,000 today or Rs 18,000 after 3 months or Rs 25,000 after 4 months”? Which choice would you prefer?",
                 tamil: "நீங்கள் இன்று ரூ .12,000 எடுக்க விரும்புகிறீர்களா அல்லது 3 மாதங்களில் ரூ .18,000 எடுக்க விரும்புகிறீர்களா அல்லது 4 மாதங்களில் ரூ .25,000 எடுக்க விரும்புகிறீர்களா ? எந்த விருப்பத்தை விரும்புகிறீர்கள் ?",
-                hindi: 'क्या आप आज 12,000 रुपये लेना चाहेंगे या आप 3 महीने में 18,000 रुपये लेना चाहेंगे या फिर आप 4 महीने में 25,000 रुपये लेना चाहेंगे"? आप कौन सा विकल्प पसंद करेंगे ?​',
+                hindi: 'क्या आप आज 12,000 रुपये लेना चाहेंगे या आप 3 महीने बाद 18,000 रुपये लेना चाहेंगे या फिर आप 4 महीने बाद 25,000 रुपये लेना चाहेंगे"? आप कौन सा विकल्प पसंद करेंगे ?​',
                 questionType: 'Future Orientation'
             },
             options: [
                 {
                     english: 'After 4 months',
                     tamil: '4 மாதங்களில்',
-                    hindi: '4 महीने में',
+                    hindi: '4 महीने के बाद',
                     img: '25k',
                     score: 300,
                     climate: 'Extremely High'
@@ -461,7 +462,7 @@ export const questions: any = {
                 {
                     english: 'After 3 months',
                     tamil: '3 மாதங்களில்',
-                    hindi: '3 महीने में',
+                    hindi: '3 महीने के बाद',
                     img: '18k',
                     score: 200,
                     climate: 'Low'
@@ -503,10 +504,12 @@ export const questions: any = {
         },
         {
             question: {
+                id: '3PRW',
                 english: "If you have a meeting with your business partner at 6pm, then when are you more likely to arrive ? Select the appropriate option.",
                 tamil: "மாலை 6 மணிக்கு உங்கள் வணிக கூட்டாளரை சந்திக்க திட்டமிட்டால், நீங்கள் எந்த நேரத்தில் வருவீர்கள்? சரியான விருப்பத்தைத் தேர்வுசெய்க.",
                 hindi: 'यदि आप शाम 6 बजे अपने बिजनेस पार्टनर के साथ मिलने की योजना बना रहे हैं, तो आप किस समय पहुंचेंगे? सही विकल्प चुनें।',
-                questionType: 'Perfectionism'
+                questionType: 'Perfectionism',
+        
             },
             options: [
                 {

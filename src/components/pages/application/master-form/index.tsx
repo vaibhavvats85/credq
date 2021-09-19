@@ -34,6 +34,18 @@ const MasterForm: React.FC<MasterFormProps> = ({ className = '' }) => {
         member_id: '',
 
     });
+    // Mock entires
+    // useEffect(() => setFormValues({
+    //     language: 'English',
+    //     location: 'Seattle, WA, USA',
+    //     amount: '100000',
+    //     name: 'Test',
+    //     gender: 'Male',
+    //     marital_status: 'Single',
+    //     age: '21-29',
+    //     date: Date.now(),
+    //     member_id: '',
+    // }), [])
     window.addEventListener('popstate', function (event) {
         history.go(1);
     }, false);

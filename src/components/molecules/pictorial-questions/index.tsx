@@ -10,6 +10,10 @@ export interface PictorialQuestionProps {
     measure: string;
     next: (score: number, measure: string, questionType: string, climate: string, question: string, option: string) => void;
 }
+const pickFromBelow: any = {
+    hindi: 'नीचे दिए गए विकल्पों में से किसी एक को चुनें',
+    english: 'Pick from below options'
+}
 const PictorialQuestions: React.FC<PictorialQuestionProps> = ({ question, options, locale, questionNum, serial, next, measure }) => {
     let shuffledOptions = options.map((a) => ({ sort: Math.random(), value: a }))
         .sort((a, b) => a.sort - b.sort)
@@ -27,7 +31,7 @@ const PictorialQuestions: React.FC<PictorialQuestionProps> = ({ question, option
                     </div>)
                 )
             }
-            <h3>Pick from below options</h3>
+            <h3>{pickFromBelow[locale] || pickFromBelow['english']}</h3>
             {
                 shuffledOptions.map((option, idx) =>
                 (

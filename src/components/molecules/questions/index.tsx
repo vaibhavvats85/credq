@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles.scss';
 
 export interface QuestionProps {
@@ -35,12 +35,22 @@ const Questions: React.FC<QuestionProps> = ({ question, options, locale, questio
     else {
         checkImg = false;
     }
+    let imgStyle = {};
     let shuffledOptions = options.map((a) => ({ sort: Math.random(), value: a }))
         .sort((a, b) => a.sort - b.sort)
         .map((a) => a.value);
     const alpha = ['A', 'B', 'C'];
-
-
+    if (question.id === '1FORW') {
+        imgStyle = ({
+            minWidth: 'fit-content',
+            maxHeight: '7rem'
+        })
+    } else if(question.id === '3PRW'){
+        imgStyle = ({
+            width: 'auto',
+            height: '14rem'
+        });
+    }
     return (
         questionNum === serial ? <>
             <p dangerouslySetInnerHTML={{ __html: question[locale] }} />
@@ -58,7 +68,7 @@ const Questions: React.FC<QuestionProps> = ({ question, options, locale, questio
                         </div>
                         : <div className="image_options" key={idx}>
                             <h4>{alpha[idx]}</h4>
-                            <img onClick={() => next(option.score, measure, option.climate, question.questionType, question.english, option.english)} src={`${process.env.PUBLIC_URL}/assets/${option.url}.png`} alt={option.url} />
+                            <img style={imgStyle} onClick={() => next(option.score, measure, option.climate, question.questionType, question.english, option.english)} src={`${process.env.PUBLIC_URL}/assets/${option.url}.png`} alt={option.url} />
                         </div>}</>
 
 
