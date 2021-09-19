@@ -88,7 +88,7 @@ const UserOptions: React.FC<UserOptionsProps> = ({ menuClass, overlayClass, from
                             {(location.pathname !== '/' && !fromApplicationPage) && <li onClick={() => redirectTo('/')}>Home</li>}
                             <li onClick={() => redirectTo('/custprofile')}>{constants.cust_profile} <SearchOutlined /></li>
                             <li onClick={() => redirectTo('/planbilling')}>{constants.plan_billing}</li>
-                            {!fromApplicationPage && <li onClick={() => redirectTo('/products')}>Our Product</li>}
+                            {(!fromApplicationPage && !isLoggedIn) && <li onClick={() => redirectTo('/products')}>Our Product</li>}
                             <li onClick={() => window.open('https://wa.me/918174970428')}>{constants.help_center}</li>
                             <li onClick={logout}>{constants.logout}</li>
                         </ul> :
