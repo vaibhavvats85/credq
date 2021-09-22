@@ -13,7 +13,15 @@ interface LoadPreferenceData {
 }
 
 export function loadPreferenceData(payload: AppData): LoadPreferenceData {
-    const { language, age, name, amount, date, duration, gender, location, marital_status, questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionOneOption,
+    console.log(payload);
+    const { username,
+        applicant,
+        score,
+        capability,
+        willingness,
+        customerInsights,
+        loanAmount,
+        member_id, language, age, name, amount, date, duration, gender, location, marital_status, questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionOneOption,
         questionTwoOption, questionThreeOption, questionFourOption, questionFiveOption, questionSixOption, questionSevenOption } = payload;
     const questions = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven];
     const answers = [questionOneOption, questionTwoOption, questionThreeOption, questionFourOption, questionFiveOption, questionSixOption, questionSevenOption];
@@ -27,6 +35,13 @@ export function loadPreferenceData(payload: AppData): LoadPreferenceData {
         return response;
     }
     const data: PreferenceModel = {
+        username,
+        applicant,
+        score,
+        capability,
+        willingness,
+        customerInsights,
+        loanAmount,
         language,
         age,
         name,
@@ -36,9 +51,6 @@ export function loadPreferenceData(payload: AppData): LoadPreferenceData {
         marital_status,
         gender,
         amount,
-        responses: {
-            ...getQuestionId()
-        }
     }
     trackPromise(axios.post(`${process.env.REACT_APP_BASE_URL}/reports/preferences`, data, { withCredentials: true }));
     return {

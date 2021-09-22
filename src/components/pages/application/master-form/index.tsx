@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../atoms/button";
 import Step1 from "./step1";
 import Step2 from "./step2";
@@ -10,6 +10,7 @@ import './styles.scss';
 import * as preferences from '../../../../store/preferences';
 import { Preferences } from "../../../../models";
 import { useHistory } from "react-router";
+import { CredqState } from "../../../../store/rootReducer";
 
 export interface MasterFormProps {
     currentStep: number;
@@ -20,6 +21,7 @@ export interface MasterFormProps {
 }
 const MasterForm: React.FC<MasterFormProps> = ({ className = '' }) => {
     const [currentStep, setCurrentStep] = useState(1);
+    const report = useSelector((state: CredqState) => state.reports.response);
     const dispatch = useDispatch();
     const history = useHistory();
     const [formValues, setFormValues] = useState<Preferences>({
@@ -35,17 +37,17 @@ const MasterForm: React.FC<MasterFormProps> = ({ className = '' }) => {
 
     });
     // Mock entires
-    // useEffect(() => setFormValues({
-    //     language: 'English',
-    //     location: 'Seattle, WA, USA',
-    //     amount: '100000',
-    //     name: 'Test',
-    //     gender: 'Male',
-    //     marital_status: 'Single',
-    //     age: '21-29',
-    //     date: Date.now(),
-    //     member_id: '',
-    // }), [])
+    useEffect(() => setFormValues({
+        language: 'English',
+        location: 'Seattle, WA, USA',
+        amount: '100000',
+        name: 'Test',
+        gender: 'Male',
+        marital_status: 'Single',
+        age: '21-29',
+        date: Date.now(),
+        member_id: '',
+    }), [])
     window.addEventListener('popstate', function (event) {
         history.go(1);
     }, false);

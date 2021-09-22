@@ -42,9 +42,11 @@ const Report: React.FC = () => {
   const [willingAmount, setWillingAmount] = useState('');
   const [capabilityAmount, setcapabilityAmount] = useState('');
   const appData = useSelector((state: CredqState) => state.appData);
+  const [reports, setReports] = useState({});
   useEffect(() => {
-    dispatch(loadPreferenceData(appData));
-  }, [])
+    dispatch(loadPreferenceData({ ...reports, ...appData } ));
+    console.log({ ...reports, ...appData } )
+  }, [reports])
 
   useEffect(() => {
     if (capabilityIndicateValue === 100) {
@@ -132,8 +134,8 @@ const Report: React.FC = () => {
         loanAmount,
         gender,
         date
-
       }
+      setReports(req)
       dispatch(updateApplications(req))
     }
 

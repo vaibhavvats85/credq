@@ -8,5 +8,4 @@ export interface Preferences {
     age: string;
     date: number;
     member_id:string;
- 
 }
