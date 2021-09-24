@@ -30,6 +30,6 @@ export interface AppData {
     questionSixOption: string;
     questionSevenOption: string;
     duration: string;
-
-
+    questionSet?: string;
+    surveyQuestion?: string;
 }

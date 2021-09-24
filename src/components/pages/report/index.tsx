@@ -44,8 +44,9 @@ const Report: React.FC = () => {
   const appData = useSelector((state: CredqState) => state.appData);
   const [reports, setReports] = useState({});
   useEffect(() => {
-    dispatch(loadPreferenceData({ ...reports, ...appData } ));
-    console.log({ ...reports, ...appData } )
+    if (reports && reports.hasOwnProperty('score')) {
+      dispatch(loadPreferenceData({ ...reports, ...appData }));
+    }
   }, [reports])
 
   useEffect(() => {
@@ -133,7 +134,9 @@ const Report: React.FC = () => {
         customerInsights,
         loanAmount,
         gender,
-        date
+        date,
+        questionSet: location.state?.questionSet,
+        surveyQuestion:  location.state?.surveyQuestion
       }
       setReports(req)
       dispatch(updateApplications(req))

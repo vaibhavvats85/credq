@@ -21,6 +21,8 @@ export function loadPreferenceData(payload: AppData): LoadPreferenceData {
         willingness,
         customerInsights,
         loanAmount,
+        questionSet,
+        surveyQuestion,
         member_id, language, age, name, amount, date, duration, gender, location, marital_status, questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionOneOption,
         questionTwoOption, questionThreeOption, questionFourOption, questionFiveOption, questionSixOption, questionSevenOption } = payload;
     const questions = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven];
@@ -51,6 +53,8 @@ export function loadPreferenceData(payload: AppData): LoadPreferenceData {
         marital_status,
         gender,
         amount,
+        questionSet,
+        surveyQuestion
     }
     trackPromise(axios.post(`${process.env.REACT_APP_BASE_URL}/reports/preferences`, data, { withCredentials: true }));
     return {

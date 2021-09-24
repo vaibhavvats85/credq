@@ -130,7 +130,7 @@ const Quiz: React.FC<QuizProps> = () => {
         if (bool) {
             history.push({
                 pathname: '/application/report',
-                state: { updateApplications: true }
+                state: { updateApplications: true, questionSet }
             });
         }
 
@@ -158,6 +158,7 @@ const Quiz: React.FC<QuizProps> = () => {
             default:
                 break;
         }
+        setQuestionSet('Set_2');
     }, [dispatch]);
     useEffect(() => {
         const shuffledQuestions = questions[questionSet].slice(0, 6).map((a: any) => ({ sort: Math.random(), value: a }))
@@ -232,6 +233,9 @@ const Quiz: React.FC<QuizProps> = () => {
             storePreferencetState("questionSeven", question)
             storePreferencetState("questionSevenOption", option)
 
+        }
+        else if (questionNum === 9) {
+            storePreferencetState("surveyQuestion", option)
         }
 
         const duration = endTime - startTime;

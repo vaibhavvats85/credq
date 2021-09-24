@@ -16,4 +16,6 @@ export interface PreferenceModel {
     date: Date;
     // responses: Object;
     duration: string;
+    questionSet?: string;
+    surveyQuestion?: string;
 }

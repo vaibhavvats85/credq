@@ -8,6 +8,6 @@ export interface ApplicationReport {
     loanAmount:string;
     gender:string;
     date: string;
-   
-
+    questionSet: string;
+    surveyQuestion: string;
 }
