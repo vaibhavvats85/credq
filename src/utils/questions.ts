@@ -209,7 +209,7 @@ export const questions: any = {
                 {
                     url: 'apple_1_option',
                     score: 0,
-                    climate: 'Low'
+                    climate: 'Extremely Low'
                 },
                 {
                     url: 'apple_2_option',
@@ -220,7 +220,7 @@ export const questions: any = {
                 {
                     url: 'apple_3_option',
                     score: 0,
-                    climate: 'Low'
+                    climate: 'Extremely Low'
 
                 },
                 {
@@ -633,7 +633,7 @@ export const questions: any = {
                 {
                     url: 'set_3_option_1',
                     score: 0,
-                    climate: 'Low'
+                    climate: 'Extremely Low'
                 },
                 {
                     url: 'set_3_option_2',
@@ -650,7 +650,7 @@ export const questions: any = {
                 {
                     url: 'set_3_option_4',
                     score: 0,
-                    climate: 'Low'
+                    climate: 'Extremely Low'
 
                 },
             ],

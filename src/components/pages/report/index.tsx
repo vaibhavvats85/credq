@@ -36,8 +36,8 @@ const Report: React.FC = () => {
   const dateUnix = useSelector((state: CredqState) => state.preferences.date);
   const member_id = useSelector((state: CredqState) => state.preferences.member_id);
   const date = new Date(dateUnix).toLocaleDateString("en-US")
-  const abilityString = Math.trunc((capabilityIndicateValue / 100) * parseInt(loanAmount.replace(",", "")));
-  const willingNessString = Math.trunc((willingnessIndicateValue / 100) * parseInt(loanAmount.replace(",", "")));
+  const abilityString = Math.trunc((capabilityIndicateValue / 100) * parseInt(loanAmount.replaceAll(",", "")));
+  const willingNessString = Math.trunc((willingnessIndicateValue / 100) * parseInt(loanAmount.replaceAll(",", "")));
   const history = useHistory();
   const [willingAmount, setWillingAmount] = useState('');
   const [capabilityAmount, setcapabilityAmount] = useState('');
