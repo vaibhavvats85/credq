@@ -21,6 +21,12 @@
     }
     
   }
+
+  @media(max-width: 767px){
+    .progressVisualFull{
+      margin-left: -2rem;
+    }
+  }
   
 
 
@@ -32,7 +38,6 @@
       /* width: 111%; */
       width: 20%important;
       padding: 2rem;
-      margin-left: -2rem;
       .progressLabel {
         /* Nothing here, move along */
         font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",

@@ -4,4 +4,5 @@ export interface Score {
     willingness: number;
     customerInsights:[];
     viewReport:boolean;
+    latePayment: number;
 }

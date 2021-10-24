@@ -8,4 +8,5 @@ export interface ReportBackendResponse {
     loanAmount: string;
     gender: string;
     date: number;
+    latePayment: number;
 }

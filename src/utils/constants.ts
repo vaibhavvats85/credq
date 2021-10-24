@@ -432,3 +432,10 @@ export const question_mapping = [
         "Response": "Irrelevant",
         "Score(Value)": "0"
     }];
+
+    export const LATE_PAYMENT_CATEGORY: any = {
+        critical: {image:'Critical_4.png', description: 'There is a high chance that {NAME} financial behavioral will leads him to be defaulter in future. Along with personalized weekly call payment reminder, an acute monitoring is required.'},
+        frequent: {image:'Frequent_3.png', description: 'There is a high probability that {NAME} will go through high number of late payments. Personalized monthly text message payment reminder is necessary would help him to repayments on-time.'},
+        negligible: {image:'Negligible_1.png', description: '{NAME} will make the repayments on-time. No intervention is required at this point'},
+        occasional: {image: 'Occasional_2.png' ,description:'{NAME} will have stable repayments over certain period of time. He may miss few payments, but he is a reliable applicant. No intervention is required at this point.'}
+    }

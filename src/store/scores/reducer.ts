@@ -5,8 +5,9 @@ export const ScoreInitialState: Score = {
     overall: 0,
     capability: 0,
     willingness: 0,
-    customerInsights:[],
-    viewReport:false
+    customerInsights: [],
+    viewReport: false,
+    latePayment: 0
 }
 
 export function scoreReducer(state: Score = ScoreInitialState, action: fromActions.scoreActionTypes) {
@@ -15,6 +16,11 @@ export function scoreReducer(state: Score = ScoreInitialState, action: fromActio
             return {
                 ...state,
                 overall: action.payload
+            }
+        case fromActions.LOAD_LATE_PAYMENT_SCORE:
+            return {
+                ...state,
+                latePayment: action.payload
             }
         case fromActions.LOAD_CAPABILITY_SCORE:
             return {
@@ -33,21 +39,21 @@ export function scoreReducer(state: Score = ScoreInitialState, action: fromActio
                 willingness: 0
             }
 
-         case fromActions.CUSTOMER_INSIGHTS:
+        case fromActions.CUSTOMER_INSIGHTS:
             return {
                 ...state,
-                customerInsights:action.payload
+                customerInsights: action.payload
             }
 
-            case fromActions.VIEW_REPORTS:
+        case fromActions.VIEW_REPORTS:
             return {
-                viewReport:true
+                viewReport: true
             }
 
-            case fromActions.RESET_VIEW_REPORTS:
-                return {
-                    viewReport:false
-                }
+        case fromActions.RESET_VIEW_REPORTS:
+            return {
+                viewReport: false
+            }
 
         default:
             return state;

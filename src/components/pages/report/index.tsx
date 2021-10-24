@@ -14,6 +14,7 @@ import { resetScore } from '../../../store/scores';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { loadPreferenceData } from '../../../store/loadPreferenceData';
+import { LATE_PAYMENT_CATEGORY } from '../../../utils';
 
 
 
@@ -24,7 +25,7 @@ const Report: React.FC = () => {
   const [willingnessIndicateValue, setWillingnessIndicateValue] = useState(0);
   const [customerValue, setcustomerValue] = useState('');
   const { user: { username } } = useSelector((state: CredqState) => state.authentication);
-  const { overall, capability, willingness, customerInsights, viewReport } = useSelector((state: CredqState) => state.scores);
+  const { overall, capability, willingness, customerInsights, viewReport, latePayment: latePaymentScore } = useSelector((state: CredqState) => state.scores);
   const [customerObj] = useState<any>({ questionType: '', status: '', color: [] });
   const [customerProgress, setCustomerProgress] = useState<any>([]);
   const applicant = useSelector((state: CredqState) => state.preferences.name);
@@ -43,6 +44,8 @@ const Report: React.FC = () => {
   const [capabilityAmount, setcapabilityAmount] = useState('');
   const appData = useSelector((state: CredqState) => state.appData);
   const [reports, setReports] = useState({});
+  const [latePAymentCategory, setLatePAymentCategory] = useState('');
+  const fName = applicant.split(' ')[0];
   useEffect(() => {
     if (reports && reports.hasOwnProperty('score')) {
       dispatch(loadPreferenceData({ ...reports, ...appData }));
@@ -90,7 +93,17 @@ const Report: React.FC = () => {
 
   }, [customerObj, customerInsights]);
 
-
+  useEffect(() => {
+    if (latePaymentScore >= 450) {
+      setLatePAymentCategory('negligible');
+    } else if (latePaymentScore >= 270) {
+      setLatePAymentCategory('occasional');
+    } else if (latePaymentScore >= 250) {
+      setLatePAymentCategory('frequent');
+    } else {
+      setLatePAymentCategory('critical')
+    }
+  }, [latePaymentScore])
 
   const handleFinish = () => {
     dispatch(resetScore());
@@ -136,7 +149,8 @@ const Report: React.FC = () => {
         gender,
         date,
         questionSet: location.state?.questionSet,
-        surveyQuestion:  location.state?.surveyQuestion
+        surveyQuestion: location.state?.surveyQuestion,
+        latePayment: latePaymentScore
       }
       setReports(req)
       dispatch(updateApplications(req))
@@ -339,6 +353,15 @@ const Report: React.FC = () => {
           )}
 
 
+      </div>
+      <div className="insights">
+        <div className="border-insights">
+          <h2 className="margin-left">LATE PAYMENT DETECTION</h2>
+        </div>
+        <div className="late-payment">
+          <img alt={`late-payment-category-${latePAymentCategory}`} src={`/assets/${LATE_PAYMENT_CATEGORY[latePAymentCategory]?.image}`} />
+          <span className='description'>{LATE_PAYMENT_CATEGORY[latePAymentCategory]?.description.replace('{NAME}', fName)}</span>
+        </div>
       </div>
       <div className="insights">
         <div className="border-insights">

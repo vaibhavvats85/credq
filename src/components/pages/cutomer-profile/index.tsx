@@ -6,7 +6,7 @@ import { ReportBackendResponse } from "../../../models";
 import { loadPreferences } from "../../../store/preferences";
 import { loadReports } from "../../../store/reports";
 import { CredqState } from "../../../store/rootReducer";
-import { loadCapabilityScore, loadScore, loadWillingnessScore,customerInsights, getViewReport } from "../../../store/scores";
+import { loadCapabilityScore, loadScore, loadWillingnessScore, customerInsights, getViewReport, loadLatePaymentDetectionScore } from "../../../store/scores";
 import Button, { ButtonSize } from "../../atoms/button";
 import Input from "../../atoms/input";
 import Modal from "../../atoms/modal";
@@ -28,13 +28,14 @@ const CustomerProfile: React.FC = () => {
     }, [dispatch, username]);
 
     const viewReport = (report: ReportBackendResponse) => {
-        const { score, capability, willingness, applicant,customerInsights:insightsList,loanAmount,date:today,gender,member_id } = report;
+        const { score, capability, willingness, applicant, customerInsights: insightsList, loanAmount, date: today, gender, member_id, latePayment } = report;
         dispatch(getViewReport());
         dispatch(loadScore(parseInt(score)));
         dispatch(loadCapabilityScore(parseInt(capability)));
         dispatch(loadWillingnessScore(parseInt(willingness)));
-        dispatch(loadPreferences({ ...preferences, name: applicant, amount: loanAmount,date: today ,gender :gender,member_id:member_id}));
+        dispatch(loadPreferences({ ...preferences, name: applicant, amount: loanAmount, date: today, gender: gender, member_id: member_id }));
         dispatch(customerInsights(insightsList));
+        dispatch(loadLatePaymentDetectionScore(latePayment));
         history.push('/application/report');
     }
     const searchCustomer = (event: any) => {

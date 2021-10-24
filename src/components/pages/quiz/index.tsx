@@ -4,7 +4,7 @@ import Questions from "../../molecules/questions";
 import './styles.scss';
 import * as constants from '../../../utils/constants';
 import { useDispatch, useSelector } from "react-redux";
-import { customerInsights, loadCapabilityScore, loadScore, loadWillingnessScore } from "../../../store/scores";
+import { customerInsights, loadCapabilityScore, loadLatePaymentDetectionScore, loadScore, loadWillingnessScore } from "../../../store/scores";
 import { CredqState } from "../../../store/rootReducer";
 import { useHistory } from "react-router";
 import PictorialQuestions from "../../molecules/pictorial-questions";
@@ -236,7 +236,7 @@ const Quiz: React.FC<QuizProps> = () => {
         else if (questionNum === 9) {
             storePreferencetState("surveyQuestion", option)
         }
-        
+
         const duration = endTime - startTime;
         var date = new Date(duration * 1000);
         // Minutes part from the timestamp
@@ -264,6 +264,10 @@ const Quiz: React.FC<QuizProps> = () => {
 
         }
         setQuestionNum((num) => num + 1);
+
+        if (questionType === 'Future Orientation' || questionType === 'Risk Perception') {
+            dispatch(loadLatePaymentDetectionScore(scores.latePayment + score));
+        }
 
         switch (measure) {
             case constants.repayment_capability: dispatch(loadCapabilityScore(scores.capability + score));

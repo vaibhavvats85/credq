@@ -10,4 +10,5 @@ export interface ApplicationReport {
     date: string;
     questionSet: string;
     surveyQuestion: string;
+    latePayment: number;
 }
