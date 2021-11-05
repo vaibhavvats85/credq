@@ -44,7 +44,8 @@ const Report: React.FC = () => {
   const [capabilityAmount, setcapabilityAmount] = useState('');
   const appData = useSelector((state: CredqState) => state.appData);
   const [reports, setReports] = useState({});
-  const [latePAymentCategory, setLatePAymentCategory] = useState('');
+  const [latePaymentDescription, setLatePaymentDescription] = useState('');
+  const [latePaymentCategory, setLatePaymentCategory] = useState('');
   const fName = applicant.split(' ')[0];
   useEffect(() => {
     if (reports && reports.hasOwnProperty('score')) {
@@ -94,15 +95,19 @@ const Report: React.FC = () => {
   }, [customerObj, customerInsights]);
 
   useEffect(() => {
+    let category = '';
     if (latePaymentScore >= 450) {
-      setLatePAymentCategory('negligible');
-    } else if (latePaymentScore >= 270) {
-      setLatePAymentCategory('occasional');
-    } else if (latePaymentScore >= 250) {
-      setLatePAymentCategory('frequent');
+      category = 'negligible';
+    } else if (latePaymentScore > 270) {
+      category = 'occasional';
+    } else if (latePaymentScore > 250) {
+      category = 'frequent';
     } else {
-      setLatePAymentCategory('critical')
+      category = 'critical';
     }
+    let description = LATE_PAYMENT_CATEGORY[category]?.description.replace('{NAME}', fName).replace('{HIM_HER}', gender === 'Male' ? 'him' : 'her').replace('{HE_SHE}', gender === 'Male' ? 'He' : 'She').replace('{he_she}', gender === 'Male' ? 'he' : 'she');
+    setLatePaymentDescription(description);
+    setLatePaymentCategory(category);
   }, [latePaymentScore])
 
   const handleFinish = () => {
@@ -359,8 +364,8 @@ const Report: React.FC = () => {
           <h2 className="margin-left">LATE PAYMENT DETECTION</h2>
         </div>
         <div className="late-payment">
-          <img alt={`late-payment-category-${latePAymentCategory}`} src={`/assets/${LATE_PAYMENT_CATEGORY[latePAymentCategory]?.image}`} />
-          <span className='description'>{LATE_PAYMENT_CATEGORY[latePAymentCategory]?.description.replace('{NAME}', fName)}</span>
+          <img alt={`late-payment-category-${latePaymentCategory}`} src={`/assets/${LATE_PAYMENT_CATEGORY[latePaymentCategory]?.image}`} />
+          <span className='description'>{latePaymentDescription}</span>
         </div>
       </div>
       <div className="insights">
